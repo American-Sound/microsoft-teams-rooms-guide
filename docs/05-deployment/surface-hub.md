@@ -8,10 +8,10 @@ Microsoft Surface Hub is a premium all-in-one meeting device that combines white
 
 | Model | Screen Size | Platform |
 |-------|-------------|----------|
-| Surface Hub 2S | 50" or 85" | Windows 10 Team |
+| Surface Hub 2S | 50" or 85" | Windows 10 Team (EOL October 14, 2025) |
 | Surface Hub 3 | 50" or 85" | Windows 11 with Teams Rooms |
 
-> **Note:** Surface Hub 3 runs the Teams Rooms on Windows experience. Surface Hub 2S runs Windows 10 Team OS with Teams integration.
+> **Critical:** Surface Hub 2S on Windows 10 Team Edition lost Teams access on October 14, 2025. Hub 2S devices must be upgraded via the **Surface Hub 3 Compute Cartridge** (hardware swap) or **software migration to Windows 11** to continue functioning with Teams. Surface Hub 3 runs the full Teams Rooms on Windows experience.
 
 ## Prerequisites
 

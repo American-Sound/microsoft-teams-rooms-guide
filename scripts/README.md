@@ -70,6 +70,22 @@ Scripts for Intune management:
 - `Import-AutopilotDevices.ps1` - Import hardware IDs
 - `New-MTRCompliancePolicy.ps1` - Create compliance policy
 - `Get-MTRDeviceEnrollmentStatus.ps1` - Check enrollment
+- `Set-MTRAutoLogin.ps1` - Configure resource account sign-in via SkypeSettings.xml (supports Azure Key Vault)
+
+### interop/
+
+Scripts for video interoperability:
+- `Set-MTRCviPolicy.ps1` - Register CVI providers and assign policies
+
+### copilot-ai/
+
+Scripts for AI and Copilot configuration:
+- `Set-MTRAIPolicy.ps1` - Configure AI policies and Copilot for rooms
+
+### teams-phone/
+
+Scripts for PSTN calling configuration:
+- `Set-MTRPhoneNumber.ps1` - Assign phone numbers and calling policies
 
 ### teams-policies/
 

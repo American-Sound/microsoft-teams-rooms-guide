@@ -328,7 +328,7 @@ Get-WindowsUpdateLog
 
 ## Related Topics
 
-- [Pro Management Portal](pro-management-portal.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md)
 - [Teams Admin Center](teams-admin-center.md)
 - [Monitoring and Alerting](monitoring-alerting.md)
 - [Troubleshooting](troubleshooting.md)

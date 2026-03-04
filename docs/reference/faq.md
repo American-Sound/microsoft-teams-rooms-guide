@@ -101,11 +101,19 @@ Yes, when properly configured:
 
 ### Should I enable BitLocker on Windows MTR?
 
-Yes. BitLocker protects data if the device is stolen. It's supported and recommended for compliance policies.
+Yes. BitLocker protects data if the device is stolen. It's supported and recommended for compliance policies. Do not require a preboot PIN — the device must boot unattended.
 
 ### Can I install antivirus on MTR?
 
-Windows MTR includes Microsoft Defender by default. It's recommended to keep it enabled. Third-party antivirus may cause compatibility issues.
+Windows MTR includes Microsoft Defender Antivirus by default. Keep it enabled. Third-party antivirus is not supported and may cause compatibility issues with the Teams Rooms app.
+
+### Should I deploy Defender for Endpoint (MDE) on Teams Rooms?
+
+Yes, for visibility and vulnerability management. MDE provides EDR telemetry, TVM (missing patches, vulnerable software), and security alerting. However, use protection features in Audit mode only — ASR Block mode and Network Protection enforcement can break meeting functionality. Microsoft's position: reporting supported, protection rules not recommended. See [Defender for Endpoint](../03-security/defender-endpoint.md).
+
+### Should I configure LAPS for Teams Rooms?
+
+Yes. LAPS automatically rotates the local admin password on each MTR device and stores it securely in Entra ID. Without LAPS, you likely have a shared admin password across all rooms — one compromised device exposes your entire fleet. LAPS password rotation does not affect the Skype user account running the MTR app, so there is no meeting disruption. See [LAPS Configuration](../03-security/laps-configuration.md).
 
 ## Deployment Questions
 
@@ -119,11 +127,14 @@ For Windows MTR:
 
 ### What's the best deployment method?
 
-**Recommended:** Autopilot + Autologin (Windows)
-- Zero-touch deployment
-- Consistent configuration
-- Scalable
-- No manual device setup needed
+**Recommended:** Autopilot + Pro Management Portal Autologin (Windows 11)
+- Zero-touch deployment — no IT presence needed at site
+- Credentials delivered via cloud (no plaintext passwords on disk)
+- Consistent configuration via Intune policies
+- Scalable to hundreds of rooms
+- Requires Teams Rooms Pro license and `MTR-` Group Tag prefix on Autopilot devices
+
+For brownfield or Windows 10 devices, use SkypeSettings.xml to deliver resource account credentials. See [SkypeSettings.xml Reference](../reference/skypesettings-reference.md).
 
 ### How long does deployment take per device?
 
@@ -241,17 +252,33 @@ Check:
 
 ### Can Teams Rooms join non-Teams meetings?
 
-Yes, via Direct Guest Join:
-- Zoom meetings
-- Cisco Webex meetings
-- Other supported platforms
+Yes, via two methods:
+
+**Direct Guest Join (WebRTC):** Join Zoom, Cisco Webex, and Google Meet (Windows only, Feb 2026) meetings directly from the room. No additional licensing beyond Teams Rooms Basic or Pro. Limited to 720p, receive-only content sharing.
+
+**SIP/H.323 Dialing (via CVI partner):** Join third-party meetings or make point-to-point calls to VTCs via SIP. Requires Teams Rooms Pro and a CVI partner (currently Pexip only). Supports up to 1080p and bidirectional content sharing.
+
+See [Interoperability](../07-interop/comparison.md) for a detailed comparison.
+
+### Can legacy VTCs join our Teams meetings?
+
+Yes, via Cloud Video Interop (CVI). You need a certified CVI partner (Pexip, Cisco, or HP Poly) and must assign a CVI policy to meeting organizers. VTC users dial using the coordinates included in the Teams meeting invite. See [Cloud Video Interop](../07-interop/cloud-video-interop.md).
 
 ### Does Teams Rooms support PSTN calling?
 
-Yes, with additional licensing:
-- Phone System license
-- Calling Plan or Direct Routing
-- Configured on resource account
+Yes. Teams Rooms Pro includes Teams Phone Standard. You additionally need a PSTN connectivity option (Calling Plan, Direct Routing, Operator Connect, or Shared Calling) and a phone number assigned to the resource account. See [Teams Phone](../09-teams-phone/pstn-overview.md).
+
+### Does Teams Rooms support Copilot?
+
+Yes. Individual users need a Microsoft 365 Copilot license for in-meeting Copilot queries. The room resource account needs Teams Rooms Pro. Transcription must be enabled via meeting policy. See [Copilot in Teams Rooms](../08-copilot-ai/copilot-overview.md).
+
+### What is Facilitator?
+
+Facilitator is an AI agent that provides shared AI-generated notes, agenda tracking, and Q&A visible to all participants on the front-of-room display. It requires M365 Copilot licenses and Teams Rooms Pro. See [Facilitator](../08-copilot-ai/facilitator.md).
+
+### Where do I manage Teams Rooms devices?
+
+As of June 2025, Teams Rooms on Windows devices are managed in the **Pro Management Portal** (portal.rooms.microsoft.com), not the Teams Admin Center. Android devices are transitioning to PMP through 2026. TAC continues to handle Teams policies, users, and meeting settings. See [Pro Management Portal](../10-pro-management/portal-overview.md).
 
 ### Can I customize the room display?
 

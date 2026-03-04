@@ -291,7 +291,7 @@ Create Power BI dashboard:
 
 ## Related Topics
 
-- [Pro Management Portal](pro-management-portal.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md)
 - [Teams Admin Center](teams-admin-center.md)
 - [Troubleshooting](troubleshooting.md)
 - [Updates and Maintenance](updates-maintenance.md)

@@ -31,12 +31,16 @@ Dedicated compute devices that run the MTR on Windows application:
 - Yealink MVC Series
 
 **Minimum Specifications:**
-- Processor: Intel Core i5 (7th gen+) or equivalent
+- Processor: Intel Core i5 (8th gen+) or equivalent
 - RAM: 8 GB minimum (16 GB recommended)
 - Storage: 128 GB SSD
 - USB ports: Multiple USB 3.0
 - Display outputs: 1-2 HDMI/DisplayPort
 - Network: Gigabit Ethernet (required), Wi-Fi optional
+- TPM 2.0, Secure Boot, UEFI required
+- Windows 11 IoT Enterprise or Enterprise (General Availability Channel)
+
+> **Important:** Windows 10 support ended October 14, 2025. Devices that cannot run Windows 11 must be replaced. Known incompatible devices include Lenovo Hub 500 (i5-7500T), HP Slice G2 (i5-7500T), Yealink NUC (i5-7300U), Surface Pro 5 (i5-7300U), and Crestron Skull Canyon (i7-6770HQ). LTSB/LTSC, IoT LTSB/LTSC, Pro, and Home editions are not supported.
 
 #### Peripherals
 

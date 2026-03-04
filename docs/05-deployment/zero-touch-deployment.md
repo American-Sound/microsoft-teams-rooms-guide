@@ -2,7 +2,7 @@
 
 ## Overview
 
-Zero-touch deployment enables automated provisioning of Microsoft Teams Rooms devices with minimal IT intervention. This guide covers the complete process for deploying Windows MTR devices using Windows Autopilot and Autologin.
+Zero-touch deployment enables automated provisioning of Microsoft Teams Rooms devices with no IT intervention at the deployment site. This guide covers the complete process using Windows Autopilot and Pro Management Portal Autologin.
 
 ## What is Zero-Touch Deployment?
 
@@ -11,6 +11,8 @@ Zero-touch deployment means:
 - IT doesn't need to manually set up each device
 - Device configures itself when connected to network
 - Ready for meetings with no user interaction
+
+The key to making this truly zero-touch is combining **Autopilot** (handles Windows setup, Entra ID join, and Intune enrollment) with **Autologin** (handles Teams Rooms resource account sign-in).
 
 ## Architecture
 
@@ -25,8 +27,8 @@ Zero-touch deployment means:
 │  └──────────┘    └──────────┘    └──────────┘    └──────────┘  │
 │       │               │               │               │         │
 │       ▼               ▼               ▼               ▼         │
-│  Hardware ID     Entra ID Join   Policies &      Autologin     │
-│  uploaded        automatic       apps deploy     completes     │
+│  Hardware ID     Entra ID Join   Policies &      PMP Autologin │
+│  + MTR- tag      automatic       apps deploy     signs in room │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -37,28 +39,29 @@ Zero-touch deployment means:
 
 - [ ] Entra ID P1/P2 (for Conditional Access)
 - [ ] Intune license (included with M365 E3/E5)
-- [ ] Teams Rooms Pro license
+- [ ] Teams Rooms Pro license (required for PMP Autologin)
 - [ ] Automatic Intune enrollment enabled
+- [ ] MDE-Intune connector configured (if using Defender for Endpoint)
 
 ### Autopilot Configuration
 
-- [ ] Autopilot deployment profile created
-- [ ] Self-deploying mode configured
+- [ ] Autopilot deployment profile created (Self-Deploying mode)
 - [ ] Enrollment Status Page configured
-- [ ] Device group tag defined (e.g., "MTR")
+- [ ] Device Group Tag defined with `MTR-` prefix
+- [ ] Dynamic device group targeting `MTR-` Group Tag
 
 ### Account Preparation
 
-- [ ] Resource accounts created
-- [ ] Licenses assigned
-- [ ] Calendar processing configured
-- [ ] Passwords documented securely
+- [ ] Resource accounts created in Entra ID
+- [ ] Teams Rooms Pro licenses assigned
+- [ ] Calendar processing configured (Exchange)
+- [ ] Accounts excluded from MFA Conditional Access policies
+- [ ] Passwords set to never expire
 
-### Conditional Access
+### Pro Management Portal
 
-- [ ] MTR accounts excluded from MFA policies
-- [ ] MTR-specific CA policy created
-- [ ] Compliance policy ready
+- [ ] Resource accounts assigned to Autopilot devices in PMP
+- [ ] Provisioning status shows **Ready**
 
 ## Setup Procedure
 
@@ -90,7 +93,7 @@ Name template: MTR-%SERIAL%
 ```
 Group name: MTR-Autopilot-Devices
 Membership type: Dynamic device
-Rule: (device.devicePhysicalIds -any (_ -contains "[OrderID]:MTR"))
+Rule: (device.devicePhysicalIds -any (_ -contains "[OrderID]:MTR-"))
 ```
 
 ### Step 3: Configure Enrollment Status Page
@@ -110,46 +113,28 @@ Block device use until all apps and profiles are installed: Yes
 Allow users to reset device: No
 Allow users to use device if installation error occurs: No
 Block device use until required apps are installed: Yes
-Selected apps: Microsoft Teams Rooms (if deploying via Intune)
 ```
 
-### Step 4: Configure Autologin
+### Step 4: Configure Autologin via Pro Management Portal
 
-Create configuration profile for autologin:
+This is the recommended method for new Windows 11 deployments. The PMP stores credentials in a Microsoft-managed backend — the password never touches the device as a plaintext file.
 
-**Method 1: Custom OMA-URI**
+1. Sign in to [portal.rooms.microsoft.com](https://portal.rooms.microsoft.com)
+2. Navigate to **Planning** > **Autopilot devices**
+3. Click **Sync** to pull registered devices from Intune
+4. For each device:
+   - Click **Assign account**
+   - Select the resource account
+   - Either enter the existing password or select **Auto Generate password**
+5. Verify provisioning status shows **Ready**
 
-```
-Platform: Windows 10 and later
-Profile type: Custom
+> **Auto Generate password** requires Exchange Admin privileges and only works with cloud-only resource accounts (not hybrid). It generates a strong random password and updates the account automatically.
 
-Setting 1:
-Name: AutoLogon
-OMA-URI: ./Device/Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset
-Data type: Integer
-Value: 1
-```
+### Step 4 (Alternative): SkypeSettings.xml for Brownfield Devices
 
-**Method 2: PowerShell Script Deployment**
+For devices that cannot use PMP Autologin (Windows 10, Hybrid Entra ID joined, Basic license), deploy a SkypeSettings.xml file containing the resource account credentials. See [Windows Autopilot — Method 2](../04-intune-management/windows-autopilot.md#method-2-skypesettingsxml-legacy--brownfield) and the [Set-MTRAutoLogin.ps1](../../scripts/intune/Set-MTRAutoLogin.ps1) script.
 
-Deploy script via Intune:
-
-```powershell
-# Script deployed to configure autologon
-# Variables replaced during deployment
-$resourceAccount = "{{ResourceAccountUPN}}"
-$resourcePassword = "{{ResourceAccountPassword}}"
-
-# Configure autologon
-$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-Set-ItemProperty -Path $registryPath -Name "DefaultUserName" -Value $resourceAccount
-Set-ItemProperty -Path $registryPath -Name "DefaultPassword" -Value $resourcePassword
-Set-ItemProperty -Path $registryPath -Name "AutoAdminLogon" -Value "1"
-```
-
-> **Security Note:** For production, use secure credential storage like Azure Key Vault with appropriate retrieval mechanisms.
-
-### Step 5: Assign Profiles
+### Step 5: Assign Intune Profiles
 
 Assign all profiles to the dynamic device group:
 
@@ -159,37 +144,42 @@ Assign all profiles to the dynamic device group:
 | ESP | MTR-Autopilot-Devices |
 | Compliance policy | MTR-Autopilot-Devices |
 | Configuration profiles | MTR-Autopilot-Devices |
-| Autologin script | MTR-Autopilot-Devices |
+| LAPS policy | MTR-Autopilot-Devices |
+| EDR policy (if using MDE) | MTR-Autopilot-Devices |
+
+> **Do not assign:** Security Baselines or policies that modify `AutoAdminLogon`. These will break the Windows-level autologon to the local Skype account and the device will boot to a Windows login screen instead of the Teams app.
 
 ### Step 6: Register Devices
 
 **OEM Registration (Recommended):**
 1. Provide tenant ID to hardware vendor
-2. Request devices be registered with group tag "MTR"
+2. Request devices be registered with Group Tag `MTR-` (or `MTR-{location-code}` for tracking)
 3. Devices ship pre-registered
 
 **Manual Registration:**
 ```powershell
 # On device, extract hardware ID
 Install-Script -Name Get-WindowsAutopilotInfo -Force
-Get-WindowsAutopilotInfo -OutputFile C:\AutopilotHWID.csv -GroupTag "MTR"
+Get-WindowsAutopilotInfo -OutputFile C:\AutopilotHWID.csv -GroupTag "MTR-"
 
-# Upload CSV to Intune
+# Upload CSV to Intune > Devices > Windows enrollment > Devices > Import
 ```
 
 ## Deployment Process
 
 ### What Happens When Device Powers On
 
-1. **Device boots** and connects to internet
-2. **Autopilot service contacted** - Device downloads profile
-3. **OOBE skipped** - Self-deploying mode bypasses user prompts
-4. **Entra ID join** - Device joins automatically
-5. **Intune enrollment** - Device enrolls for management
-6. **Policies applied** - Configuration profiles deploy
-7. **ESP waits** - Required apps install
-8. **Autologin executes** - Resource account signs in
-9. **Teams Rooms launches** - Device ready for meetings
+1. **Device boots** and connects to internet (Ethernet preferred)
+2. **Autopilot profile downloads** — device recognized by hardware ID
+3. **OOBE skipped** — Self-Deploying mode bypasses all user prompts
+4. **Entra ID join** — device joins your tenant automatically
+5. **Intune enrollment** — device enrolls for management
+6. **Policies applied** — compliance, configuration, LAPS, EDR
+7. **ESP waits** — required apps and profiles install
+8. **Windows autologon** — boots into the local Skype account (OEM-configured)
+9. **Teams Rooms app launches** — Shell Launcher V2 kiosk mode
+10. **PMP Autologin** — app retrieves credentials from PMP service and signs in
+11. **Device ready for meetings**
 
 ### Timeline
 
@@ -201,7 +191,7 @@ Get-WindowsAutopilotInfo -OutputFile C:\AutopilotHWID.csv -GroupTag "MTR"
 | Intune enrollment | 2-3 minutes |
 | Policy deployment | 5-10 minutes |
 | App installation | 10-20 minutes |
-| Autologin and finalization | 2-5 minutes |
+| Autologin and finalization | 1-3 minutes |
 | **Total** | **25-45 minutes** |
 
 ## Vendor Coordination
@@ -210,68 +200,67 @@ Get-WindowsAutopilotInfo -OutputFile C:\AutopilotHWID.csv -GroupTag "MTR"
 
 Provide vendors with:
 - Tenant ID: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
-- Group tag: `MTR`
-- Deployment requirements: Self-deploying mode
+- Group Tag: `MTR-` (or `MTR-{location}`)
+- Deployment requirements: Self-Deploying mode, Windows 11
+- Note: Windows 10 devices are no longer supported (EOL October 2025)
 
 ### Pre-Ship Testing
 
 Request vendor perform:
 - Network connectivity test
-- Hardware ID extraction
-- Registration confirmation
+- Hardware ID extraction and registration confirmation
+- TPM 2.0 attestation verification
 
 ## Scaling Zero-Touch
 
 ### For Large Deployments
 
 1. **Batch device orders** by location/building
-2. **Pre-create resource accounts** in bulk
-3. **Standardize naming** (MTR-Building-Room)
-4. **Coordinate shipping** with IT readiness
-5. **Document deployment status** per device
+2. **Pre-create resource accounts** in bulk using [New-MTRResourceAccountsBulk.ps1](../../scripts/accounts/New-MTRResourceAccountsBulk.ps1)
+3. **Standardize naming** — device names: `MTR-%SERIAL%`, accounts: `mtr-{building}-{room}@contoso.com`
+4. **Assign accounts in PMP** before devices ship — the linkage is valid for 90 days
+5. **Coordinate shipping** with site readiness (network drops, power, displays)
+6. **Track deployment status** — PMP shows Provisioning Status per device (Ready → Consumed)
 
-### Automation Opportunities
+### MSP Multi-Tenant Pattern
 
-```powershell
-# Example: Bulk resource account creation
-$rooms = Import-Csv "rooms.csv"
-foreach ($room in $rooms) {
-    # Create account
-    # Assign license
-    # Configure calendar processing
-    # Document credentials
-}
-```
+For managed service providers deploying across client tenants:
+
+1. Use the [Multi-Tenant Management Portal](https://partner.rooms.microsoft.com) for cross-tenant visibility
+2. Standardize Group Tags: `MTR-{client-code}` (e.g., `MTR-SFDC`, `MTR-BROOK`)
+3. Each client tenant requires its own Autopilot registrations, PMP Autologin assignments, and Intune profiles
+4. Document per-client deployment runbooks with tenant-specific IDs and naming conventions
 
 ## Troubleshooting
 
 ### Autopilot Not Detecting Device
 
 - Verify device registered in Intune portal
-- Check group tag matches dynamic group rule
-- Confirm network connectivity
+- Check Group Tag matches dynamic group rule (must start with `MTR-`)
+- Confirm network connectivity to Microsoft Autopilot service
 - Check for firewall blocking Autopilot endpoints
 
 ### ESP Timeout
 
-- Review required apps list
-- Check app deployment status
-- Extend timeout if needed
-- Verify network bandwidth
+- Review required apps list — reduce if too many
+- Check app deployment status in Intune
+- Extend timeout if needed (90 minutes recommended for MTR)
+- Verify network bandwidth is sufficient
 
-### Autologin Not Working
+### PMP Autologin Not Working
 
-- Confirm script deployment succeeded
-- Verify resource account credentials
-- Check account enabled in Entra ID
-- Review password policy (non-expiring)
+- Confirm provisioning status is **Ready** in PMP > Planning > Autopilot devices
+- Verify the Group Tag has the `MTR-` prefix
+- Check that the resource account has a Teams Rooms Pro license
+- Confirm the resource account is not blocked by Conditional Access
+- If status shows **Expired**, re-assign the account (90-day limit)
 
 ### Device Stuck in OOBE
 
-- Verify self-deploying mode configured
-- Check TPM 2.0 available
-- Confirm device attestation capability
+- Verify self-deploying mode configured (not user-driven)
+- Check TPM 2.0 available and attestation working
 - Try Ethernet instead of Wi-Fi
+- Check for OOBE connectivity issues (corporate proxy blocking)
 
 ## Validation
 
@@ -280,33 +269,40 @@ foreach ($room in $rooms) {
 - [ ] Device shows in Intune as enrolled
 - [ ] Compliance state: Compliant
 - [ ] All profiles: Succeeded
+- [ ] LAPS password available in Entra ID
 - [ ] Teams Rooms app running
 - [ ] Resource account signed in
-- [ ] Calendar displaying
-- [ ] Meeting join working
+- [ ] Calendar displaying correctly
+- [ ] Meeting join working (test with ad-hoc meeting)
+- [ ] Audio and video functional
+- [ ] Shows online in Pro Management Portal
 
 ### Dashboard Monitoring
 
 Monitor deployment progress via:
-- Intune device list
-- Autopilot deployment status
+- Intune device list — enrollment status
+- Autopilot deployment status — per-device progress
 - ESP completion reports
-- Teams Admin Center device list
+- Pro Management Portal — room health and provisioning status
 
 ## Best Practices
 
-1. **Start with pilot** - Test with 5-10 devices first
-2. **Use Ethernet** - More reliable during deployment
-3. **Coordinate with facilities** - Network drops, power
-4. **Document each deployment** - Track serial numbers and rooms
-5. **Monitor actively** - Watch for failures during rollout
-6. **Have backup procedure** - Manual deployment as fallback
-7. **Pre-stage network** - Ensure drops active before device arrival
-8. **Test end-to-end** - Verify meeting join after deployment
+1. **Start with pilot** — test with 5-10 devices first
+2. **Use Ethernet** — more reliable during Autopilot provisioning
+3. **Use PMP Autologin** — most secure credential delivery method
+4. **Coordinate with facilities** — network drops and power must be ready
+5. **Document each deployment** — track serial numbers, room assignments, provisioning status
+6. **Monitor actively** — watch PMP and Intune for failures during rollout
+7. **Have backup procedure** — manual sign-in as fallback
+8. **Pre-stage network** — ensure drops are active before device arrival
+9. **Test end-to-end** — verify meeting join after deployment completes
+10. **Exclude from Security Baselines** — they break MTR Windows autologon
 
 ## Related Topics
 
 - [Windows Autopilot](../04-intune-management/windows-autopilot.md)
 - [Windows Deployment](windows-deployment.md)
+- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md)
 - [Resource Accounts](../02-prerequisites/resource-accounts.md)
 - [Enrollment Overview](../04-intune-management/enrollment-overview.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md)

@@ -9,7 +9,7 @@
 : Microsoft's zero-touch deployment technology that configures Windows devices automatically when first powered on and connected to the internet.
 
 **Autologin**
-: Configuration that automatically signs in a resource account on a Teams Rooms device, eliminating manual credential entry.
+: The process of automatically signing in a Teams Rooms resource account (the Microsoft 365 account, not the Windows local account). The recommended method is via the Pro Management Portal's Autopilot integration, which delivers credentials through the cloud with no local plaintext files. The legacy method uses SkypeSettings.xml with `<UserAccount>` credentials. Not to be confused with Windows autologon, which is the separate OEM-configured mechanism that boots the device into the local `Skype` kiosk account.
 
 ## B
 
@@ -17,6 +17,9 @@
 : Windows disk encryption technology. Recommended for Teams Rooms compliance policies.
 
 ## C
+
+**CVI (Cloud Video Interop)**
+: Microsoft-qualified third-party solution enabling legacy SIP/H.323 video conferencing devices to join Teams meetings.
 
 **CA (Conditional Access)**
 : Microsoft Entra ID feature that controls access to cloud resources based on conditions like user, device, location, and risk level.
@@ -37,6 +40,9 @@
 : Feature allowing Teams Rooms and Panels to work together, sharing status and control.
 
 ## D
+
+**DGJ (Direct Guest Join)**
+: WebRTC-based capability allowing Teams Rooms to join third-party meetings (Webex, Zoom, Google Meet) natively.
 
 **Device Code Flow**
 : Authentication method where users enter a code on another device to sign in. Used for some Teams Rooms scenarios.
@@ -60,6 +66,9 @@
 
 ## F
 
+**Facilitator**
+: AI-powered meeting agent that provides shared AI-generated notes, agenda tracking, and Q&A visible to all meeting participants on the front-of-room display. Requires M365 Copilot license.
+
 **Front Row**
 : Teams Rooms display layout that positions video participants at eye level with content above, optimizing hybrid meeting experience.
 
@@ -82,10 +91,18 @@
 ## I
 
 **Intelligent Speaker**
-: Audio device that identifies individual speakers in meetings using voice recognition.
+: Capability that identifies individual in-room speakers in meeting transcription using voice and face profiles. Supported by all certified Teams Rooms microphones.
 
 **Intune**
 : Microsoft's cloud-based device management service for PCs, mobile devices, and Teams Rooms.
+
+## L
+
+**LAPS (Local Administrator Password Solution)**
+: Microsoft solution that automatically manages and rotates local administrator passwords on Entra ID-joined or Hybrid Entra ID-joined devices. Passwords are stored in Entra ID and retrievable by authorized administrators. Supported and recommended on Teams Rooms on Windows. See [LAPS Configuration](../03-security/laps-configuration.md).
+
+**Live Response**
+: MDE capability allowing remote shell access to managed devices for investigation and forensic data collection.
 
 ## M
 
@@ -93,7 +110,7 @@
 : Technology for managing and securing mobile devices and PCs. Intune is Microsoft's MDM solution.
 
 **MDE (Microsoft Defender for Endpoint)**
-: Enterprise endpoint security platform providing threat protection, detection, and response.
+: Enterprise endpoint security platform providing EDR, TVM, and antivirus capabilities. On Teams Rooms, reporting is fully supported but protection rules (ASR Block mode, Network Protection enforcement) are not recommended. See [Defender for Endpoint](../03-security/defender-endpoint.md).
 
 **MTR (Microsoft Teams Rooms)**
 : Meeting room solution running Teams on dedicated hardware.
@@ -114,7 +131,15 @@
 **One-Touch Join**
 : Feature allowing meeting join with single tap on room device when meeting appears on calendar.
 
+## M (continued)
+
+**MTMP (Multi-Tenant Management Portal)**
+: Partner version of the Pro Management Portal enabling MSPs to manage Teams Rooms across multiple customer tenants from a single interface.
+
 ## P
+
+**PMP (Pro Management Portal)**
+: The Teams Rooms Pro Management portal at portal.rooms.microsoft.com. Primary management surface for Teams Rooms on Windows (and transitioning for Android).
 
 **PoE (Power over Ethernet)**
 : Technology providing electrical power over Ethernet cables. Used for touch consoles and panels.
@@ -143,11 +168,23 @@
 
 ## S
 
+**ROPC (Resource Owner Password Credentials)**
+: OAuth 2.0 grant type used by Teams Rooms for non-interactive authentication. The app sends the resource account username and password directly to Entra ID without user interaction. Does not support MFA.
+
 **Self-Deploying Mode**
 : Autopilot deployment mode requiring no user interaction, ideal for shared devices like Teams Rooms.
 
+**Shell Launcher V2**
+: Windows kiosk configuration that replaces the Windows shell (Start menu, taskbar, Settings) with the Teams Rooms app for the local `Skype` user account. Part of the OEM image on certified MTR-W devices.
+
+**SkypeSettings.xml**
+: Local configuration file for Teams Rooms on Windows. Despite the legacy name, it is the active configuration mechanism for the current Teams app. Placed in the MTR app's LocalState directory, processed at app startup, and deleted after consumption. The Pro Management Portal writes SkypeSettings.xml under the hood. See [SkypeSettings.xml Reference](skypesettings-reference.md).
+
 **Service Account**
 : Account used by services rather than interactive users. Resource accounts are a type of service account.
+
+**SBC (Session Border Controller)**
+: Network device that mediates SIP signaling and media between an enterprise network and a PSTN provider. Required for Direct Routing.
 
 **SIP Address**
 : Session Initiation Protocol address used for Teams communications, typically matching the UPN.

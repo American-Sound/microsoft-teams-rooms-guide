@@ -63,7 +63,7 @@ Teams media flows should use UDP for optimal quality:
 | Intune | TCP 443 | Device management |
 | Windows Update | TCP 80, 443 | OS updates |
 | Microsoft Store | TCP 443 | App updates |
-| Azure AD | TCP 443 | Authentication |
+| Entra ID | TCP 443 | Authentication |
 
 ## Firewall Requirements
 

@@ -14,11 +14,15 @@ This repository consolidates documentation and automation tools for deploying an
 |---------|-------------|
 | [Planning](docs/01-planning/) | Platform comparison, licensing, hardware, and network requirements |
 | [Prerequisites](docs/02-prerequisites/) | Entra ID setup, resource accounts, licensing, Exchange configuration |
-| [Security](docs/03-security/) | Conditional Access, MFA considerations, compliance, Defender |
+| [Security](docs/03-security/) | Conditional Access, MFA, compliance, Defender for Endpoint, LAPS |
 | [Intune Management](docs/04-intune-management/) | Enrollment, Autopilot, AOSP, configuration profiles |
 | [Deployment](docs/05-deployment/) | Step-by-step deployment guides for all platforms |
-| [Post-Deployment](docs/06-post-deployment/) | Management portal, monitoring, updates, troubleshooting |
-| [Reference](docs/reference/) | Terminology, supported policies, official links, FAQ |
+| [Post-Deployment](docs/06-post-deployment/) | Monitoring, updates, troubleshooting |
+| [Interoperability](docs/07-interop/) | CVI, Pexip, SIP/H.323 dialing, Direct Guest Join |
+| [Copilot & AI](docs/08-copilot-ai/) | Copilot, Facilitator, Intelligent Speaker, transcription, Foundry agents |
+| [Teams Phone](docs/09-teams-phone/) | PSTN calling, audio conferencing, emergency calling |
+| [Pro Management Portal](docs/10-pro-management/) | Health monitoring, updates, analytics, partner portal |
+| [Reference](docs/reference/) | Terminology, SkypeSettings.xml reference, supported policies, official links, FAQ |
 
 ### Scripts
 
@@ -28,6 +32,10 @@ This repository consolidates documentation and automation tools for deploying an
 | [Licensing Scripts](scripts/licensing/) | License assignment and reporting |
 | [Conditional Access](scripts/entra-conditional-access/) | CA policy management |
 | [Intune Scripts](scripts/intune/) | Autopilot, compliance, enrollment |
+| [Interop Scripts](scripts/interop/) | CVI provider and policy configuration |
+| [Copilot & AI Scripts](scripts/copilot-ai/) | AI policy and Copilot configuration |
+| [Teams Phone Scripts](scripts/teams-phone/) | Phone number and calling policy assignment |
+| [Teams Policies Scripts](scripts/teams-policies/) | Meeting policy configuration |
 | [Validation Scripts](scripts/validation/) | Pre/post deployment validation |
 
 ### Templates & Examples
@@ -39,13 +47,33 @@ This repository consolidates documentation and automation tools for deploying an
 
 ## Getting Started
 
-### For New Deployments
+### Reading Order for New Deployments
 
-1. **Plan** - Read [Overview](docs/01-planning/overview.md) and [Licensing](docs/01-planning/licensing.md)
-2. **Prepare** - Follow [Prerequisites](docs/02-prerequisites/) guides
-3. **Secure** - Configure [Conditional Access](docs/03-security/conditional-access.md)
-4. **Deploy** - Use platform-specific guides in [Deployment](docs/05-deployment/)
-5. **Manage** - Set up [Monitoring](docs/06-post-deployment/monitoring-alerting.md)
+If you're deploying Teams Rooms for the first time, follow these sections in order — each one builds on the previous:
+
+1. **Plan** — Start with [Overview](docs/01-planning/overview.md) to understand the platform, then [Licensing](docs/01-planning/licensing.md) to determine Pro vs Basic. Review [Hardware](docs/01-planning/hardware-requirements.md) and [Network](docs/01-planning/network-requirements.md) requirements for your environment.
+2. **Prepare** — Set up [Entra ID](docs/02-prerequisites/entra-id-setup.md), create [Resource Accounts](docs/02-prerequisites/resource-accounts.md), assign [Licenses](docs/02-prerequisites/licensing-assignment.md), and configure [Exchange](docs/02-prerequisites/exchange-configuration.md).
+3. **Secure** — Configure [Conditional Access](docs/03-security/conditional-access.md) (exclude rooms from MFA), set up [Compliance Policies](docs/03-security/device-compliance.md), and optionally deploy [Defender for Endpoint](docs/03-security/defender-endpoint.md) and [LAPS](docs/03-security/laps-configuration.md).
+4. **Set Up Intune** — Configure [Enrollment](docs/04-intune-management/enrollment-overview.md), create [Autopilot Profiles](docs/04-intune-management/windows-autopilot.md), and build [Configuration Profiles](docs/04-intune-management/configuration-profiles.md).
+5. **Deploy** — Follow [Zero-Touch Deployment](docs/05-deployment/zero-touch-deployment.md) for Autopilot or [Windows Deployment](docs/05-deployment/windows-deployment.md) for manual setup.
+6. **Manage** — Set up [Monitoring](docs/06-post-deployment/monitoring-alerting.md) and learn the [Pro Management Portal](docs/10-pro-management/portal-overview.md) for ongoing operations.
+
+### If You Need a Specific Feature
+
+Sections 07-10 are standalone topics — read them when you need them, not necessarily in order:
+
+| Need | Start Here |
+|------|------------|
+| Rooms joining Webex/Zoom/Google Meet | [Direct Guest Join](docs/07-interop/direct-guest-join.md) |
+| Legacy VTCs joining Teams meetings | [Cloud Video Interop](docs/07-interop/cloud-video-interop.md) |
+| Choosing between interop methods | [Interop Comparison](docs/07-interop/comparison.md) |
+| Copilot or AI features in rooms | [Copilot Overview](docs/08-copilot-ai/copilot-overview.md) |
+| PSTN calling from a room | [PSTN Overview](docs/09-teams-phone/pstn-overview.md) |
+| Managing rooms at scale | [Pro Management Portal](docs/10-pro-management/portal-overview.md) |
+| Managing rooms across client tenants | [Multi-Tenant Partner Portal](docs/10-pro-management/multi-tenant-partner.md) |
+| SkypeSettings.xml configuration | [SkypeSettings.xml Reference](docs/reference/skypesettings-reference.md) |
+| Quick answers | [FAQ](docs/reference/faq.md) |
+| Terminology you don't recognize | [Glossary](docs/reference/terminology.md) |
 
 ### Quick Start with Scripts
 
@@ -98,7 +126,8 @@ docs/
 │   ├── conditional-access.md
 │   ├── mfa-considerations.md
 │   ├── device-compliance.md
-│   └── defender-endpoint.md
+│   ├── defender-endpoint.md
+│   └── laps-configuration.md
 │
 ├── 04-intune-management/  # Device management
 │   ├── enrollment-overview.md
@@ -115,14 +144,46 @@ docs/
 │   └── zero-touch-deployment.md
 │
 ├── 06-post-deployment/    # Ongoing management
-│   ├── pro-management-portal.md
 │   ├── teams-admin-center.md
 │   ├── monitoring-alerting.md
 │   ├── updates-maintenance.md
 │   └── troubleshooting.md
 │
+├── 07-interop/            # Video interoperability
+│   ├── cloud-video-interop.md
+│   ├── pexip-cvi.md
+│   ├── sip-h323-dialing.md
+│   ├── direct-guest-join.md
+│   └── comparison.md
+│
+├── 08-copilot-ai/         # Copilot and AI features
+│   ├── copilot-overview.md
+│   ├── facilitator.md
+│   ├── intelligent-speaker.md
+│   ├── voice-isolation.md
+│   ├── foundry-agents.md
+│   └── powershell-reference.md
+│
+├── 09-teams-phone/        # PSTN calling
+│   ├── pstn-overview.md
+│   ├── calling-policies.md
+│   ├── emergency-calling.md
+│   ├── audio-conferencing.md
+│   └── end-to-end-setup.md
+│
+├── 10-pro-management/     # Pro Management Portal
+│   ├── portal-overview.md
+│   ├── health-monitoring.md
+│   ├── update-management.md
+│   ├── analytics-reporting.md
+│   ├── rbac.md
+│   ├── servicenow-integration.md
+│   ├── ai-assistant.md
+│   └── multi-tenant-partner.md
+│
 └── reference/             # Reference materials
     ├── terminology.md
+    ├── skypesettings-reference.md
     ├── supported-policies.md
     ├── microsoft-learn-links.md
     └── faq.md

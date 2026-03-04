@@ -139,22 +139,17 @@ $policyParams = @{
 }
 ```
 
-## Device Code Flow Changes (2025+)
+## Authentication Best Practices
 
-### Background
+### Modern Deployment Authentication
 
-Microsoft is making changes to device code flow authentication. Be aware of:
+Microsoft continues to strengthen authentication requirements across the platform. For Teams Rooms:
 
-- Device code flow may require additional verification
-- Monitor Microsoft announcements for changes
-- Test authentication changes in pilot before rollout
-
-### Preparing for Changes
-
-1. **Ensure devices are Intune-enrolled** - Compliant devices will have smoother transitions
-2. **Use Autopilot with Autologin** - Modern deployment reduces authentication friction
-3. **Keep software updated** - MTR app updates include auth improvements
-4. **Monitor Microsoft 365 Message Center** - Stay informed of changes
+1. **Use Autopilot with Autologin** — the recommended deployment method eliminates manual credential entry and reduces authentication friction
+2. **Ensure devices are Intune-enrolled** — compliant, managed devices satisfy Conditional Access requirements without interactive MFA
+3. **Use LAPS (Local Administrator Password Solution)** — configure LAPS via Intune for the local Admin account to eliminate shared admin credentials as an attack vector
+4. **Keep software updated** — Teams Rooms app updates include authentication improvements and security fixes
+5. **Monitor Microsoft 365 Message Center** — stay informed of authentication policy changes
 
 ## Security Baseline Comparison
 

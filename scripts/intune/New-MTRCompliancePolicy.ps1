@@ -16,7 +16,7 @@
     Require Secure Boot. Default: $true
 
 .PARAMETER MinimumOSVersion
-    Minimum Windows OS version. Default: "10.0.19044"
+    Minimum Windows OS version. Default: "10.0.22631" (Windows 11 23H2)
 
 .EXAMPLE
     .\New-MTRCompliancePolicy.ps1 -PolicyName "MTR-Windows-Compliance"
@@ -47,7 +47,7 @@ param(
     [bool]$RequireCodeIntegrity = $true,
 
     [Parameter(Mandatory = $false)]
-    [string]$MinimumOSVersion = "10.0.19044"
+    [string]$MinimumOSVersion = "10.0.22631"
 )
 
 #Requires -Modules Microsoft.Graph.DeviceManagement

@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Microsoft Teams Admin Center (TAC) provides device management capabilities for all Teams devices, including Teams Rooms. It's available to all Teams Rooms licenses (Pro and Basic).
+The Microsoft Teams Admin Center (TAC) provides device management capabilities for Teams devices. As of June 2025, Teams Rooms on Windows management has moved to the [Pro Management Portal](../10-pro-management/portal-overview.md). TAC remains the primary management surface for Teams Rooms on Android, Panels, and Phones, though Android device management is transitioning to PMP in phases through 2026. TAC continues to handle Teams-wide administration including policies, users, and meeting settings.
 
 ## Accessing Teams Admin Center
 
@@ -265,16 +265,17 @@ View:
 
 | Feature | Teams Admin Center | Pro Management Portal |
 |---------|-------------------|----------------------|
-| License Required | Basic or Pro | Pro only |
-| Device inventory | Yes | Yes |
-| Basic health | Yes | Yes |
-| Advanced analytics | Limited | Yes |
-| Incident management | Basic | Advanced |
-| Automated detection | Limited | Yes |
-| Remote actions | Yes | Yes |
-| Configuration profiles | Yes | Yes |
-| Update management | Basic | Advanced |
-| Third-party integration | Limited | Yes |
+| Windows MTR management | No (moved to PMP June 2025) | Yes |
+| Android MTR management | Yes (transitioning to PMP H2 2026) | Yes (June 2026+) |
+| Panels/Phones management | Yes | Coming 2026 |
+| Teams policies & settings | Yes | No |
+| Advanced analytics | Limited | Yes (Pro license) |
+| Incident management | Basic | Advanced with auto-remediation |
+| Update rings | No | Yes (staging, general, executive) |
+| Remote settings push | Yes (Android) | Yes (Windows) |
+| ServiceNow integration | No | Yes |
+| RBAC/custom roles | No | Yes |
+| Multi-tenant partner portal | No | Yes |
 
 ## Best Practices
 
@@ -311,6 +312,6 @@ View:
 
 ## Related Topics
 
-- [Pro Management Portal](pro-management-portal.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md)
 - [Monitoring and Alerting](monitoring-alerting.md)
 - [Troubleshooting](troubleshooting.md)

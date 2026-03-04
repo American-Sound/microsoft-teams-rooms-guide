@@ -12,7 +12,7 @@ Teams Rooms Pro is the full-featured license for enterprise deployments.
 
 **Included Features:**
 - Full Teams meeting experience
-- Teams Rooms Pro Management portal access
+- Teams Rooms Pro Management Portal access
 - Intelligent audio and video capabilities
 - AI-powered noise suppression
 - Remote device management and monitoring
@@ -39,7 +39,7 @@ Teams Rooms Basic is a limited free license for small deployments or evaluation.
 - Full Teams meeting experience
 - Basic device management in Teams Admin Center
 - Limited to 25 devices per tenant
-- No Pro Management portal access
+- No Pro Management Portal access
 - No advanced analytics
 
 **Limitations:**
@@ -147,4 +147,4 @@ Certain features require Teams Rooms Pro:
 
 - [Licensing Assignment Steps](../02-prerequisites/licensing-assignment.md)
 - [Resource Account Creation](../02-prerequisites/resource-accounts.md)
-- [Teams Rooms Pro Management Portal](../06-post-deployment/pro-management-portal.md)
+- [Teams Rooms Pro Management Portal](../10-pro-management/portal-overview.md)

@@ -13,9 +13,9 @@ Microsoft Teams Rooms is available on two platforms:
 MTR on Windows provides a full-featured meeting room experience running on certified compute devices.
 
 **Key Characteristics:**
-- Runs Windows 10/11 IoT Enterprise
+- Runs Windows 11 IoT Enterprise (Windows 10 support ended October 14, 2025)
 - Supports advanced features like content cameras, intelligent speakers
-- Full management via Intune, Autopilot, and Configuration Manager
+- Full management via Intune and Autopilot
 - Wider peripheral and hardware ecosystem
 - Higher compute requirements
 
@@ -46,7 +46,7 @@ MTR on Android provides a streamlined meeting experience on certified Android-ba
 
 | Feature | Windows | Android |
 |---------|---------|---------|
-| **Operating System** | Windows 10/11 IoT Enterprise | Android (vendor-specific) |
+| **Operating System** | Windows 11 IoT Enterprise | Android (vendor-specific) |
 | **Form Factors** | Compute module + peripherals | All-in-one or modular |
 | **Front Row Layout** | Yes | Limited/Coming |
 | **Content Camera** | Yes | No |
@@ -55,7 +55,7 @@ MTR on Android provides a streamlined meeting experience on certified Android-ba
 | **Coordinated Meetings** | Yes | Yes |
 | **Direct Guest Join** | Yes | Yes |
 | **Proximity Join** | Yes | Yes |
-| **Management** | Intune, Autopilot, SCCM | Intune AOSP |
+| **Management** | Intune, Autopilot | Intune AOSP |
 | **Autopilot Support** | Yes (with Autologin) | No |
 | **Typical Cost** | Higher | Lower |
 
@@ -75,8 +75,8 @@ Teams Panels are wall-mounted scheduling displays that show room availability an
 
 Surface Hub is Microsoft's all-in-one collaborative device combining whiteboarding, video conferencing, and Teams meetings.
 
-- Surface Hub 2S (50" and 85")
-- Windows-based with Teams integration
+- Surface Hub 3 (50" and 85") — runs Windows 11 with Teams Rooms experience
+- Surface Hub 2S — can be upgraded to Hub 3 via Compute Cartridge or software migration (Windows 10 Team lost Teams access October 14, 2025)
 - Specialized management requirements
 - Premium collaboration experience
 
@@ -97,3 +97,7 @@ When planning your MTR deployment, consider:
 - [Licensing Requirements](licensing.md) - Understand Pro vs. Basic licensing
 - [Hardware Requirements](hardware-requirements.md) - Certified devices and specifications
 - [Network Requirements](network-requirements.md) - Bandwidth and connectivity needs
+- [Interoperability](../07-interop/) - CVI, SIP dialing, and Direct Guest Join
+- [Copilot and AI](../08-copilot-ai/) - Copilot, Facilitator, Intelligent Speaker, transcription
+- [Teams Phone](../09-teams-phone/) - PSTN calling, Audio Conferencing, emergency calling
+- [Pro Management Portal](../10-pro-management/) - Health monitoring, update management, partner portal

@@ -390,6 +390,6 @@ Prepare:
 ## Related Topics
 
 - [Monitoring and Alerting](monitoring-alerting.md)
-- [Pro Management Portal](pro-management-portal.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md)
 - [Network Requirements](../01-planning/network-requirements.md)
 - [Conditional Access](../03-security/conditional-access.md)

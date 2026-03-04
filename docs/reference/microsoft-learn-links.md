@@ -51,10 +51,14 @@ This page provides curated links to official Microsoft documentation for Teams R
 
 ## Microsoft Intune Documentation
 
-### Enrollment
+### Enrollment and Autologin
 
 - [Windows Autopilot Overview](https://learn.microsoft.com/autopilot/overview)
 - [Self-Deploying Mode](https://learn.microsoft.com/autopilot/self-deploying)
+- [Autopilot and Autologin for Teams Rooms](https://learn.microsoft.com/microsoftteams/rooms/autopilot-autologin)
+- [Authentication in Teams Rooms on Windows](https://learn.microsoft.com/microsoftteams/rooms/rooms-authentication)
+- [SkypeSettings.xml Configuration Reference](https://learn.microsoft.com/microsoftteams/rooms/xml-config-file)
+- [Teams Rooms Maintenance and Operations](https://learn.microsoft.com/microsoftteams/rooms/rooms-operations)
 - [Android AOSP Enrollment](https://learn.microsoft.com/mem/intune/enrollment/android-aosp-corporate-owned-userless-enroll)
 
 ### Compliance
@@ -90,6 +94,12 @@ This page provides curated links to official Microsoft documentation for Teams R
 - [Onboard Windows Devices](https://learn.microsoft.com/defender-endpoint/configure-endpoints)
 - [Attack Surface Reduction](https://learn.microsoft.com/defender-endpoint/attack-surface-reduction)
 
+### LAPS
+
+- [Windows LAPS Overview](https://learn.microsoft.com/entra/identity/devices/howto-manage-local-admin-passwords)
+- [Configure LAPS Policy in Intune](https://learn.microsoft.com/mem/intune/protect/windows-laps-overview)
+- [LAPS CSP Reference](https://learn.microsoft.com/windows/client-management/mdm/laps-csp)
+
 ### Security Baselines
 
 - [Windows Security Baselines](https://learn.microsoft.com/mem/intune/protect/security-baselines)
@@ -118,6 +128,52 @@ This page provides curated links to official Microsoft documentation for Teams R
 
 - [Microsoft Teams PowerShell](https://learn.microsoft.com/microsoftteams/teams-powershell-overview)
 - [Install Teams PowerShell](https://learn.microsoft.com/microsoftteams/teams-powershell-install)
+
+## Interoperability
+
+### Cloud Video Interop
+- [Cloud Video Interop Overview](https://learn.microsoft.com/microsoftteams/cloud-video-interop)
+- [Grant-CsTeamsVideoInteropServicePolicy](https://learn.microsoft.com/powershell/module/teams/grant-csteamsvideointeropservicepolicy)
+- [SIP and H.323 Dialing with Teams Rooms](https://learn.microsoft.com/microsoftteams/rooms/meetings-with-sip-h323-devices)
+
+### Direct Guest Join
+- [Third-Party Meetings on Teams Rooms](https://learn.microsoft.com/microsoftteams/rooms/third-party-join)
+
+## Copilot and AI
+
+- [Admin Guide to Copilot in Teams Rooms](https://learn.microsoft.com/microsoftteams/rooms/copilot-admin-mtr)
+- [Manage M365 Copilot in Teams Meetings](https://learn.microsoft.com/microsoftteams/copilot-teams-transcription)
+- [Voice and Face Recognition](https://learn.microsoft.com/microsoftteams/rooms/voice-and-face-recognition)
+- [Set-CsTeamsAIPolicy](https://learn.microsoft.com/powershell/module/microsoftteams/set-csteamsaipolicy)
+- [Facilitator in Teams Rooms](https://learn.microsoft.com/microsoftteams/rooms/facilitator-teams-rooms)
+- [Intelligent Recap](https://learn.microsoft.com/microsoftteams/intelligent-recap-calls-meetings)
+- [Voice Isolation](https://learn.microsoft.com/microsoftteams/voice-isolation)
+
+## Teams Phone and PSTN
+
+- [Teams Phone Licensing](https://learn.microsoft.com/microsoftteams/teams-phone-licensing)
+- [PSTN Connectivity Options](https://learn.microsoft.com/microsoftteams/pstn-connectivity)
+- [Set-CsPhoneNumberAssignment](https://learn.microsoft.com/powershell/module/microsoftteams/set-csphonenumberassignment)
+- [Configure Dynamic Emergency Calling](https://learn.microsoft.com/microsoftteams/configure-dynamic-emergency-calling)
+- [Calling Policies](https://learn.microsoft.com/microsoftteams/teams-calling-policy)
+- [Plan SIP Gateway](https://learn.microsoft.com/microsoftteams/devices/sip-gateway-plan)
+- [Shared Calling](https://learn.microsoft.com/microsoftteams/shared-calling-plan)
+
+## Pro Management Portal
+
+- [Pro Management Overview](https://learn.microsoft.com/microsoftteams/rooms/rooms-pro-management)
+- [Pro Management Portal](https://learn.microsoft.com/microsoftteams/rooms/managed-meeting-rooms-portal)
+- [Update Management](https://learn.microsoft.com/microsoftteams/rooms/update-management)
+- [Health Signals](https://learn.microsoft.com/microsoftteams/rooms/signals)
+- [Health and Usage Reports](https://learn.microsoft.com/microsoftteams/rooms/health-and-usage-reports)
+- [Portal Settings](https://learn.microsoft.com/microsoftteams/rooms/pro-portal-settings)
+- [RBAC in PMP](https://learn.microsoft.com/microsoftteams/rooms/rooms-pro-rbac)
+- [AI Assistant](https://learn.microsoft.com/microsoftteams/rooms/rooms-pro-aiassistant)
+- [Configure ServiceNow](https://learn.microsoft.com/microsoftteams/rooms/microsoft-teams-rooms-configure-servicenow)
+- [MTR Standards and Room Planner](https://learn.microsoft.com/microsoftteams/rooms/standards-and-room-planner)
+- [Multi-Tenant Management for Partners](https://learn.microsoft.com/microsoftteams/rooms/multi-tenant-management-partner)
+- [Partner Management for Customers](https://learn.microsoft.com/microsoftteams/rooms/multi-tenant-management-customer)
+- [Android Device Management Transition](https://learn.microsoft.com/microsoftteams/rooms/aboutunifieddevicemanagement-pmp1)
 
 ## Troubleshooting
 
