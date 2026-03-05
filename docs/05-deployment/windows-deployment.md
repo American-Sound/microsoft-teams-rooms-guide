@@ -129,7 +129,7 @@ Before beginning deployment, ensure:
 
 3. **Join device**
    - Click **Connect**
-   - Select **Join this device to Azure Active Directory**
+   - Select **Join this device to Microsoft Entra ID**
    - Sign in with admin account
    - Confirm join
 
@@ -145,23 +145,23 @@ Before beginning deployment, ensure:
    - Test meeting join
 
 2. **Verify in admin portals**
-   - Teams Admin Center: Device shows online
+   - Pro Management Portal: Device shows online and healthy
    - Intune: Device enrolled and compliant
    - Entra ID: Device joined
 
 ## Post-Deployment Configuration
 
-### Teams Admin Center Settings
+### Pro Management Portal Settings
 
-Configure device settings in Teams Admin Center:
+Configure device settings in the Pro Management Portal:
 
-1. Navigate to **Teams Admin Center** > **Teams devices** > **Teams Rooms on Windows**
+1. Navigate to **[Pro Management Portal](https://portal.rooms.microsoft.com)** > **Rooms**
 2. Select the device
-3. Configure:
-   - Device name
-   - Teams meeting settings
+3. Navigate to **Settings** and configure:
+   - Meeting defaults
    - Peripheral settings
    - Theme and background
+   - Digital signage (if applicable)
 
 ### Room Settings (On Device)
 
@@ -231,15 +231,14 @@ Get-Content "$env:LocalAppData\Packages\Microsoft.SkypeRoomSystem_8wekyb3d8bbwe\
 ```
 
 **Remote:**
-- Teams Admin Center device health
-- Intune device status
-- Pro Management Portal (if licensed)
+- Pro Management Portal device health and incidents
+- Intune device status and compliance
 
 ## Validation Checklist
 
 After deployment, verify:
 
-- [ ] Device shows online in Teams Admin Center
+- [ ] Device shows online in Pro Management Portal
 - [ ] Device enrolled in Intune
 - [ ] Device compliant with policies
 - [ ] Calendar showing correctly

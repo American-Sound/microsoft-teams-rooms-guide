@@ -2,7 +2,7 @@
 
 ## Overview
 
-Starting in 2025, Android-based Microsoft Teams Rooms devices use Android Open Source Project (AOSP) enrollment in Microsoft Intune. This provides a standardized management experience for Android MTR devices.
+Android-based Microsoft Teams Rooms devices use Android Open Source Project (AOSP) enrollment in Microsoft Intune. This provides a standardized management experience for Android MTR devices.
 
 ## Understanding AOSP Enrollment
 

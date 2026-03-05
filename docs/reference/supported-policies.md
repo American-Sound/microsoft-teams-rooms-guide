@@ -69,7 +69,7 @@ Supported filter attributes for targeting MTR:
 
 | Setting | Supported | Recommended |
 |---------|-----------|-------------|
-| Minimum OS version | Yes | 10.0.19044 |
+| Minimum OS version | Yes | 10.0.22000 |
 | Maximum OS version | Yes | Optional |
 | Minimum OS build | Yes | Optional |
 | Valid operating system builds | Yes | Optional |

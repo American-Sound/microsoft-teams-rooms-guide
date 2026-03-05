@@ -10,17 +10,18 @@ Effective monitoring ensures Teams Rooms devices remain operational and issues a
 
 | Solution | Best For | License Required |
 |----------|----------|------------------|
-| Teams Admin Center | Basic monitoring | Teams Rooms Basic/Pro |
+| Teams Admin Center | CQD call quality analytics; device management for Android/Panels/Phones only | Teams Rooms Basic/Pro |
 | Pro Management Portal | Advanced monitoring | Teams Rooms Pro |
 | Microsoft 365 Admin Center | Service health | Any M365 |
 | Azure Monitor | Custom monitoring | Azure subscription |
 
 ### Third-Party Solutions
 
-- PRTG Network Monitor
-- Nagios/Zabbix
-- ServiceNow
-- Vendor-specific platforms (Poly Lens, Logitech Sync, etc.)
+- **Utelogy** — Cloud-native AV monitoring and management platform hosted in Microsoft Azure. Built on Microsoft Graph API, integrates with ServiceNow, and supports multi-vendor AV device monitoring (Cisco, Crestron, Q-SYS, Poly, Logitech, and more) alongside Teams Rooms. Strong fit for organizations invested in the Microsoft ecosystem due to Azure residency and Graph compatibility.
+- **PRTG Network Monitor** — Agentless network monitoring with SNMP/WMI support
+- **Nagios/Zabbix** — Open-source monitoring platforms with broad device support
+- **ServiceNow** — ITSM platform with device monitoring and incident management
+- Vendor-specific platforms (Poly Lens, Logitech Sync, Yealink Management Cloud, Neat Pulse)
 
 ## Key Metrics to Monitor
 
@@ -61,7 +62,9 @@ Effective monitoring ensures Teams Rooms devices remain operational and issues a
 
 ## Teams Admin Center Alerts
 
-### Configuring Alerts
+> **Note:** TAC alerting applies to **Android MTR, Panels, and Phones** only. Windows MTR alerting has moved to the Pro Management Portal, which provides automatic incident detection and AI-assisted remediation. See [Pro Management Portal](../10-pro-management/portal-overview.md).
+
+### Configuring Alerts (Android/Panels/Phones)
 
 1. Navigate to **Teams Admin Center** > **Notifications & alerts**
 2. Click **Rules** > **Add rule**
@@ -72,7 +75,7 @@ Effective monitoring ensures Teams Rooms devices remain operational and issues a
 Rule name: MTR Offline Alert
 Condition: Device is offline
 Duration: 15 minutes
-Scope: All Teams Rooms devices
+Scope: Android Teams Rooms devices, Panels, Phones
 Notification: Email to helpdesk@contoso.com
 ```
 
@@ -80,7 +83,7 @@ Notification: Email to helpdesk@contoso.com
 ```
 Rule name: MTR Health Degraded
 Condition: Device health state changed to Warning or Critical
-Scope: All Teams Rooms devices
+Scope: Android Teams Rooms devices, Panels, Phones
 Notification: Email to teams-support@contoso.com
 ```
 

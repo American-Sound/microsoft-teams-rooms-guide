@@ -183,7 +183,7 @@ For modular systems with additional peripherals:
 
 ## Post-Deployment Configuration
 
-### Teams Admin Center
+### Teams Admin Center (Transitioning to PMP Through 2026)
 
 1. Navigate to **Teams Admin Center** > **Teams devices** > **Teams Rooms on Android**
 2. Locate device by room name

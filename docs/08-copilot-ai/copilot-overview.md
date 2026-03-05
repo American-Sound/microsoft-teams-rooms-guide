@@ -77,7 +77,7 @@ Set-CsTeamsMeetingPolicy -Identity <PolicyName> -Copilot EnabledWithTranscriptDe
 Set-CsTeamsMeetingPolicy -Identity <PolicyName> -Copilot EnabledWithTranscript
 ```
 
-> **Note (March 2026):** Microsoft is changing the default Copilot policy from `EnabledWithTranscript` to `Enabled`, shifting the default to non-persisted transcripts. Review your policies before this rollout.
+> **Note:** Microsoft changed the default Copilot policy from `EnabledWithTranscript` to `Enabled` in March 2026, shifting the default to non-persisted transcripts. Review your policies to confirm they match your organization's transcript retention requirements.
 
 ### Step 3: Enable Transcription
 

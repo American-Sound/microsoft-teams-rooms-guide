@@ -23,7 +23,7 @@ These compliance settings are supported for Windows MTR devices:
 
 | Setting | Supported | Notes |
 |---------|-----------|-------|
-| Minimum OS version | Yes | Set to 10.0.19044 (21H2) or later |
+| Minimum OS version | Yes | Set to 10.0.22000 (Windows 11 21H2) or later |
 | Maximum OS version | Yes | Optional |
 | Minimum OS build | Yes | For specific build requirements |
 | Valid OS build ranges | Yes | For controlling update compliance |
@@ -100,7 +100,7 @@ Code Integrity: Require
 
 **Device Properties:**
 ```
-Minimum OS version: 10.0.19044
+Minimum OS version: 10.0.22000
 ```
 
 **System Security:**

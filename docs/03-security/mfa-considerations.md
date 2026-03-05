@@ -159,7 +159,7 @@ Microsoft continues to strengthen authentication requirements across the platfor
 | **MTR Compatible** | No | Yes | Yes |
 | **User Interaction** | Required | None | None |
 | **Implementation** | N/A | Intune enrollment | IP-based |
-| **Cost** | N/A | Intune license | None |
+| **Cost** | N/A | Included with Teams Rooms Pro | None |
 
 ## Risk Assessment
 

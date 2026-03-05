@@ -47,17 +47,18 @@ Required permissions:
 - Teams Administrator
 - User Administrator (for password management)
 
-### Method 1: Teams Admin Center (Single Room)
+### Method 1: Exchange Admin Center (Single Room)
 
-1. Navigate to **Teams Admin Center** > **Teams devices** > **Teams Rooms**
-2. Click **+ Add** > **Resource accounts**
+1. Navigate to **Exchange Admin Center** > **Recipients** > **Resources**
+2. Click **+ Add a room mailbox**
 3. Fill in:
    - Display name: `HQ-Conference-Room-101`
-   - Username: `mtr-hq-101`
+   - Email address: `mtr-hq-101`
    - Domain: Select from dropdown
-   - Resource account type: **Meeting room**
 4. Click **Save**
-5. Assign license separately
+5. Enable the room mailbox account in Entra ID and assign license separately
+
+> **Note:** Resource accounts are Exchange room mailboxes. They are created and managed in the Exchange Admin Center. Teams policies are configured in the Teams Admin Center, and Windows MTR device management is in the Pro Management Portal (portal.rooms.microsoft.com).
 
 ### Method 2: PowerShell (Single Room)
 

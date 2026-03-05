@@ -1,317 +1,193 @@
-# Teams Admin Center Device Management
+# Teams Admin Center and Teams Rooms
 
 ## Overview
 
-The Microsoft Teams Admin Center (TAC) provides device management capabilities for Teams devices. As of June 2025, Teams Rooms on Windows management has moved to the [Pro Management Portal](../10-pro-management/portal-overview.md). TAC remains the primary management surface for Teams Rooms on Android, Panels, and Phones, though Android device management is transitioning to PMP in phases through 2026. TAC continues to handle Teams-wide administration including policies, users, and meeting settings.
+The Microsoft Teams Admin Center (TAC) at **admin.teams.microsoft.com** is the central portal for managing Teams-wide policies, users, phone numbers, and meeting settings. However, as of June 2025, **Teams Rooms on Windows device management has moved entirely to the Pro Management Portal** (portal.rooms.microsoft.com). TAC no longer provides device health, remote actions, configuration profiles, or update management for Windows MTR devices.
+
+TAC remains relevant for Teams Rooms in two areas:
+
+1. **Teams policies** — Calling policies, meeting policies, messaging policies, and other tenant-wide settings that apply to resource accounts are still configured in TAC (or PowerShell).
+2. **Call Quality Dashboard (CQD)** — The primary tool for analyzing call and meeting quality data across your Teams Rooms fleet. CQD is accessed from TAC and is the most valuable TAC feature for ongoing MTR operations.
+
+### Device Management by Platform
+
+| Platform | Management Portal | Notes |
+|----------|------------------|-------|
+| Teams Rooms on Windows | **Pro Management Portal** | Moved from TAC in June 2025 |
+| Teams Rooms on Android | Teams Admin Center | Transitioning to PMP through 2026 |
+| Teams Panels | Teams Admin Center | Transitioning to PMP in 2026 |
+| Teams Phones | Teams Admin Center | — |
+| Teams Displays | Teams Admin Center | — |
 
 ## Accessing Teams Admin Center
 
-### URL
+**URL:** https://admin.teams.microsoft.com
 
-Navigate to: **https://admin.teams.microsoft.com**
-
-### Required Permissions
-
-Access requires one of:
+**Required Permissions:**
 - Teams Administrator
-- Teams Device Administrator
+- Teams Device Administrator (for Android/Panels/Phones device management)
 - Global Administrator
 
-## Device Inventory
+## Call Quality Dashboard (CQD)
 
-### Viewing Devices
+CQD is the primary reason to use TAC for Teams Rooms troubleshooting. It provides detailed call quality analytics, historical trend data, and the ability to drill into specific call failures across your entire MTR fleet.
 
-1. Navigate to **Teams devices** in left menu
-2. Select device category:
-   - **Teams Rooms on Windows**
-   - **Teams Rooms on Android**
-   - **Panels**
-   - **Phones**
-   - **Displays**
+### Accessing CQD
 
-### Device Information
+1. Navigate to **Teams Admin Center** > **Analytics & reports** > **Call quality dashboard**
+2. Or go directly to: **https://cqd.teams.microsoft.com**
 
-Each device listing shows:
-- Device name
-- Health status
-- Signed-in user (resource account)
-- IP address
-- Last activity
+### What CQD Provides
 
-### Filtering and Sorting
+- **Call quality metrics** — Audio and video stream quality ratings (Good/Poor) for every call and meeting involving MTR devices
+- **Failure analysis** — Call setup failures, drops, and media establishment errors
+- **Network diagnostics** — Jitter, packet loss, latency, and round-trip time per stream
+- **Historical trending** — Quality trends over days, weeks, or months to identify degradation patterns
+- **Building/location mapping** — When subnets are mapped to buildings, CQD can report quality by physical location
+- **Comparative analysis** — Compare quality across device types, locations, network segments, or time periods
 
-Filter devices by:
-- Health status
-- Tag
-- Software version
-- Manufacturer
+### Building Data Upload
 
-Sort by:
-- Name
-- Health
-- Last activity
-- Software version
+To get location-aware reporting, upload your building and subnet data:
+
+1. In CQD, navigate to **Tenant Data Upload**
+2. Upload a CSV mapping subnets to building names, cities, and countries
+3. Format:
+
+```csv
+Network,NetworkName,NetworkRange,BuildingName,OwnershipType,BuildingType,BuildingOfficeType,City,ZipCode,Country,State,Region,InsideCorp,ExpressRoute
+10.10.1.0,HQ-Floor1,24,Headquarters,Contoso,Office,Main,Seattle,98101,US,WA,West,1,0
+10.10.2.0,HQ-Floor2,24,Headquarters,Contoso,Office,Main,Seattle,98101,US,WA,West,1,0
+10.20.1.0,Branch-Main,24,Branch Office,Contoso,Office,Branch,Portland,97201,US,OR,West,1,0
+```
 
-## Device Details
+4. Allow 24-48 hours for data to process and appear in reports
 
-### Accessing Device Details
+### Power BI Template for CQD
 
-1. Click on device in list
-2. View detailed information
+Microsoft provides a Power BI template that connects directly to CQD data and produces a comprehensive visual dashboard for MTR call quality analysis. This is the recommended approach for ongoing monitoring and executive reporting.
 
-### Information Tabs
+**Setup:**
 
-**Overview:**
-- Health status
-- Basic device info
-- Signed-in account
-- Software version
+1. Download the **CQD Power BI Connector** from Microsoft:
+   - In CQD, click the **Power BI** icon in the top navigation
+   - Or download from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=102291)
+2. Install the connector (MQD.mez file) into your Power BI custom connectors directory:
+   ```
+   %USERPROFILE%\Documents\Power BI Desktop\Custom Connectors\
+   ```
+3. Download the **CQD Teams Rooms report templates** (.pbit files) from the same source
+4. Open the template in Power BI Desktop
+5. When prompted, authenticate with your Teams Admin credentials
+6. The template connects to CQD data and populates the dashboards
 
-**Health:**
-- Current health state
-- Peripheral status
-- Last health check
+**Available Report Templates:**
 
-**Activity:**
-- Recent meetings
-- Usage statistics
+| Template | Purpose |
+|----------|---------|
+| CQD Teams Auto Attendant & Call Queue Historical Report | AA/CQ performance (not MTR-specific) |
+| CQD Teams Utilization Report | Overall Teams usage metrics |
+| CQD PSTN Direct Routing Report | Direct Routing call quality |
+| **CQD Teams Rooms Report** | **MTR-specific call quality — use this one** |
 
-**History:**
-- Configuration changes
-- Incident history
+**CQD Teams Rooms Report includes:**
 
-**Diagnostics:**
-- Diagnostic logs
-- Connectivity info
+- Room-level call quality summary (good vs. poor streams per room)
+- Audio quality detail (jitter, packet loss, NMOS scores) per MTR device
+- Video quality detail (frame rate, resolution, freeze events)
+- Call failure analysis by room, by time period, by failure type
+- Network quality by subnet/building (requires building data upload)
+- Trend analysis — quality degradation over time to catch issues before users report them
+- Peripheral health correlation — quality metrics correlated with specific camera/microphone/speaker models
 
-## Remote Actions
+**Publishing and Sharing:**
 
-### Available Actions
+1. After the template loads, publish the report to your Power BI workspace
+2. Configure a scheduled refresh (daily recommended) so the data stays current
+3. Share the workspace with your support team and stakeholders
+4. Pin key visuals to a Power BI dashboard for at-a-glance monitoring
 
-| Action | Description | Platform |
-|--------|-------------|----------|
-| Restart | Reboot device | All |
-| Download logs | Collect diagnostic logs | All |
-| Update software | Push software update | All |
-| Sign out | Sign out resource account | All |
-| Ring device | Play sound on device | Windows |
+### CQD Filters for Teams Rooms
 
-### Performing Actions
+When querying CQD directly (without the Power BI template), use these filters to isolate MTR data:
 
-1. Select device
-2. Click **Actions** dropdown
-3. Select action
-4. Confirm if prompted
+| Filter | Value | Purpose |
+|--------|-------|---------|
+| **User Agent Category** | Teams Rooms | Filter to MTR devices only |
+| **Second User Agent Category** | (varies) | Filter the remote participant type |
+| **Building Name** | (your building) | Filter by location |
+| **Is Server Pair** | Client : Client | Peer-to-peer calls |
+| **Is Server Pair** | Client : Server | Conference calls |
 
-### Bulk Actions
+### Common CQD Investigations for MTR
 
-For multiple devices:
-1. Select checkboxes for devices
-2. Click **Actions** at top
-3. Select bulk action
-4. Confirm
+**"Users report poor audio in Room X"**
+1. Filter CQD to the specific room's resource account UPN
+2. Check audio stream quality — look for high jitter (>30ms), packet loss (>2%), or poor NMOS scores (<3.5)
+3. Compare against other rooms in the same building to isolate room-specific vs. network-wide issues
+4. Check if the issue correlates with specific times (congestion) or specific remote participant types
 
-## Configuration
+**"Call drops in a specific building"**
+1. Filter by Building Name
+2. Look at call setup failure rates and mid-call drop rates
+3. Check network metrics (packet loss, jitter) by subnet
+4. Compare against other buildings to confirm the issue is location-specific
 
-### Device Settings
+**"Quality degraded after a network change"**
+1. Use date range filters to compare before/after the change
+2. Look for changes in packet loss, jitter, or round-trip time
+3. Check if the issue affects all device types or only MTR
 
-Configure per-device settings:
+## Policies Managed in TAC
 
-1. Select device
-2. Navigate to **Configuration** tab
-3. Edit settings:
-   - Display name
-   - Theme
-   - Meeting defaults
-   - Peripheral settings
+The following Teams policies apply to MTR resource accounts and are configured in TAC (or via PowerShell):
 
-### Configuration Profiles
+| Policy Type | TAC Location | Relevance to MTR |
+|-------------|-------------|-------------------|
+| Meeting policy | Meetings > Meeting policies | Controls transcription, recording, lobby, content sharing |
+| Calling policy | Voice > Calling policies | Controls call forwarding, voicemail, delegation |
+| Caller ID policy | Voice > Caller ID policies | Controls outbound caller ID for PSTN calls |
+| Voice routing policy | Voice > Direct Routing | Routes calls through specific SBCs |
+| Dial plan | Voice > Dial plan | Normalizes dialed numbers |
+| Update policy | Teams devices > Configuration profiles | Android MTR update management (transitioning to PMP) |
+| IP phone policy | Teams devices > IP Phone policies | Phones and shared devices |
 
-Apply settings to groups:
+> **Note:** Meeting policies, calling policies, and voice routing policies are assigned to the resource account UPN via PowerShell (`Grant-CsTeamsMeetingPolicy`, `Grant-CsTeamsCallingPolicy`, etc.) or via TAC user management. These are tenant-level Teams settings, not device management — they remain in TAC regardless of whether the device itself is managed in PMP.
 
-1. Navigate to **Teams devices** > **Configuration profiles**
-2. Create new profile
-3. Configure settings
-4. Assign to devices
+## Android Device Management (Transitioning)
 
-**Profile Settings:**
-- Teams application settings
-- Meeting behaviors
-- Peripheral preferences
-- Display options
+TAC still provides device management for Teams Rooms on Android through the transition to PMP (expected completion H2 2026):
 
-## Software Updates
+1. Navigate to **Teams Admin Center** > **Teams devices** > **Teams Rooms on Android**
+2. Available actions: Restart, Download logs, Update software, Sign out
+3. Configuration profiles for Android MTR can still be created and assigned in TAC
+4. Device health and peripheral status are visible in the device detail view
 
-### View Current Versions
+This functionality will move to PMP. Plan accordingly and begin familiarizing your team with PMP for Android device management.
 
-1. Navigate to device category
-2. View **Software version** column
-3. Or select device > **Overview** > Software version
+## What TAC No Longer Does for Windows MTR
 
-### Update Process
+For clarity, the following capabilities have moved to the **Pro Management Portal** and are no longer available in TAC for Windows MTR devices:
 
-**Automatic Updates:**
-- Devices check for updates regularly
-- Install during maintenance window
+- Device inventory and health status
+- Remote actions (restart, sign out, ring device, download logs)
+- Configuration profiles and per-device settings
+- Software update management and update rings
+- Peripheral health monitoring
+- Incident management and alerting
+- Analytics and usage reporting (device-level; CQD call quality remains in TAC)
 
-**Manual Updates:**
-1. Select device(s)
-2. Actions > **Update software**
-3. Select update to apply
-4. Confirm
-
-### Update Status
-
-Check update status:
-1. Select device
-2. View **History** tab
-3. Review update events
-
-## Health Monitoring
-
-### Health States
-
-| State | Meaning | Action |
-|-------|---------|--------|
-| Healthy | All components working | None required |
-| Warning | Non-critical issue | Monitor/investigate |
-| Critical | Major issue detected | Immediate attention |
-| Offline | Device not communicating | Investigate connectivity |
-
-### Peripheral Health
-
-View status of:
-- Camera
-- Microphone
-- Speaker
-- Display
-- Touch console
-
-### Troubleshooting from TAC
-
-1. Select unhealthy device
-2. View **Health** tab
-3. Review issues listed
-4. Follow recommended actions
-5. Download logs if needed
-
-## Teams Rooms Specific
-
-### Teams Rooms on Windows
-
-Additional features:
-- Autopilot status
-- Intune compliance
-- Windows version
-- Defender status
-
-### Teams Rooms on Android
-
-Features:
-- Android version
-- Firmware version
-- Vendor information
-- AOSP enrollment status
-
-### Coordinated Devices
-
-View devices paired together:
-- Teams Room + Panel
-- Room system + Touch controller
-
-## Reporting
-
-### Built-in Reports
-
-Access via **Analytics & reports**:
-- Device usage
-- Device health
-- Call quality
-- Feature usage
-
-### Usage Reports
-
-View:
-- Meetings per device
-- Meeting duration
-- Participation trends
-- Feature adoption
-
-### Export Data
-
-1. Navigate to report
-2. Click **Export**
-3. Download CSV
-
-## Alerts and Notifications
-
-### Configuring Alerts
-
-1. Navigate to **Notifications & alerts**
-2. Create alert rule
-3. Configure:
-   - Condition (e.g., device offline)
-   - Recipients
-   - Notification method
-
-### Alert Types
-
-- Device offline
-- Health state change
-- Update failure
-- Sign-in failure
-
-## Comparison: TAC vs Pro Management Portal
-
-| Feature | Teams Admin Center | Pro Management Portal |
-|---------|-------------------|----------------------|
-| Windows MTR management | No (moved to PMP June 2025) | Yes |
-| Android MTR management | Yes (transitioning to PMP H2 2026) | Yes (June 2026+) |
-| Panels/Phones management | Yes | Coming 2026 |
-| Teams policies & settings | Yes | No |
-| Advanced analytics | Limited | Yes (Pro license) |
-| Incident management | Basic | Advanced with auto-remediation |
-| Update rings | No | Yes (staging, general, executive) |
-| Remote settings push | Yes (Android) | Yes (Windows) |
-| ServiceNow integration | No | Yes |
-| RBAC/custom roles | No | Yes |
-| Multi-tenant partner portal | No | Yes |
-
-## Best Practices
-
-1. **Check device health regularly** - At least weekly
-2. **Use configuration profiles** - Consistent settings
-3. **Monitor update status** - Ensure devices stay current
-4. **Set up alerts** - Proactive notification
-5. **Download logs early** - When issues occur
-6. **Document configurations** - Track changes
-7. **Use tags** - Organize devices logically
-
-## Troubleshooting
-
-### Device Not Appearing
-
-- Verify device is signed in
-- Check resource account is valid
-- Confirm network connectivity
-- Wait for sync (up to 24 hours for new devices)
-
-### Actions Not Working
-
-- Verify device is online
-- Check your admin permissions
-- Confirm device supports action
-- Review action history for errors
-
-### Health Not Updating
-
-- Device may be offline
-- Check last activity timestamp
-- Restart device
-- Verify network allows telemetry
+See [Pro Management Portal](../10-pro-management/portal-overview.md) for full documentation on these capabilities.
 
 ## Related Topics
 
-- [Pro Management Portal](../10-pro-management/portal-overview.md)
-- [Monitoring and Alerting](monitoring-alerting.md)
-- [Troubleshooting](troubleshooting.md)
+- [Pro Management Portal](../10-pro-management/portal-overview.md) — Windows MTR device management
+- [Monitoring and Alerting](monitoring-alerting.md) — Alerting configuration
+- [Troubleshooting](troubleshooting.md) — Diagnostic procedures
+- [Updates and Maintenance](updates-maintenance.md) — Update management strategies
+
+## References
+
+- [CQD for Teams Rooms — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/with-office-365#call-quality)
+- [Use Power BI to analyze CQD data — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-power-bi-query-templates)
+- [Upload building data to CQD — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-upload-tenant-building-data)

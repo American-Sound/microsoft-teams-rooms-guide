@@ -7,8 +7,7 @@ Windows Autopilot enables zero-touch deployment of Teams Rooms on Windows device
 ## Prerequisites
 
 ### Licensing
-- Microsoft 365 E3/E5 or equivalent (includes Intune)
-- Teams Rooms Pro license (required for Autologin via Pro Management Portal)
+- Teams Rooms Pro license (includes Intune, Entra ID P1, and is required for Autologin via Pro Management Portal)
 - Windows 11 IoT Enterprise license (OEM)
 
 ### Configuration Requirements
@@ -313,8 +312,8 @@ Get-WmiObject -Class MDM_DevDetail_Ext01 -Namespace root\cimv2\mdm\dmmap
 Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" |
     Select-Object AutoAdminLogon, DefaultUserName, DefaultDomainName
 
-# Check Teams Rooms app is running
-Get-Process -Name "Microsoft.SkypeRoomSystem" -ErrorAction SilentlyContinue
+# Check Teams Rooms app is running (new Teams client)
+Get-Process -Name "ms-teams" -ErrorAction SilentlyContinue
 
 # Check for pending reboot
 Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager" -Name PendingFileRenameOperations -ErrorAction SilentlyContinue

@@ -295,7 +295,7 @@ $xmlPath = "C:\Users\Skype\AppData\Local\Packages\Microsoft.SkypeRoomSystem_8wek
 $xmlContent | Out-File -FilePath $xmlPath -Encoding UTF8 -Force
 
 # Restart the MTR app to process the XML
-Get-Process -Name "Microsoft.SkypeRoomSystem" -ErrorAction SilentlyContinue | Stop-Process -Force
+Get-Process -Name "ms-teams" -ErrorAction SilentlyContinue | Stop-Process -Force
 ```
 
 Deploy this as an Intune PowerShell script (**Devices** > **Windows** > **Scripts**) targeting your MTR device group.
@@ -308,7 +308,7 @@ For individual devices or small batches:
 $session = New-PSSession -ComputerName "MTR-HQ-101" -Credential (Get-Credential)
 Copy-Item -Path ".\SkypeSettings.xml" -Destination "C:\Users\Skype\AppData\Local\Packages\Microsoft.SkypeRoomSystem_8wekyb3d8bbwe\LocalState\" -ToSession $session
 Invoke-Command -Session $session -ScriptBlock {
-    Get-Process -Name "Microsoft.SkypeRoomSystem" -ErrorAction SilentlyContinue | Stop-Process -Force
+    Get-Process -Name "ms-teams" -ErrorAction SilentlyContinue | Stop-Process -Force
 }
 Remove-PSSession $session
 ```

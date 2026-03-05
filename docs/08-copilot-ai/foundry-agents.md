@@ -2,7 +2,7 @@
 
 ## Overview
 
-Azure AI Foundry (formerly Azure AI Studio, now unifying under "Microsoft Foundry") provides two primary agent types that can surface in Microsoft Teams meetings:
+Microsoft Foundry (formerly Azure AI Studio / Azure AI Foundry) provides two primary agent types that can surface in Microsoft Teams meetings:
 
 ## Agent Types
 
@@ -44,7 +44,7 @@ For conference room AI initiatives, the realistic path is:
 4. In-room participants interact via the touch console's chat or their personal devices
 5. Post-meeting, agents can process transcripts and recordings via Graph API for automated workflows
 
-**Memory in Foundry Agent Service** (public preview, Dec 2025) provides a fully managed long-term memory store integrated with the agent runtime, enabling context persistence across sessions and devices.
+**Memory in Foundry Agent Service** provides a fully managed long-term memory store integrated with the agent runtime, enabling context persistence across sessions and devices.
 
 ## Related Topics
 

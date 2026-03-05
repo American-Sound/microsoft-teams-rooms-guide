@@ -2,7 +2,7 @@
 
 ## Overview
 
-Each Microsoft Teams Rooms resource account requires a Teams Rooms license (Pro or Basic) to function. This guide covers methods for assigning licenses to MTR accounts.
+Each Microsoft Teams Rooms resource account requires a Teams Rooms license to function. **Teams Rooms Pro is recommended for all production deployments.** Teams Rooms Basic should only be used for pilots and evaluations. This guide covers methods for assigning licenses to MTR accounts.
 
 ## License SKU Identifiers
 
@@ -164,7 +164,7 @@ Get-MgSubscribedSku | Where-Object { $_.SkuPartNumber -like "*MTR*" -or $_.SkuPa
 
 - Teams meeting join
 - Calendar integration
-- Basic Teams Admin Center management
+- Basic device management in Pro Management Portal (no incidents or analytics)
 
 ### Additional Considerations
 
@@ -172,7 +172,7 @@ Get-MgSubscribedSku | Where-Object { $_.SkuPartNumber -like "*MTR*" -or $_.SkuPa
 |-------------|-------|
 | **Usage Location** | Must be set on user account |
 | **Exchange Online** | Not required separately (MTR license includes) |
-| **Phone System** | Requires separate license for PSTN calling |
+| **Teams Phone Standard** | Included with Teams Rooms Pro; a PSTN connectivity option (Calling Plan, Direct Routing, or Operator Connect) and phone number are still required separately |
 | **Common Area Phone** | Different license for phone devices |
 
 ## Setting Usage Location
@@ -205,7 +205,7 @@ Update-MgUser -UserId $user.Id -UsageLocation "US"
 ## Best Practices
 
 1. **Use group-based licensing** for scalability and consistency
-2. **Create separate groups** for Pro and Basic licenses
+2. **Create separate groups** for Pro and Basic licenses (if using Basic for pilots)
 3. **Document license assignments** in your CMDB/inventory
 4. **Monitor license consumption** to avoid running out
 5. **Set usage location** before assigning licenses

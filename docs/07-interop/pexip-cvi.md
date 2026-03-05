@@ -6,15 +6,19 @@ Pexip's CVI integration connects legacy SIP and H.323 video conferencing endpoin
 
 ## Architecture
 
-Pexip's CVI consists of two main components:
+Pexip CVI is a **cloud-hosted service** operated by Pexip (the "Pexip Service"). It is not the same product as Pexip Infinity, which is a separate on-premises/self-hosted video infrastructure platform.
 
-**Pexip Infinity** — the on-premises or cloud-hosted MCU/gateway platform that handles SIP/H.323 call processing, transcoding, and routing.
+The CVI service consists of:
 
-**Pexip Teams Connector** — a dedicated application deployed in Microsoft Azure that handles all communication between Pexip Infinity and Microsoft Teams via Graph APIs.
+**Pexip CVI Cloud Service** — Pexip-operated cloud infrastructure that handles SIP/H.323 call processing, transcoding, and routing for VTCs joining Teams meetings.
+
+**Pexip Teams Connector** — a dedicated application component deployed in Microsoft Azure that handles communication between the Pexip CVI service and Microsoft Teams via Graph APIs.
 
 The Teams Connector runs as a VM Scale Set (VMSS) behind an Azure Load Balancer, deployed using Pexip's PowerShell scripts. Pexip recommends a blue-green deployment strategy with separate production and test environments.
 
-### Infrastructure Details
+> **Important:** Do not confuse Pexip CVI with Pexip Infinity. Pexip Infinity is a separate product — it is a self-hosted, on-premises video infrastructure platform for organizations that need to own and operate their own MCU/gateway infrastructure. Pexip CVI for Teams is cloud-hosted and managed by Pexip. They are licensed and sold separately.
+
+### Teams Connector Infrastructure Details
 
 - Each Teams Connector instance handles approximately 15 concurrent VTC connections
 - VM sizes: Standard_D4s_v5 (default), Standard_D4as_v5, Standard_F4s
@@ -39,11 +43,11 @@ Organizations configure a custom `*.onpexip.com` subdomain (or their own domain)
 | SIP | 1080p | VbSS, BFCP |
 | H.323 | 720p | H.239 |
 
-## Pexip Infinity Configuration
+## Pexip CVI Service Configuration
 
-Key configuration steps on the Pexip Infinity side:
+Key configuration steps on the Pexip CVI management side:
 
-1. **Global Settings:** Enable "support for Pexip Infinity Connect clients and Client API" and "Enable PowerPoint Live" under Platform > Global settings
+1. **Global Settings:** Enable support for Connect clients and Client API, and enable PowerPoint Live under Platform > Global settings
 
 2. **Register Teams Tenant:** Under Call control > Microsoft Teams Tenants, add each Office 365 tenant ID (from Entra ID properties)
 
@@ -75,8 +79,6 @@ Pexip supports SIP Guest Join, allowing VTC endpoints to join external Teams mee
 
 Pexip's Teams Connector has shifted to **certificate-based authentication (CBA)** as the default method for authenticating against Microsoft Graph, with password-based authentication planned for deprecation.
 
-## References
-
 ## Related Topics
 
 - [Cloud Video Interop](cloud-video-interop.md) — CVI overview and PowerShell setup
@@ -88,5 +90,5 @@ Pexip's Teams Connector has shifted to **certificate-based authentication (CBA)*
 - [About Pexip's Microsoft Teams CVI integration](https://help.pexip.com/service/teams-integration.htm)
 - [Microsoft Teams setup for Pexip CVI](https://help.pexip.com/service/teams-setup.htm)
 - [Installing the Teams Connector in Azure](https://docs.pexip.com/admin/teams_connector.htm)
-- [Configuring Pexip Infinity as a Microsoft Teams gateway](https://docs.pexip.com/admin/teams_configuration.htm)
+- [Pexip CVI configuration for Microsoft Teams](https://docs.pexip.com/admin/teams_configuration.htm)
 - [Pexip CVI product page](https://www.pexip.com/products/connect/teams)

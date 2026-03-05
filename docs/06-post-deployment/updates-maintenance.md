@@ -42,13 +42,13 @@ The MTR application receives regular updates:
 
 ### Configuring Update Channel
 
-**Via Teams Admin Center:**
-1. Navigate to **Teams devices** > **Teams Rooms on Windows**
-2. Select device
-3. **Configuration** > **Software** > **Update channel**
+**Via Pro Management Portal:**
+1. Navigate to **[Pro Management Portal](https://portal.rooms.microsoft.com)** > **Rooms**
+2. Select device or use update rings to manage channels across device groups
+3. Configure update ring assignment (Staging, General, or Executive)
 
 **Via Intune:**
-Configure in device configuration profile.
+Configure in device configuration profile (for Windows Update rings and deferrals).
 
 ## Update Management Strategies
 
@@ -144,11 +144,15 @@ By default, MTR app updates automatically:
 
 Force update via:
 
-**Teams Admin Center:**
-1. Select device
+**Pro Management Portal (Windows MTR):**
+1. Select device in PMP
+2. Use update rings or push updates through the portal
+3. PMP manages app and OS update orchestration for Windows MTR
+
+**Teams Admin Center (Android MTR only, transitioning to PMP):**
+1. Select device under **Teams devices** > **Teams Rooms on Android**
 2. **Actions** > **Update software**
-3. Select update
-4. Apply
+3. Select update and apply
 
 **On Device:**
 1. Access admin settings
@@ -228,7 +232,7 @@ Peripherals may require separate updates:
 ### Maintenance Checklist
 
 ```
-□ Review device health in TAC/Pro Portal
+□ Review device health in Pro Management Portal (Windows MTR) or TAC (Android/Panels/Phones)
 □ Check for pending software updates
 □ Review and resolve active incidents
 □ Verify all peripherals connected and working

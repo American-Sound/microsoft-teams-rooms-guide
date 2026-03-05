@@ -32,13 +32,12 @@ Before configuring MDE, it's important to understand what protections already ex
 
 ### Licensing
 
-MDE for Teams Rooms requires one of:
+The **Teams Rooms Pro** license includes **Microsoft Defender for Endpoint Plan 2**. No additional security license is required for MDE on Teams Rooms Pro-licensed devices.
+
+If you are using Teams Rooms Basic (for pilots/evaluations), MDE is not included and would require a separate license such as:
 - Microsoft 365 E5
 - Microsoft 365 E5 Security
-- Microsoft Defender for Endpoint Plan 2
-- Microsoft Defender for Endpoint Plan 1 (limited — no EDR, TVM only)
-
-Teams Rooms Pro does **not** include MDE licensing. You need a separate security license assigned to the resource account or covered by a tenant-wide license.
+- Microsoft Defender for Endpoint Plan 2 (standalone)
 
 ### Requirements
 

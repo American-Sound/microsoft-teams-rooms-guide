@@ -46,14 +46,15 @@ This is the most fundamental distinction:
 | Per-user CVI policy | Required for meeting organizers | Not needed | Not needed |
 | Exchange calendar config | N/A | `Set-CalendarProcessing` required | N/A |
 
-## ASEI Considerations
+## Deployment Guidance
 
-Given multi-vendor client environments (Cisco, Pexip, Q-SYS) and the MSP model:
+**Multi-vendor environments:** CVI via Pexip provides the most comprehensive interop coverage. The Pexip CVI cloud service supports both inbound VTC-to-Teams and outbound Teams-Rooms-to-VTC scenarios, making it the single integration that covers the widest range of use cases.
 
-- **CVI via Pexip** provides the most comprehensive interop — existing Pexip Infinity infrastructure can serve as the CVI gateway for all managed clients, supporting both inbound VTC-to-Teams and outbound Teams-Rooms-to-VTC scenarios
-- **DGJ** is the zero-cost option for rooms that occasionally join a client's Webex or Zoom meeting, with the tradeoff of lower video quality and no HDMI content sharing
-- For the **Salesforce/Google Meet** engagement, the new two-way DGJ between Teams Rooms on Windows and Google Meet hardware requires no CVI infrastructure
-- The **SIP/H.323 calling** feature (Pexip-exclusive) is the right tool when a Teams Room needs to make a direct call to a Cisco codec in a client's conference room
+**Budget-constrained or occasional cross-platform joins:** DGJ is the zero-cost option for rooms that occasionally join Webex, Zoom, or Google Meet meetings, with the tradeoff of lower video quality and no HDMI content sharing.
+
+**Google Meet interop:** The two-way DGJ between Teams Rooms on Windows and Google Meet hardware requires no CVI infrastructure and is the simplest path for organizations that need mutual meeting join between the two platforms.
+
+**Point-to-point VTC calling:** The SIP/H.323 calling feature (Pexip-exclusive) is the right tool when a Teams Room needs to make a direct call to a standalone VTC endpoint (e.g., a Cisco codec in a remote conference room).
 
 ## Related Topics
 

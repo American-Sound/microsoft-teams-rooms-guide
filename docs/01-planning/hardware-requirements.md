@@ -187,7 +187,7 @@ Android-based systems are typically all-in-one or modular certified bundles:
 Microsoft maintains an up-to-date list of certified devices:
 
 **Official Certification List:**
-[Microsoft Teams Rooms Certified Devices](https://docs.microsoft.com/microsoftteams/rooms/certified-hardware)
+[Microsoft Teams Rooms Certified Devices](https://learn.microsoft.com/microsoftteams/rooms/certified-hardware)
 
 > **Tip:** Filter by room type, vendor, and platform to find suitable devices.
 

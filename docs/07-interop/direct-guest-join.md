@@ -10,9 +10,9 @@ Direct Guest Join is a WebRTC-based capability built into Microsoft Teams Rooms 
 |----------|----------------------|----------------------|
 | **Cisco Webex** | Supported | Supported |
 | **Zoom** | Supported | Supported |
-| **Google Meet** | Supported (February 2026, app 5.5.129.0) | Not yet supported |
+| **Google Meet** | Supported (app 5.5.129.0+) | Not supported |
 
-Google Meet DGJ on Teams Rooms on Windows was announced at ISE 2026 and is two-way — ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
+Google Meet DGJ on Teams Rooms on Windows is two-way — ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
 
 ## Enabling Direct Guest Join
 

@@ -194,9 +194,7 @@ docs/
 ### Required Licenses
 
 - Microsoft 365 tenant
-- Teams Rooms Pro or Basic license (per room)
-- Intune license (for device management)
-- Entra ID P1 or P2 (for Conditional Access)
+- Teams Rooms Pro license (per room) — includes Intune, Entra ID P1, Defender for Endpoint P2, and Teams Phone Standard
 
 ### Required PowerShell Modules
 

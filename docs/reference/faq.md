@@ -22,27 +22,15 @@ Microsoft Teams Rooms (MTR) is a complete meeting solution that brings the Teams
 
 ### Do I need Teams Rooms Pro or Basic?
 
-**Choose Basic if:**
-- You have 25 or fewer rooms
-- You don't need advanced monitoring
-- Budget is primary concern
-- Basic management is sufficient
+**Teams Rooms Pro is recommended for all production deployments**, regardless of organization size. Pro provides the monitoring, management, security features, and Microsoft support that production meeting rooms require.
 
-**Choose Pro if:**
-- You have more than 25 rooms
-- You need remote management and monitoring
-- You want advanced analytics
-- You need professional support
+**Teams Rooms Basic** is a free license intended only for pilots and proof-of-concept evaluations. It lacks remote management, proactive alerting, advanced analytics, Teams Phone Standard, and professional support. It is limited to 25 devices per tenant and should not be used for production rooms.
 
 ## Licensing Questions
 
 ### What license does the room resource account need?
 
-Each Teams Rooms device needs either:
-- Microsoft Teams Rooms Pro (full features)
-- Microsoft Teams Rooms Basic (limited, max 25 per tenant)
-
-The license is assigned to the resource account, not the device.
+Each Teams Rooms device needs a **Microsoft Teams Rooms Pro** license for production use. Teams Rooms Basic (free, max 25 per tenant) exists for pilot and evaluation scenarios only. The license is assigned to the resource account, not the device.
 
 ### Does each room need its own license?
 
@@ -183,17 +171,17 @@ Recommended but not required. Benefits:
 
 | Tool | Purpose |
 |------|---------|
-| Teams Admin Center | Device inventory, basic health, actions |
-| Pro Management Portal | Advanced monitoring, incidents, analytics |
-| Intune | Compliance, configuration, enrollment |
+| Pro Management Portal | Device management, health monitoring, incidents, analytics, update rings (Windows MTR) |
+| Teams Admin Center | Teams policies, CQD call quality; device management for Android/Panels/Phones (transitioning to PMP) |
+| Intune | Compliance, configuration profiles, enrollment |
 | Vendor portals | Firmware, vendor-specific features |
 
 ### How do I update Teams Rooms software?
 
 Updates are automatic by default. You can:
 - Let devices auto-update
-- Control via update rings (Intune)
-- Manually push via TAC
+- Control via PMP update rings (Windows MTR) or Intune update rings (OS-level)
+- Manually push via PMP (Windows MTR) or TAC (Android/Panels/Phones)
 - Configure maintenance windows
 
 ### How often do devices need maintenance?
@@ -208,8 +196,8 @@ Updates are automatic by default. You can:
 ### Can I remotely restart a device?
 
 Yes, via:
-- Teams Admin Center (Actions > Restart)
-- Pro Management Portal
+- Pro Management Portal (Windows MTR)
+- Teams Admin Center (Android/Panels/Phones)
 - Intune (device actions)
 
 ## Troubleshooting Questions
@@ -262,7 +250,7 @@ See [Interoperability](../07-interop/comparison.md) for a detailed comparison.
 
 ### Can legacy VTCs join our Teams meetings?
 
-Yes, via Cloud Video Interop (CVI). You need a certified CVI partner (Pexip, Cisco, or HP Poly) and must assign a CVI policy to meeting organizers. VTC users dial using the coordinates included in the Teams meeting invite. See [Cloud Video Interop](../07-interop/cloud-video-interop.md).
+Yes, via Cloud Video Interop (CVI). You need a certified CVI partner (Pexip or Cisco) and must assign a CVI policy to meeting organizers. VTC users dial using the coordinates included in the Teams meeting invite. See [Cloud Video Interop](../07-interop/cloud-video-interop.md).
 
 ### Does Teams Rooms support PSTN calling?
 

@@ -37,9 +37,7 @@ The key to making this truly zero-touch is combining **Autopilot** (handles Wind
 
 ### Tenant Configuration
 
-- [ ] Entra ID P1/P2 (for Conditional Access)
-- [ ] Intune license (included with M365 E3/E5)
-- [ ] Teams Rooms Pro license (required for PMP Autologin)
+- [ ] Teams Rooms Pro license (includes Intune, Entra ID P1, and is required for PMP Autologin)
 - [ ] Automatic Intune enrollment enabled
 - [ ] MDE-Intune connector configured (if using Defender for Endpoint)
 
@@ -227,7 +225,7 @@ Request vendor perform:
 For managed service providers deploying across client tenants:
 
 1. Use the [Multi-Tenant Management Portal](https://partner.rooms.microsoft.com) for cross-tenant visibility
-2. Standardize Group Tags: `MTR-{client-code}` (e.g., `MTR-SFDC`, `MTR-BROOK`)
+2. Standardize Group Tags: `MTR-{client-code}` (e.g., `MTR-ACME`, `MTR-CONTOSO`)
 3. Each client tenant requires its own Autopilot registrations, PMP Autologin assignments, and Intune profiles
 4. Document per-client deployment runbooks with tenant-specific IDs and naming conventions
 

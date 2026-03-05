@@ -227,7 +227,7 @@ Get-CalendarProcessing -Identity "mtr-room@contoso.com" |
 #### Device Shows Offline in Admin Portal
 
 **Symptoms:**
-- Device not showing in TAC
+- Device not showing in admin portal (PMP for Windows MTR, TAC for Android/Panels/Phones)
 - Offline status despite being powered on
 
 **Possible Causes:**
@@ -297,16 +297,16 @@ Copy-Item -Path "$logPath\*" -Destination "C:\Temp\MTRLogs" -Recurse
 
 ### Remote Log Collection
 
-**Via Teams Admin Center:**
+**Via Pro Management Portal (Windows MTR):**
+1. Select device
+2. Navigate to **Diagnostics**
+3. Initiate log collection
+
+**Via Teams Admin Center (Android/Panels/Phones):**
 1. Select device
 2. **Actions** > **Download device logs**
 3. Wait for collection
 4. Download when ready
-
-**Via Pro Management Portal:**
-1. Select device
-2. Navigate to **Diagnostics**
-3. Initiate log collection
 
 ## Network Diagnostics
 

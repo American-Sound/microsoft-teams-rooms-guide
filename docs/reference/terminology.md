@@ -195,13 +195,13 @@
 ## T
 
 **TAC (Teams Admin Center)**
-: Web portal for managing Teams settings, policies, and devices at admin.teams.microsoft.com.
+: Web portal for managing Teams policies, users, phone numbers, and Call Quality Dashboard (CQD) at admin.teams.microsoft.com. Device management for Android MTR, Panels, and Phones (transitioning to PMP through 2026). Windows MTR device management moved to the Pro Management Portal in June 2025.
 
 **Teams Panels**
 : Wall-mounted touchscreen devices showing room availability outside meeting rooms.
 
 **Teams Rooms Basic**
-: Free license tier for up to 25 Teams Rooms devices with basic features.
+: Free license tier for up to 25 Teams Rooms devices with basic features. Intended for pilot and proof-of-concept use only — not recommended for production deployments.
 
 **Teams Rooms Pro**
 : Premium license providing full Teams Rooms features including Pro Management Portal.

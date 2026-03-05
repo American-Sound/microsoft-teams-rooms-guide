@@ -24,7 +24,7 @@ The MTR device generates a new random password on the configured schedule, store
 
 - Windows 11 with April 2023 update or later (built-in LAPS client)
 - Device must be Entra ID joined (or Hybrid Entra ID joined)
-- Entra ID P1 or P2 (for cloud LAPS)
+- Entra ID P1 or P2 (P1 is included with Teams Rooms Pro)
 - Intune enrollment (for policy deployment)
 - Administrator role: **Cloud Device Administrator** or **Intune Administrator** (to read passwords)
 

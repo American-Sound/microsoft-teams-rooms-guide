@@ -11,7 +11,7 @@ CVI is about **inbound** interoperability — non-Teams VTC devices joining **in
 The CVI architecture consists of three layers:
 
 1. **VTC endpoint** (Cisco codec, Poly system, etc.) places a SIP or H.323 call to the CVI partner's infrastructure
-2. **CVI partner service** (e.g., Pexip Teams Connector running in Azure) receives the call, authenticates against the Microsoft tenant, and joins the meeting on behalf of the VTC
+2. **CVI partner service** (e.g., Pexip CVI cloud service) receives the call, authenticates against the Microsoft tenant, and joins the meeting on behalf of the VTC
 3. **Microsoft Teams** sees the CVI service as a bot participant that has been granted the required Graph API permissions
 
 ## Certified CVI Partners
@@ -20,10 +20,10 @@ Only these partners are Microsoft-certified for CVI. Microsoft does not support 
 
 | Partner | Solution | Status |
 |---------|----------|--------|
-| **Pexip** | Pexip Infinity for Microsoft Teams | Active, fully featured |
+| **Pexip** | Pexip CVI (cloud-hosted in Pexip Service) | Active, fully featured |
 | **Cisco** | Webex Video Integration for Microsoft Teams | Active |
-| **HP Poly** | HP Poly CloudConnect | Active |
-| **Poly** | Poly RealConnect Service | Maintenance only — no new customers |
+
+> **Note:** HP Poly CloudConnect and Poly RealConnect were Pexip-powered CVI solutions sold through Poly. These have been consolidated under Pexip directly. If you have an existing CloudConnect or RealConnect deployment, contact Pexip for migration to the current Pexip CVI service.
 
 ## Dialing Methods
 
@@ -80,13 +80,13 @@ Set-CsVideoInteropServiceProvider -Identity "PexipCVI" `
 Remove-CsVideoInteropServiceProvider -Identity "PexipCVI"
 ```
 
-## Recent CVI Updates (2025-2026)
+## CVI Feature Updates
 
-| Timeline | Feature | Details |
-|----------|---------|---------|
-| CY25Q2 | CVI Support for Teams Town Halls | Presenters join and present in town halls using VTC devices |
-| CY25Q3 | CVI Support for PowerPoint Live | VTCs see still content snapshots of PowerPoint Live presentations |
-| CY24Q2 | Video RTX (retransmission) | Improved packet loss resilience for CVI call legs |
+| Feature | Details |
+|---------|---------|
+| CVI Support for Teams Town Halls | Presenters can join and present in town halls using VTC devices |
+| CVI Support for PowerPoint Live | VTCs see still content snapshots of PowerPoint Live presentations |
+| Video RTX (retransmission) | Improved packet loss resilience for CVI call legs |
 
 ## Key Capabilities
 

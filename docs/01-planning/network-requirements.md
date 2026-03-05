@@ -113,7 +113,7 @@ aadcdn.msftauth.net
 
 Microsoft publishes IP ranges for Microsoft 365 services:
 
-- [Office 365 URLs and IP Ranges](https://docs.microsoft.com/microsoft-365/enterprise/urls-and-ip-address-ranges)
+- [Office 365 URLs and IP Ranges](https://learn.microsoft.com/microsoft-365/enterprise/urls-and-ip-address-ranges)
 - Service Area: "Microsoft Teams"
 - Update frequency: Monthly
 

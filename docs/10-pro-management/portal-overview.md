@@ -10,12 +10,12 @@ GCC-High: `https://devices.gov.teams.microsoft.us/` | DoD: `https://devices.dod.
 
 ## Licensing
 
-No additional license is required to access the portal itself. After May 1, 2025, all Teams Rooms on Windows devices (including Basic and Standard licenses) appear in PMP.
+No additional license is required to access the portal itself. After May 1, 2025, all Teams Rooms on Windows devices (including Basic-licensed devices) appear in PMP.
 
 | License | Portal Access | Incident Generation | Analytics | Update Rings |
 |---------|--------------|--------------------|-----------|----|
 | Teams Rooms Pro | Full | Yes | Yes | Yes |
-| Teams Rooms Basic/Standard | Device management | No | No | No (automatic updates only) |
+| Teams Rooms Basic | Device inventory only | No | No | No (automatic updates only) |
 | Teams Shared Device | Device management | Yes | Yes | — |
 
 As of June 2025, Teams Rooms on Windows are managed exclusively through PMP (no longer available in TAC). Android device management is transitioning to PMP through 2026.

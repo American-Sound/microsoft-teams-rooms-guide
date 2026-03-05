@@ -48,7 +48,7 @@ MTR on Android provides a streamlined meeting experience on certified Android-ba
 |---------|---------|---------|
 | **Operating System** | Windows 11 IoT Enterprise | Android (vendor-specific) |
 | **Form Factors** | Compute module + peripherals | All-in-one or modular |
-| **Front Row Layout** | Yes | Limited/Coming |
+| **Front Row Layout** | Yes | Limited |
 | **Content Camera** | Yes | No |
 | **Intelligent Speakers** | Yes | Limited |
 | **Dual Screen Support** | Yes | Yes |

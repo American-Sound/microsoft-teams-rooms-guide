@@ -48,13 +48,13 @@ See [Windows Autopilot](windows-autopilot.md) for detailed steps.
 1. On MTR device, sign out of MTR app
 2. Access Windows Settings (Windows key + I)
 3. Go to **Accounts** > **Access work or school**
-4. Click **Connect** > **Join this device to Azure Active Directory**
+4. Click **Connect** > **Join this device to Microsoft Entra ID**
 5. Sign in with Entra ID credentials
 6. Device joins and enrolls in Intune
 
 ## Android MTR Enrollment
 
-### AOSP Enrollment (2025+)
+### AOSP Enrollment
 
 **Best for:** Android Teams Rooms devices going forward
 

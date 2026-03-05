@@ -112,8 +112,8 @@
 ## Post-Deployment Verification
 
 ### Admin Portal Verification
-- [ ] Device appears in Teams Admin Center
-- [ ] Device shows as Online/Healthy
+- [ ] Device appears in Pro Management Portal (Windows MTR) or Teams Admin Center (Android)
+- [ ] Device shows as Online/Healthy in PMP
 - [ ] Device appears in Intune (if enrolled)
 - [ ] Compliance state is Compliant
 - [ ] Pro Management Portal shows device (if Pro licensed)

@@ -71,7 +71,7 @@ Android Teams Rooms devices (AOSP enrollment) have limited compliance capabiliti
 - Require code integrity: **Yes**
 
 **Device Properties:**
-- Minimum OS version: **10.0.19044** (21H2 or later)
+- Minimum OS version: **10.0.22000** (Windows 11 21H2 or later)
 
 **System Security:**
 - Require encryption: **Yes**
