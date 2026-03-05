@@ -23,7 +23,7 @@ Only these partners are Microsoft-certified for CVI. Microsoft does not support 
 | **Pexip** | Pexip CVI (cloud-hosted in Pexip Service) | Active, fully featured |
 | **Cisco** | Webex Video Integration for Microsoft Teams | Active |
 
-> **Note:** HP Poly CloudConnect and Poly RealConnect were Pexip-powered CVI solutions sold through Poly. These have been consolidated under Pexip directly. If you have an existing CloudConnect or RealConnect deployment, contact Pexip for migration to the current Pexip CVI service.
+> **Note:** HP Poly CloudConnect is a Pexip-powered CVI solution sold through Poly that is functionally identical to Pexip CVI. If you have an existing Poly RealConnect deployment, that product is maintenance-only with an EOL of July 2026.  Please contact Pexip for migration to the current Pexip CVI service.
 
 ## Dialing Methods
 
