@@ -14,21 +14,9 @@ Direct Guest Join is a WebRTC-based capability built into Microsoft Teams Rooms 
 
 Google Meet DGJ on Teams Rooms on Windows is two-way: ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
 
-## Cross-Platform SIP Join (Alternative to DGJ)
+## DGJ vs. CVI/SIP
 
-In addition to Direct Guest Join (WebRTC), Teams Rooms Pro license holders can join third-party meetings via SIP, which provides a different set of capabilities and tradeoffs.
-
-| Capability | DGJ (WebRTC) | Cross-Platform SIP |
-|------------|-------------|-------------------|
-| **Video quality** | Up to 720p | Up to 1080p |
-| **License required** | Basic or Pro | Pro only |
-| **Platforms** | Cisco Webex, Zoom, Google Meet (Windows only) | Cisco Webex, Zoom, Amazon Chime, GoToMeeting, RingCentral, any SIP service |
-| **Content sharing** | Screen share only | HDMI/content camera + screen share |
-| **Display support** | Single display | Dual display |
-| **Internet required** | Yes (direct) | No (works through SBC/VPN) |
-| **Events/Webinars** | Not supported | Supported for Webex and Zoom |
-
-For organizations that need higher video quality, content camera support, or connectivity to platforms beyond Webex and Zoom, SIP join through a CVI partner or direct SIP dial is the better path despite the Pro license requirement.
+DGJ is the zero-infrastructure option, but it comes with tradeoffs. Video caps at 720p, content sharing is receive-only, and platform support is limited to Webex, Zoom, and Google Meet. For organizations that need higher video quality (up to 1080p), content camera support, dual display, or connectivity to platforms like Amazon Chime, GoToMeeting, RingCentral, or arbitrary SIP endpoints, the SIP path through a CVI partner like Pexip is the better fit despite the additional infrastructure and Pro license requirement. See the [Interop Comparison](comparison.md) for the full feature matrix and [Pexip CVI](pexip-cvi.md) for deployment details.
 
 ## Enabling Direct Guest Join
 
