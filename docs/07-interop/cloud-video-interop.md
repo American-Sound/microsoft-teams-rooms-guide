@@ -4,7 +4,7 @@
 
 Cloud Video Interop (CVI) enables legacy SIP and H.323 video teleconferencing devices (VTCs) to join Microsoft Teams meetings. A certified CVI partner deploys cloud-based infrastructure that translates between standard video conferencing protocols and the Teams meeting platform via Microsoft Graph APIs.
 
-CVI is about **inbound** interoperability — non-Teams VTC devices joining **into** Teams meetings. For Teams Rooms joining third-party meetings, see [Direct Guest Join](direct-guest-join.md). For point-to-point SIP/H.323 calling from Teams Rooms, see [SIP and H.323 Dialing](sip-h323-dialing.md).
+CVI is about **inbound** interoperability: non-Teams VTC devices joining **into** Teams meetings. For Teams Rooms joining third-party meetings, see [Direct Guest Join](direct-guest-join.md). For point-to-point SIP/H.323 calling from Teams Rooms, see [SIP and H.323 Dialing](sip-h323-dialing.md).
 
 ## Architecture
 
@@ -102,14 +102,14 @@ Remove-CsVideoInteropServiceProvider -Identity "PexipCVI"
 
 ## Related Topics
 
-- [Pexip CVI Configuration](pexip-cvi.md) — Pexip-specific architecture and setup
-- [SIP/H.323 Dialing](sip-h323-dialing.md) — Outbound calling from Teams Rooms via CVI partner
-- [Direct Guest Join](direct-guest-join.md) — WebRTC-based alternative for joining third-party meetings
-- [Interop Comparison](comparison.md) — Feature matrix across all three methods
-- [CVI Policy Script](../../scripts/interop/Set-MTRCviPolicy.ps1) — PowerShell automation
+- [Pexip CVI Configuration](pexip-cvi.md): Pexip-specific architecture and setup
+- [SIP/H.323 Dialing](sip-h323-dialing.md): Outbound calling from Teams Rooms via CVI partner
+- [Direct Guest Join](direct-guest-join.md): WebRTC-based alternative for joining third-party meetings
+- [Interop Comparison](comparison.md): Feature matrix across all three methods
+- [CVI Policy Script](../../scripts/interop/Set-MTRCviPolicy.ps1): PowerShell automation
 
 ## References
 
-- [Cloud Video Interop — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cloud-video-interop)
+- [Cloud Video Interop: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cloud-video-interop)
 - [Grant-CsTeamsVideoInteropServicePolicy](https://learn.microsoft.com/en-us/powershell/module/teams/grant-csteamsvideointeropservicepolicy)
 - [Teams Rooms Licensing](https://learn.microsoft.com/en-us/microsoftteams/rooms/rooms-licensing)

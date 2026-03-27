@@ -2,7 +2,7 @@
 
 ## Overview
 
-Microsoft Teams Rooms requires specific licensing for meeting room devices. There are two main license types: Teams Rooms Pro and Teams Rooms Basic. **Teams Rooms Pro is the recommended license for all production deployments.** Teams Rooms Basic is a limited free license intended only for evaluation, pilots, and proof-of-concept scenarios — it is not designed or recommended for production use.
+Microsoft Teams Rooms requires specific licensing for meeting room devices. There are two main license types: Teams Rooms Pro and Teams Rooms Basic. **Teams Rooms Pro is the recommended license for all production deployments.** Teams Rooms Basic is a limited free license intended only for evaluation, pilots, and proof-of-concept scenarios: it is not designed or recommended for production use.
 
 ## License Types
 
@@ -41,7 +41,7 @@ Teams Rooms Basic is a limited free license intended for evaluation and proof-of
 **Included Features:**
 - Lite Teams meeting experience
 - Audio Conferencing (dial-in)
-- Basic device management in Pro Management Portal (device inventory only — no incidents or analytics)
+- Basic device management in Pro Management Portal (device inventory only: no incidents or analytics)
 - Limited to 25 devices per tenant
 
 **Limitations:**
@@ -80,7 +80,20 @@ Teams Rooms Basic is a limited free license intended for evaluation and proof-of
 | **Intune + Entra ID P1** | No | Yes |
 | **Teams Phone Standard** | No | Yes |
 | **Defender for Endpoint P2** | No | Yes |
+| **Front row layout** | No | Yes |
+| **Together mode** | No | Yes |
+| **Large gallery** | No | Yes |
+| **Meeting chat** | No | Yes |
+| **Show meeting names** | No | Yes |
+| **Coordinated meetings** | No | Yes |
+| **Room check-in with Teams Panel** | No | Yes |
+| **Join meetings across Teams clouds** | No | Yes |
+| **Panoramic room view** | No | Yes |
+| **People counting** | No | Yes |
+| **End-to-end call encryption** | No | Yes |
 | **Microsoft Support** | Community | Professional |
+
+> **Note:** Microsoft Teams Shared Devices licenses are not supported on and will not work with Teams Rooms devices. Shared Devices licenses are intended for common-area phones and other shared endpoints, not meeting room systems.
 
 ## Pricing
 

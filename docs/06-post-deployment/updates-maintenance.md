@@ -4,6 +4,8 @@
 
 Keeping Microsoft Teams Rooms devices updated ensures security, stability, and access to new features. This guide covers update management strategies for both Windows and Android platforms.
 
+> **Critical: EWS Deprecation for Android MTR.** Android MTR devices must be updated to the February 2026 release (build 1449/1.0.96.2025421910 or later) to maintain calendar functionality after Microsoft deprecates Exchange Web Services. Devices running older firmware will lose calendar sync, which means no meeting information on the room display and no one-touch join. Prioritize this update for any Android MTR fleet.
+
 ## Update Types
 
 ### Teams Rooms Application

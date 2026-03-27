@@ -6,7 +6,7 @@ The AI Assistant is accessible via an icon in the top-right banner of the PMP po
 
 ## Key Facts
 
-- **No additional license required** — this is not Copilot. No Copilot license needed.
+- **No additional license required**: this is not Copilot. No Copilot license needed.
 - Requires Teams Rooms Pro license and one of: Global Administrator, Teams Administrator, or Teams Rooms Pro Manager role
 - **Provides information only; does not perform actions**
 
@@ -27,8 +27,8 @@ The assistant interacts in the language configured for the portal (automatic tra
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — PMP dashboard and room management
-- [Health Monitoring](health-monitoring.md) — Health signals the AI can query
+- [Portal Overview](portal-overview.md): PMP dashboard and room management
+- [Health Monitoring](health-monitoring.md): Health signals the AI can query
 
 ## References
 

@@ -4,7 +4,7 @@
 
 SkypeSettings.xml is the local configuration file for Microsoft Teams Rooms on Windows. Despite the legacy name, it is the active configuration mechanism for the current Teams Rooms app (including the new Teams client, `ms-teams.exe`). The name has not changed.
 
-When placed in the correct directory, the Teams Rooms app reads the file at startup, applies all settings, and **deletes the file**. This is a one-shot configuration mechanism — the file is consumed, not persistently read.
+When placed in the correct directory, the Teams Rooms app reads the file at startup, applies all settings, and **deletes the file**. This is a one-shot configuration mechanism: the file is consumed, not persistently read.
 
 The Pro Management Portal uses SkypeSettings.xml under the hood. When you push settings from the portal, the management agent writes a SkypeSettings.xml to the device, restarts the app, and the app processes it identically to a manually placed file.
 
@@ -16,7 +16,7 @@ The file path is the same for both the legacy and new Teams app:
 C:\Users\Skype\AppData\Local\Packages\Microsoft.SkypeRoomSystem_8wekyb3d8bbwe\LocalState\SkypeSettings.xml
 ```
 
-This path is under the local `Skype` user profile — the kiosk account that runs the MTR app. The UWP package identity (`Microsoft.SkypeRoomSystem_8wekyb3d8bbwe`) has not changed with the new Teams client.
+This path is under the local `Skype` user profile: the kiosk account that runs the MTR app. The UWP package identity (`Microsoft.SkypeRoomSystem_8wekyb3d8bbwe`) has not changed with the new Teams client.
 
 ## File Format
 
@@ -26,7 +26,7 @@ This path is under the local `Skype` user profile — the kiosk account that run
 </SkypeSettings>
 ```
 
-All settings are child elements of the root `<SkypeSettings>` element. You can include any combination of settings — you do not need to include every setting, only the ones you want to change.
+All settings are child elements of the root `<SkypeSettings>` element. You can include any combination of settings: you do not need to include every setting, only the ones you want to change.
 
 ## Settings Reference
 
@@ -75,8 +75,8 @@ Used for initial resource account provisioning or re-authentication. The file is
 | `<ZoomMeetingsEnabled>` | Boolean | Disabled | Zoom Direct Guest Join |
 | `<GoogleMeetMeetingsEnabled>` | Boolean | Disabled | Google Meet DGJ. Added in app 5.5.129.0 (Feb 2026). |
 | `<UseCustomInfoForThirdPartyMeetings>` | Boolean | Disabled | Use custom display name/email instead of room account |
-| `<CustomDisplayNameForThirdPartyMeetings>` | String | — | Guest name shown in third-party meeting |
-| `<CustomDisplayEmailForThirdPartyMeetings>` | String | — | Guest email shown in third-party meeting |
+| `<CustomDisplayNameForThirdPartyMeetings>` | String |: | Guest name shown in third-party meeting |
+| `<CustomDisplayEmailForThirdPartyMeetings>` | String |: | Guest email shown in third-party meeting |
 
 See [Direct Guest Join](../07-interop/direct-guest-join.md) for detailed configuration and Exchange prerequisites.
 
@@ -84,13 +84,13 @@ See [Direct Guest Join](../07-interop/direct-guest-join.md) for detailed configu
 
 | Element | Type | Default | Description |
 |---------|------|---------|-------------|
-| `<AutoScreenShare>` | Boolean | — | HDMI ingest auto-shares to remote participants. If false, shows locally but requires manual share. |
-| `<HideMeetingName>` | Boolean | — | Hides meeting names on console and front-of-room displays |
+| `<AutoScreenShare>` | Boolean |: | HDMI ingest auto-shares to remote participants. If false, shows locally but requires manual share. |
+| `<HideMeetingName>` | Boolean |: | Hides meeting names on console and front-of-room displays |
 | `<AutoExitMeetingEnabled>` | Boolean | Disabled | Auto-leaves meeting if room is last participant |
 | `<RequirePasscodeForAllTeamsMeetings>` | Boolean | Disabled | Requires meeting ID + passcode for all meetings. **Pro license required.** |
 | `<RequirePasscodeForAllPrivateTeamsMeetings>` | Boolean | Disabled | Same but only for private meetings. **Pro license required.** |
 | `<DisableTeamsAudioSharing>` | Boolean | false | Disables HDMI audio sharing to meeting |
-| `<NoiseSuppressionDefault>` | String | — | `0` = Off (OEM mode only), `1` = High (suppresses all non-speech) |
+| `<NoiseSuppressionDefault>` | String |: | `0` = Off (OEM mode only), `1` = High (suppresses all non-speech) |
 | `<EnableDeviceEndToEndEncryption>` | Boolean | false | E2EE for 1:1 calls. Both parties must enable. |
 
 ### Proximity & Bluetooth
@@ -109,11 +109,11 @@ See [Direct Guest Join](../07-interop/direct-guest-join.md) for detailed configu
 |---------|------|---------|-------------|
 | `<FrontRowEnabled>` | Boolean | Enabled | Enable/disable Front Row layout |
 | `<FrontRowVideoSize>` | String | `medium` | `small`, `medium`, or `large` |
-| `<FrontRowPanelDefaults>` | String | — | Comma-separated pair (e.g., `3,2`). `1`=Hide, `2`=Chat, `3`=Raised hand |
+| `<FrontRowPanelDefaults>` | String |: | Comma-separated pair (e.g., `3,2`). `1`=Hide, `2`=Chat, `3`=Raised hand |
 | `<DefaultFoRExperience>` | Boolean | 0 | `0` = Gallery (default), `1` = Front Row |
 | `<SingleFoRDefaultContentLayout>` | String | 1 | `0` = Content only, `1` = Content + people |
 | `<DualScreenMode>` | Boolean | false | Enable dual screen mode |
-| `<DuplicateIngestDefault>` | Boolean | — | Content on both screens in dual mode when out of meeting |
+| `<DuplicateIngestDefault>` | Boolean |: | Content on both screens in dual mode when out of meeting |
 | `<SplitVideoLayoutsDisabled>` | Boolean | false | Dual-display only. Disables split gallery and Front Row. |
 | `<RemoveFoRCalendar>` | Boolean | false | Remove calendar from front-of-room display |
 | `<ShowMeetingChat>` | Boolean | Enabled | Meeting chat and chat bubbles |
@@ -138,12 +138,12 @@ Resolution and scaling settings require `<EnableResolutionAndScalingSetting>` to
 | Element | Type | Default | Description |
 |---------|------|---------|-------------|
 | `<EnableResolutionAndScalingSetting>` | Boolean | Disabled | Must be true for resolution/scaling to apply |
-| `<MainFoRDisplay>` | Container | — | Main (or right in dual mode) display settings |
-| `<MainFoRDisplayResolution>` | String | — | `Width,Height` (e.g., `1920,1080` or `3840,2160`) |
-| `<MainFoRDisplayScaling>` | Number | — | 100, 125, 150, 175, 200, 225, 250, 300 |
-| `<ExtendedFoRDisplay>` | Container | — | Extended (left in dual mode) display settings |
-| `<ExtendedFoRDisplayResolution>` | String | — | Same format as main display |
-| `<ExtendedFoRDisplayScaling>` | Number | — | Same values as main display |
+| `<MainFoRDisplay>` | Container |: | Main (or right in dual mode) display settings |
+| `<MainFoRDisplayResolution>` | String |: | `Width,Height` (e.g., `1920,1080` or `3840,2160`) |
+| `<MainFoRDisplayScaling>` | Number |: | 100, 125, 150, 175, 200, 225, 250, 300 |
+| `<ExtendedFoRDisplay>` | Container |: | Extended (left in dual mode) display settings |
+| `<ExtendedFoRDisplayResolution>` | String |: | Same format as main display |
+| `<ExtendedFoRDisplayScaling>` | Number |: | Same values as main display |
 
 ### Camera & IntelliFrame
 
@@ -201,7 +201,7 @@ Peripheral settings must be wrapped in a `<Devices>` container. Device names mus
 
 **Available preset themes:** Default, Vivid Flag Default, Summer Summit, Seaside Bliss, Into The Fold, Creative Conservatory, Blue Wave, Digital Forest, Dreamcatcher, Limeade, Purple Paradise, Pixel Perfect, Roadmap, Sunset
 
-Custom background PNG files must be placed in the same LocalState folder alongside the XML file. The Pro Management Portal cannot push custom background image files — you must deploy them via Intune PowerShell script or file copy.
+Custom background PNG files must be placed in the same LocalState folder alongside the XML file. The Pro Management Portal cannot push custom background image files: you must deploy them via Intune PowerShell script or file copy.
 
 ### Coordinated Meetings
 
@@ -232,8 +232,8 @@ For rooms with multiple Teams Rooms devices or a Surface Hub working together:
 
 | Element | Type | Default | Description |
 |---------|------|---------|-------------|
-| `<EmailAddressForLogsAndFeedback>` | String | — | Email for "Report a problem" logs (in `<SendLogs>` container) |
-| `<SendLogsAndFeedback>` | Boolean | — | Allow logs with feedback submissions (in `<SendLogs>` container) |
+| `<EmailAddressForLogsAndFeedback>` | String |: | Email for "Report a problem" logs (in `<SendLogs>` container) |
+| `<SendLogsAndFeedback>` | Boolean |: | Allow logs with feedback submissions (in `<SendLogs>` container) |
 | `<SendFeedbackToPMP>` | Boolean | Enabled | Send feedback to Pro Management Portal |
 
 ### Other Feature Toggles
@@ -245,11 +245,11 @@ For rooms with multiple Teams Rooms devices or a Surface Hub working together:
 
 ## Pro Management Portal vs. SkypeSettings.xml
 
-The Pro Management Portal and SkypeSettings.xml are not mutually exclusive — the portal writes SkypeSettings.xml to the device under the hood.
+The Pro Management Portal and SkypeSettings.xml are not mutually exclusive: the portal writes SkypeSettings.xml to the device under the hood.
 
 ### Settings available in both
 
-Most settings — meeting defaults, Front Row, Bluetooth/proximity, QR code, Direct Guest Join toggles, IntelliFrame, noise suppression, theming (presets only), resolution/scaling.
+Most settings: meeting defaults, Front Row, Bluetooth/proximity, QR code, Direct Guest Join toggles, IntelliFrame, noise suppression, theming (presets only), resolution/scaling.
 
 ### Portal-only capabilities
 
@@ -345,7 +345,7 @@ This is most commonly needed in `<ContentCameraId>` values which contain USB dev
 
 ## Related Topics
 
-- [Windows Autopilot](../04-intune-management/windows-autopilot.md) — Autologin configuration
-- [Direct Guest Join](../07-interop/direct-guest-join.md) — Third-party meeting configuration
-- [Pro Management Portal](../10-pro-management/portal-overview.md) — Cloud-based settings management
-- [Autologin Script](../../scripts/intune/Set-MTRAutoLogin.ps1) — Production credential deployment
+- [Windows Autopilot](../04-intune-management/windows-autopilot.md): Autologin configuration
+- [Direct Guest Join](../07-interop/direct-guest-join.md): Third-party meeting configuration
+- [Pro Management Portal](../10-pro-management/portal-overview.md): Cloud-based settings management
+- [Autologin Script](../../scripts/intune/Set-MTRAutoLogin.ps1): Production credential deployment

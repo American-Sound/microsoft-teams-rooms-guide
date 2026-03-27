@@ -17,9 +17,9 @@ Users create biometric profiles in the Teams desktop app under **Settings** > **
 
 en-us, en-gb, en-ca, en-in, en-au, en-nz, ar-sa, da-dk, de-de, es-es, es-mx, fi-fi, fr-ca, fr-fr, it-it, ja-jp, ko-kr, nb-no, nl-nl, pl-pl, pt-br, ru-ru, sv-se, zh-cn, zh-tw. No language requirement for face enrollment.
 
-## Admin Configuration — CsTeamsAIPolicy
+## Admin Configuration: CsTeamsAIPolicy
 
-The `CsTeamsAIPolicy` provides granular control over biometric enrollment. This policy can only be managed via PowerShell — there is no Teams Admin Center UI for it.
+The `CsTeamsAIPolicy` provides granular control over biometric enrollment. This policy can only be managed via PowerShell: there is no Teams Admin Center UI for it.
 
 ### Parameters
 
@@ -49,7 +49,7 @@ Set-CsTeamsAIPolicy -Identity Global -SpeakerAttributionBYOD Enabled
 Get-CsTeamsAIPolicy -Identity Global
 ```
 
-## Room-Level Configuration — RoomAttributeUserOverride
+## Room-Level Configuration: RoomAttributeUserOverride
 
 To enable Intelligent Speaker (people recognition) in Teams Rooms, set `RoomAttributeUserOverride` on the meeting policy assigned to the room resource account:
 
@@ -89,10 +89,10 @@ For BYOD rooms, the room host must have either a Microsoft Teams Premium or Micr
 
 ## Related Topics
 
-- [Copilot Overview](copilot-overview.md) — How speaker attribution feeds into Copilot features
-- [Facilitator](facilitator.md) — Shared AI notes that leverage speaker identification
-- [Voice Isolation](voice-isolation.md) — Complementary audio processing policy
-- [AI PowerShell Reference](powershell-reference.md) — Complete CsTeamsAIPolicy cmdlet reference
+- [Copilot Overview](copilot-overview.md): How speaker attribution feeds into Copilot features
+- [Facilitator](facilitator.md): Shared AI notes that use speaker identification
+- [Voice Isolation](voice-isolation.md): Complementary audio processing policy
+- [AI PowerShell Reference](powershell-reference.md): Complete CsTeamsAIPolicy cmdlet reference
 
 ## References
 

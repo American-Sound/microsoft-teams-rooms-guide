@@ -2,7 +2,7 @@
 
 ## Overview
 
-Local Administrator Password Solution (LAPS) automatically manages and rotates the local administrator password on Windows Teams Rooms devices. On MTR, the local admin account is used for device settings, troubleshooting, and firmware updates — LAPS ensures these passwords are unique per device, regularly rotated, and securely stored in Entra ID.
+Local Administrator Password Solution (LAPS) automatically manages and rotates the local administrator password on Windows Teams Rooms devices. On MTR, the local admin account is used for device settings, troubleshooting, and firmware updates: LAPS ensures these passwords are unique per device, regularly rotated, and securely stored in Entra ID.
 
 Without LAPS, organizations typically use a shared local admin password across all MTR devices, which means a single compromised password exposes every room in the fleet.
 
@@ -97,7 +97,7 @@ $deviceName = "MTR-HQ-101"
 $device = Get-MgDevice -Filter "displayName eq '$deviceName'"
 $lapsPassword = Get-MgDeviceLocalCredential -DeviceId $device.DeviceId
 
-# Display (handle securely — don't log in production)
+# Display (handle securely: don't log in production)
 $lapsPassword | Select-Object DeviceName, AccountName, PasswordExpirationDateTime
 ```
 
@@ -106,8 +106,8 @@ $lapsPassword | Select-Object DeviceName, AccountName, PasswordExpirationDateTim
 ### The Local Admin Account on Teams Rooms
 
 Teams Rooms on Windows has two local accounts:
-- **Skype** — the standard user account that runs the MTR app in kiosk mode. This is NOT the account LAPS manages.
-- **Admin** (or custom name) — the local administrator account used for device settings access (tap the gear icon 5 times), troubleshooting, and firmware updates. **This is the account LAPS should manage.**
+- **Skype**: the standard user account that runs the MTR app in kiosk mode. This is NOT the account LAPS manages.
+- **Admin** (or custom name): the local administrator account used for device settings access (tap the gear icon 5 times), troubleshooting, and firmware updates. **This is the account LAPS should manage.**
 
 ### When You Need the Local Admin Password
 
@@ -152,6 +152,6 @@ LAPS password retrievals are logged in Entra ID audit logs:
 
 ## Related Topics
 
-- [Defender for Endpoint](defender-endpoint.md) — Endpoint security configuration
-- [Device Compliance](device-compliance.md) — Compliance policy settings
-- [MFA Considerations](mfa-considerations.md) — Authentication for resource accounts
+- [Defender for Endpoint](defender-endpoint.md): Endpoint security configuration
+- [Device Compliance](device-compliance.md): Compliance policy settings
+- [MFA Considerations](mfa-considerations.md): Authentication for resource accounts

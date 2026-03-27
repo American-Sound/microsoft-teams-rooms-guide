@@ -115,7 +115,7 @@ Block device use until required apps are installed: Yes
 
 ### Step 4: Configure Autologin via Pro Management Portal
 
-This is the recommended method for new Windows 11 deployments. The PMP stores credentials in a Microsoft-managed backend — the password never touches the device as a plaintext file.
+This is the recommended method for new Windows 11 deployments. The PMP stores credentials in a Microsoft-managed backend: the password never touches the device as a plaintext file.
 
 1. Sign in to [portal.rooms.microsoft.com](https://portal.rooms.microsoft.com)
 2. Navigate to **Planning** > **Autopilot devices**
@@ -130,7 +130,7 @@ This is the recommended method for new Windows 11 deployments. The PMP stores cr
 
 ### Step 4 (Alternative): SkypeSettings.xml for Brownfield Devices
 
-For devices that cannot use PMP Autologin (Windows 10, Hybrid Entra ID joined, Basic license), deploy a SkypeSettings.xml file containing the resource account credentials. See [Windows Autopilot — Method 2](../04-intune-management/windows-autopilot.md#method-2-skypesettingsxml-legacy--brownfield) and the [Set-MTRAutoLogin.ps1](../../scripts/intune/Set-MTRAutoLogin.ps1) script.
+For devices that cannot use PMP Autologin (Windows 10, Hybrid Entra ID joined, Basic license), deploy a SkypeSettings.xml file containing the resource account credentials. See [Windows Autopilot: Method 2](../04-intune-management/windows-autopilot.md#method-2-skypesettingsxml-legacy--brownfield) and the [Set-MTRAutoLogin.ps1](../../scripts/intune/Set-MTRAutoLogin.ps1) script.
 
 ### Step 5: Assign Intune Profiles
 
@@ -168,15 +168,15 @@ Get-WindowsAutopilotInfo -OutputFile C:\AutopilotHWID.csv -GroupTag "MTR-"
 ### What Happens When Device Powers On
 
 1. **Device boots** and connects to internet (Ethernet preferred)
-2. **Autopilot profile downloads** — device recognized by hardware ID
-3. **OOBE skipped** — Self-Deploying mode bypasses all user prompts
-4. **Entra ID join** — device joins your tenant automatically
-5. **Intune enrollment** — device enrolls for management
-6. **Policies applied** — compliance, configuration, LAPS, EDR
-7. **ESP waits** — required apps and profiles install
-8. **Windows autologon** — boots into the local Skype account (OEM-configured)
-9. **Teams Rooms app launches** — Shell Launcher V2 kiosk mode
-10. **PMP Autologin** — app retrieves credentials from PMP service and signs in
+2. **Autopilot profile downloads**: device recognized by hardware ID
+3. **OOBE skipped**: Self-Deploying mode bypasses all user prompts
+4. **Entra ID join**: device joins your tenant automatically
+5. **Intune enrollment**: device enrolls for management
+6. **Policies applied**: compliance, configuration, LAPS, EDR
+7. **ESP waits**: required apps and profiles install
+8. **Windows autologon**: boots into the local Skype account (OEM-configured)
+9. **Teams Rooms app launches**: Shell Launcher V2 kiosk mode
+10. **PMP Autologin**: app retrieves credentials from PMP service and signs in
 11. **Device ready for meetings**
 
 ### Timeline
@@ -215,10 +215,10 @@ Request vendor perform:
 
 1. **Batch device orders** by location/building
 2. **Pre-create resource accounts** in bulk using [New-MTRResourceAccountsBulk.ps1](../../scripts/accounts/New-MTRResourceAccountsBulk.ps1)
-3. **Standardize naming** — device names: `MTR-%SERIAL%`, accounts: `mtr-{building}-{room}@contoso.com`
-4. **Assign accounts in PMP** before devices ship — the linkage is valid for 90 days
+3. **Standardize naming**: device names: `MTR-%SERIAL%`, accounts: `mtr-{building}-{room}@contoso.com`
+4. **Assign accounts in PMP** before devices ship: the linkage is valid for 90 days
 5. **Coordinate shipping** with site readiness (network drops, power, displays)
-6. **Track deployment status** — PMP shows Provisioning Status per device (Ready → Consumed)
+6. **Track deployment status**: PMP shows Provisioning Status per device (Ready → Consumed)
 
 ### MSP Multi-Tenant Pattern
 
@@ -240,7 +240,7 @@ For managed service providers deploying across client tenants:
 
 ### ESP Timeout
 
-- Review required apps list — reduce if too many
+- Review required apps list: reduce if too many
 - Check app deployment status in Intune
 - Extend timeout if needed (90 minutes recommended for MTR)
 - Verify network bandwidth is sufficient
@@ -278,23 +278,23 @@ For managed service providers deploying across client tenants:
 ### Dashboard Monitoring
 
 Monitor deployment progress via:
-- Intune device list — enrollment status
-- Autopilot deployment status — per-device progress
+- Intune device list: enrollment status
+- Autopilot deployment status: per-device progress
 - ESP completion reports
-- Pro Management Portal — room health and provisioning status
+- Pro Management Portal: room health and provisioning status
 
 ## Best Practices
 
-1. **Start with pilot** — test with 5-10 devices first
-2. **Use Ethernet** — more reliable during Autopilot provisioning
-3. **Use PMP Autologin** — most secure credential delivery method
-4. **Coordinate with facilities** — network drops and power must be ready
-5. **Document each deployment** — track serial numbers, room assignments, provisioning status
-6. **Monitor actively** — watch PMP and Intune for failures during rollout
-7. **Have backup procedure** — manual sign-in as fallback
-8. **Pre-stage network** — ensure drops are active before device arrival
-9. **Test end-to-end** — verify meeting join after deployment completes
-10. **Exclude from Security Baselines** — they break MTR Windows autologon
+1. **Start with pilot**: test with 5-10 devices first
+2. **Use Ethernet**: more reliable during Autopilot provisioning
+3. **Use PMP Autologin**: most secure credential delivery method
+4. **Coordinate with facilities**: network drops and power must be ready
+5. **Document each deployment**: track serial numbers, room assignments, provisioning status
+6. **Monitor actively**: watch PMP and Intune for failures during rollout
+7. **Have backup procedure**: manual sign-in as fallback
+8. **Pre-stage network**: ensure drops are active before device arrival
+9. **Test end-to-end**: verify meeting join after deployment completes
+10. **Exclude from Security Baselines**: they break MTR Windows autologon
 
 ## Related Topics
 

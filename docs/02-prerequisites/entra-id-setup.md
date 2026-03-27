@@ -15,7 +15,7 @@ Microsoft Teams Rooms requires proper Entra ID (formerly Azure AD) configuration
 
 ### Additional Services (Beyond What's Included in Pro)
 
-- Entra ID P2 (for PIM, risk-based Conditional Access — P1 is included with Teams Rooms Pro)
+- Entra ID P2 (for PIM, risk-based Conditional Access: P1 is included with Teams Rooms Pro)
 - Note: Intune, Entra ID P1, and Defender for Endpoint Plan 2 are all included with the Teams Rooms Pro license and do not require separate licensing
 
 ## Security Groups

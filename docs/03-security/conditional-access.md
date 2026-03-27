@@ -20,7 +20,7 @@ Standard CA policies designed for users often block MTR sign-in because:
 1. **Exclude MTR accounts** from standard user CA policies
 2. **Create MTR-specific policies** tailored for room devices
 3. **Use device compliance** instead of MFA where possible
-4. **Leverage named locations** for trusted networks
+4. **Use named locations** for trusted networks
 
 ### Exclusion Group
 
@@ -110,8 +110,8 @@ Create a dedicated CA policy for Teams Rooms devices:
 | **Users** | Include: MTR-ResourceAccounts-All group |
 | **Cloud Apps** | Microsoft Teams, Exchange Online, SharePoint |
 | **Conditions** | Optionally: Named locations (corporate network) |
-| **Grant** | Require compliant device OR require approved app |
-| **Session** | Sign-in frequency: 90 days |
+| **Grant** | Require compliant device (approved client app is NOT supported on MTR) |
+| **Session** | Do not configure sign-in frequency (not supported, causes periodic sign-outs) |
 
 ### Creating the Policy
 
@@ -129,9 +129,9 @@ Create a dedicated CA policy for Teams Rooms devices:
      - Locations: Optionally require trusted/named locations
    - **Grant:**
      - Require device to be marked as compliant (if using Intune)
-     - OR: Require approved client app
+     - Do NOT select "Require approved client app" (not supported on MTR)
    - **Session:**
-     - Sign-in frequency: 90 days (reduces re-authentication)
+     - Do NOT configure sign-in frequency (not supported, causes periodic sign-outs)
 4. Enable policy: **On**
 5. Click **Create**
 
@@ -160,15 +160,10 @@ $policyParams = @{
     }
     GrantControls = @{
         Operator = "OR"
-        BuiltInControls = @("compliantDevice", "approvedApplication")
+        BuiltInControls = @("compliantDevice")
     }
-    SessionControls = @{
-        SignInFrequency = @{
-            Value = 90
-            Type = "days"
-            IsEnabled = $true
-        }
-    }
+    # Do NOT configure SignInFrequency - it is not supported on MTR
+    # and will cause periodic device sign-outs
 }
 
 New-MgIdentityConditionalAccessPolicy -BodyParameter $policyParams
@@ -276,7 +271,7 @@ Conditions = @{
 - Include: MTR accounts group
 - Condition: Named location (corporate network)
 - Grant: Require compliant device
-- Session: 90-day sign-in frequency
+- Session: Do not configure sign-in frequency
 
 ### Scenario 2: Zero Trust for MTR
 
@@ -286,7 +281,7 @@ Conditions = @{
 - Include: MTR accounts group
 - Condition: Any location
 - Grant: Require compliant device AND trusted location
-- Session: 30-day sign-in frequency
+- Session: Do not configure sign-in frequency (not supported)
 
 ### Scenario 3: Monitoring Only
 
@@ -315,7 +310,7 @@ Get-MgAuditLogSignIn -Filter "startswith(userPrincipalName, 'mtr-')" -Top 50 |
 | Issue | Cause | Solution |
 |-------|-------|----------|
 | Sign-in blocked | Policy requiring MFA | Add to exclusion group |
-| Frequent re-auth | Sign-in frequency too short | Increase to 90 days |
+| Frequent re-auth | Sign-in frequency configured | Remove sign-in frequency setting entirely (not supported on MTR) |
 | Compliant device failed | Device not enrolled | Enroll in Intune |
 | Location blocked | IP not in named location | Update named location |
 
@@ -326,8 +321,10 @@ Get-MgAuditLogSignIn -Filter "startswith(userPrincipalName, 'mtr-')" -Top 50 |
 3. **Document all policies** and their purposes
 4. **Monitor sign-in logs** after changes
 5. **Use device compliance** instead of MFA where possible
-6. **Extend sign-in frequency** to reduce disruption
-7. **Leverage named locations** for trusted networks
+6. **Do not configure sign-in frequency** (not supported on MTR, causes sign-out loops)
+7. **Do not enable Continuous Access Evaluation** (must be disabled or causes instability)
+8. **Use named locations** for trusted networks
+9. **Do not block Device Code Flow** in Authentication flows conditions (breaks Android remote sign-in)
 
 ## Related Topics
 

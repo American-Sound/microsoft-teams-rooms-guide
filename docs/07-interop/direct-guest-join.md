@@ -12,11 +12,27 @@ Direct Guest Join is a WebRTC-based capability built into Microsoft Teams Rooms 
 | **Zoom** | Supported | Supported |
 | **Google Meet** | Supported (app 5.5.129.0+) | Not supported |
 
-Google Meet DGJ on Teams Rooms on Windows is two-way — ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
+Google Meet DGJ on Teams Rooms on Windows is two-way: ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
+
+## Cross-Platform SIP Join (Alternative to DGJ)
+
+In addition to Direct Guest Join (WebRTC), Teams Rooms Pro license holders can join third-party meetings via SIP, which provides a different set of capabilities and tradeoffs.
+
+| Capability | DGJ (WebRTC) | Cross-Platform SIP |
+|------------|-------------|-------------------|
+| **Video quality** | Up to 720p | Up to 1080p |
+| **License required** | Basic or Pro | Pro only |
+| **Platforms** | Cisco Webex, Zoom, Google Meet (Windows only) | Cisco Webex, Zoom, Amazon Chime, GoToMeeting, RingCentral, any SIP service |
+| **Content sharing** | Screen share only | HDMI/content camera + screen share |
+| **Display support** | Single display | Dual display |
+| **Internet required** | Yes (direct) | No (works through SBC/VPN) |
+| **Events/Webinars** | Not supported | Supported for Webex and Zoom |
+
+For organizations that need higher video quality, content camera support, or connectivity to platforms beyond Webex and Zoom, SIP join through a CVI partner or direct SIP dial is the better path despite the Pro license requirement.
 
 ## Enabling Direct Guest Join
 
-### Teams Rooms on Windows — Three Methods
+### Teams Rooms on Windows: Three Methods
 
 **Pro Management Portal:** Rooms > select room > Settings > Meetings > toggle desired platforms > Apply
 
@@ -67,7 +83,7 @@ If your organization uses a third-party URL scanner (not Defender for Office 365
 | Limitation | Detail |
 |------------|--------|
 | Max video quality | 720p send and receive |
-| Content sharing | Receive only — cannot send via HDMI or content camera |
+| Content sharing | Receive only: cannot send via HDMI or content camera |
 | Display support | Single display only (no dual-screen) |
 | Reactions | Cannot send |
 | Annotations | Cannot view |
@@ -79,11 +95,11 @@ If your organization uses a third-party URL scanner (not Defender for Office 365
 
 ## Related Topics
 
-- [Cloud Video Interop](cloud-video-interop.md) — Higher-quality alternative requiring CVI partner
-- [Interop Comparison](comparison.md) — CVI vs DGJ vs SIP feature matrix
-- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md) — Full XML configuration reference
-- [Exchange Configuration](../02-prerequisites/exchange-configuration.md) — Calendar processing prerequisites
+- [Cloud Video Interop](cloud-video-interop.md): Higher-quality alternative requiring CVI partner
+- [Interop Comparison](comparison.md): CVI vs DGJ vs SIP feature matrix
+- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md): Full XML configuration reference
+- [Exchange Configuration](../02-prerequisites/exchange-configuration.md): Calendar processing prerequisites
 
 ## References
 
-- [Third-party meetings on Teams Rooms — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/third-party-join)
+- [Third-party meetings on Teams Rooms: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/third-party-join)

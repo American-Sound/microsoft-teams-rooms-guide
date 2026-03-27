@@ -2,7 +2,7 @@
 
 ## Overview
 
-Voice isolation is advanced noise suppression that uses a personalized deep voice quality enhancement AI model to separate the enrolled user's voice from all other sounds and voices. It goes beyond standard noise suppression (which filters non-human noise) by filtering out other human voices — such as background chatter in a shared space.
+Voice isolation is advanced noise suppression that uses a personalized deep voice quality enhancement AI model to separate the enrolled user's voice from all other sounds and voices. It goes beyond standard noise suppression (which filters non-human noise) by filtering out other human voices: such as background chatter in a shared space.
 
 ## How It Works
 
@@ -38,8 +38,8 @@ Users can toggle voice isolation on/off in the Teams app before or during a meet
 
 ## Related Topics
 
-- [Copilot Overview](copilot-overview.md) — Copilot configuration and meeting policies
-- [Intelligent Speaker](intelligent-speaker.md) — Speaker attribution and AI policies
+- [Copilot Overview](copilot-overview.md): Copilot configuration and meeting policies
+- [Intelligent Speaker](intelligent-speaker.md): Speaker attribution and AI policies
 
 ## References
 

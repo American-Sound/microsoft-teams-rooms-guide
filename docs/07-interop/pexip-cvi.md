@@ -10,13 +10,13 @@ Pexip CVI is a **cloud-hosted service** operated by Pexip (the "Pexip Service").
 
 The CVI service consists of:
 
-**Pexip CVI Cloud Service** — Pexip-operated cloud infrastructure that handles SIP/H.323 call processing, transcoding, and routing for VTCs joining Teams meetings.
+**Pexip CVI Cloud Service**: Pexip-operated cloud infrastructure that handles SIP/H.323 call processing, transcoding, and routing for VTCs joining Teams meetings.
 
-**Pexip Teams Connector** — a dedicated application component deployed in Microsoft Azure that handles communication between the Pexip CVI service and Microsoft Teams via Graph APIs.
+**Pexip Teams Connector**: a dedicated application component deployed in Microsoft Azure that handles communication between the Pexip CVI service and Microsoft Teams via Graph APIs.
 
 The Teams Connector runs as a VM Scale Set (VMSS) behind an Azure Load Balancer, deployed using Pexip's PowerShell scripts. Pexip recommends a blue-green deployment strategy with separate production and test environments.
 
-> **Important:** Do not confuse Pexip CVI with Pexip Infinity. Pexip Infinity is a separate product — it is a self-hosted, on-premises video infrastructure platform for organizations that need to own and operate their own MCU/gateway infrastructure. Pexip CVI for Teams is cloud-hosted and managed by Pexip. They are licensed and sold separately.
+> **Important:** Do not confuse Pexip CVI with Pexip Infinity. Pexip Infinity is a separate product: it is a self-hosted, on-premises video infrastructure platform for organizations that need to own and operate their own MCU/gateway infrastructure. Pexip CVI for Teams is cloud-hosted and managed by Pexip. They are licensed and sold separately.
 
 ### Teams Connector Infrastructure Details
 
@@ -81,9 +81,9 @@ Pexip's Teams Connector has shifted to **certificate-based authentication (CBA)*
 
 ## Related Topics
 
-- [Cloud Video Interop](cloud-video-interop.md) — CVI overview and PowerShell setup
-- [SIP/H.323 Dialing](sip-h323-dialing.md) — Outbound SIP calling from Teams Rooms (Pexip-exclusive)
-- [Interop Comparison](comparison.md) — CVI vs DGJ vs SIP feature matrix
+- [Cloud Video Interop](cloud-video-interop.md): CVI overview and PowerShell setup
+- [SIP/H.323 Dialing](sip-h323-dialing.md): Outbound SIP calling from Teams Rooms (Pexip-exclusive)
+- [Interop Comparison](comparison.md): CVI vs DGJ vs SIP feature matrix
 
 ## References
 

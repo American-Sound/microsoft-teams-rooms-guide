@@ -16,7 +16,7 @@ No additional license is required to access the portal itself. After May 1, 2025
 |---------|--------------|--------------------|-----------|----|
 | Teams Rooms Pro | Full | Yes | Yes | Yes |
 | Teams Rooms Basic | Device inventory only | No | No | No (automatic updates only) |
-| Teams Shared Device | Device management | Yes | Yes | — |
+| Teams Shared Device | Device management | Yes | Yes |: |
 
 As of June 2025, Teams Rooms on Windows are managed exclusively through PMP (no longer available in TAC). Android device management is transitioning to PMP through 2026.
 
@@ -49,8 +49,8 @@ Each room has a Status tab (consolidated issues), Incidents tab (signal category
 
 Incidents have two states:
 
-- **Need Action** — requires admin corrective action; includes description, typical causes, resolutions, and Notes tab
-- **System Investigating** — under automatic investigation by the AI monitoring platform; next steps provided if auto-remediation fails
+- **Need Action**: requires admin corrective action; includes description, typical causes, resolutions, and Notes tab
+- **System Investigating**: under automatic investigation by the AI monitoring platform; next steps provided if auto-remediation fails
 
 **Severity levels:**
 
@@ -67,31 +67,31 @@ Each signal gets one ticket that persists over time, maintaining full history. T
 
 Remotely configure Teams Rooms on Windows via SkypeSettings.xml sync (up to 15 minutes):
 
-**Apply Now** — queues job and restarts device immediately (unavailable if in use)
-**Schedule Later** — applies during nightly maintenance window
+**Apply Now**: queues job and restarts device immediately (unavailable if in use)
+**Schedule Later**: applies during nightly maintenance window
 
 Configurable settings categories:
-- **Account** — Exchange sign-in, public preview enrollment
-- **Meetings** — content layout, chat, Front Row, HDMI ingest, captions, people count, third-party meeting join (Webex/Zoom/GoTo/RingCentral/Amazon Chime), Facilitator QR code
-- **Device** — dual monitor, resolution/scaling, Bluetooth beaconing, proximity join, QR code join
-- **Peripherals** — mic, speaker, camera selection/volume, Cloud IntelliFrame, multi-camera, content camera, noise suppression
-- **Coordinated meetings** — mic/camera/whiteboard coordination, trusted device accounts
-- **Theming** — background selection
-- **Digital Signage** — activation timing, signage source, banner display
+- **Account**: Exchange sign-in, public preview enrollment
+- **Meetings**: content layout, chat, Front Row, HDMI ingest, captions, people count, third-party meeting join (Webex/Zoom/GoTo/RingCentral/Amazon Chime), Facilitator QR code
+- **Device**: dual monitor, resolution/scaling, Bluetooth beaconing, proximity join, QR code join
+- **Peripherals**: mic, speaker, camera selection/volume, Cloud IntelliFrame, multi-camera, content camera, noise suppression
+- **Coordinated meetings**: mic/camera/whiteboard coordination, trusted device accounts
+- **Theming**: background selection
+- **Digital Signage**: activation timing, signage source, banner display
 
 Bulk changes are supported via Device Settings Jobs.
 
 ## Related Topics
 
-- [Health Monitoring](health-monitoring.md) — Signals, health states, incident management
-- [Update Management](update-management.md) — Rings, maintenance windows, controls
-- [Analytics & Reporting](analytics-reporting.md) — Usage, health, standards, room planner
-- [RBAC](rbac.md) — Roles, permissions, custom roles
-- [ServiceNow Integration](servicenow-integration.md) — Incident ticket sync
-- [AI Assistant](ai-assistant.md) — Built-in AI for admin queries
-- [Multi-Tenant Partner Portal](multi-tenant-partner.md) — MSP management across tenants
-- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md) — Configuration settings pushed via PMP
-- [Licensing](../01-planning/licensing.md) — Pro vs Basic feature comparison
+- [Health Monitoring](health-monitoring.md): Signals, health states, incident management
+- [Update Management](update-management.md): Rings, maintenance windows, controls
+- [Analytics & Reporting](analytics-reporting.md): Usage, health, standards, room planner
+- [RBAC](rbac.md): Roles, permissions, custom roles
+- [ServiceNow Integration](servicenow-integration.md): Incident ticket sync
+- [AI Assistant](ai-assistant.md): Built-in AI for admin queries
+- [Multi-Tenant Partner Portal](multi-tenant-partner.md): MSP management across tenants
+- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md): Configuration settings pushed via PMP
+- [Licensing](../01-planning/licensing.md): Pro vs Basic feature comparison
 
 ## References
 

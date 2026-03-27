@@ -49,18 +49,18 @@ This repository consolidates documentation and automation tools for deploying an
 
 ### Reading Order for New Deployments
 
-If you're deploying Teams Rooms for the first time, follow these sections in order — each one builds on the previous:
+If you're deploying Teams Rooms for the first time, follow these sections in order: each one builds on the previous:
 
-1. **Plan** — Start with [Overview](docs/01-planning/overview.md) to understand the platform, then [Licensing](docs/01-planning/licensing.md) to determine Pro vs Basic. Review [Hardware](docs/01-planning/hardware-requirements.md) and [Network](docs/01-planning/network-requirements.md) requirements for your environment.
-2. **Prepare** — Set up [Entra ID](docs/02-prerequisites/entra-id-setup.md), create [Resource Accounts](docs/02-prerequisites/resource-accounts.md), assign [Licenses](docs/02-prerequisites/licensing-assignment.md), and configure [Exchange](docs/02-prerequisites/exchange-configuration.md).
-3. **Secure** — Configure [Conditional Access](docs/03-security/conditional-access.md) (exclude rooms from MFA), set up [Compliance Policies](docs/03-security/device-compliance.md), and optionally deploy [Defender for Endpoint](docs/03-security/defender-endpoint.md) and [LAPS](docs/03-security/laps-configuration.md).
-4. **Set Up Intune** — Configure [Enrollment](docs/04-intune-management/enrollment-overview.md), create [Autopilot Profiles](docs/04-intune-management/windows-autopilot.md), and build [Configuration Profiles](docs/04-intune-management/configuration-profiles.md).
-5. **Deploy** — Follow [Zero-Touch Deployment](docs/05-deployment/zero-touch-deployment.md) for Autopilot or [Windows Deployment](docs/05-deployment/windows-deployment.md) for manual setup.
-6. **Manage** — Set up [Monitoring](docs/06-post-deployment/monitoring-alerting.md) and learn the [Pro Management Portal](docs/10-pro-management/portal-overview.md) for ongoing operations.
+1. **Plan**: Start with [Overview](docs/01-planning/overview.md) to understand the platform, then [Licensing](docs/01-planning/licensing.md) to determine Pro vs Basic. Review [Hardware](docs/01-planning/hardware-requirements.md) and [Network](docs/01-planning/network-requirements.md) requirements for your environment.
+2. **Prepare**: Set up [Entra ID](docs/02-prerequisites/entra-id-setup.md), create [Resource Accounts](docs/02-prerequisites/resource-accounts.md), assign [Licenses](docs/02-prerequisites/licensing-assignment.md), and configure [Exchange](docs/02-prerequisites/exchange-configuration.md).
+3. **Secure**: Configure [Conditional Access](docs/03-security/conditional-access.md) (exclude rooms from MFA), set up [Compliance Policies](docs/03-security/device-compliance.md), and optionally deploy [Defender for Endpoint](docs/03-security/defender-endpoint.md) and [LAPS](docs/03-security/laps-configuration.md).
+4. **Set Up Intune**: Configure [Enrollment](docs/04-intune-management/enrollment-overview.md), create [Autopilot Profiles](docs/04-intune-management/windows-autopilot.md), and build [Configuration Profiles](docs/04-intune-management/configuration-profiles.md).
+5. **Deploy**: Follow [Zero-Touch Deployment](docs/05-deployment/zero-touch-deployment.md) for Autopilot or [Windows Deployment](docs/05-deployment/windows-deployment.md) for manual setup.
+6. **Manage**: Set up [Monitoring](docs/06-post-deployment/monitoring-alerting.md) and learn the [Pro Management Portal](docs/10-pro-management/portal-overview.md) for ongoing operations.
 
 ### If You Need a Specific Feature
 
-Sections 07-10 are standalone topics — read them when you need them, not necessarily in order:
+Sections 07-10 are standalone topics: read them when you need them, not necessarily in order:
 
 | Need | Start Here |
 |------|------------|
@@ -194,7 +194,7 @@ docs/
 ### Required Licenses
 
 - Microsoft 365 tenant
-- Teams Rooms Pro license (per room) — includes Intune, Entra ID P1, Defender for Endpoint P2, and Teams Phone Standard
+- Teams Rooms Pro license (per room): includes Intune, Entra ID P1, Defender for Endpoint P2, and Teams Phone Standard
 
 ### Required PowerShell Modules
 

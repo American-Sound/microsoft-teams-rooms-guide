@@ -201,7 +201,7 @@
 : Wall-mounted touchscreen devices showing room availability outside meeting rooms.
 
 **Teams Rooms Basic**
-: Free license tier for up to 25 Teams Rooms devices with basic features. Intended for pilot and proof-of-concept use only — not recommended for production deployments.
+: Free license tier for up to 25 Teams Rooms devices with basic features. Intended for pilot and proof-of-concept use only: not recommended for production deployments.
 
 **Teams Rooms Pro**
 : Premium license providing full Teams Rooms features including Pro Management Portal.

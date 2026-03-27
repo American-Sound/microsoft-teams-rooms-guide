@@ -28,7 +28,7 @@ The monitoring agent (Teams Rooms Pro Monitoring Software) deployed on each devi
 
 ## Health Determination
 
-A room is considered **unhealthy** if Critical/Important tickets impacted it for more than 20 total minutes during non-maintenance hours (5 AM — 12 AM local time). Health is aggregated daily at 12:00 AM UTC.
+A room is considered **unhealthy** if Critical/Important tickets impacted it for more than 20 total minutes during non-maintenance hours (5 AM: 12 AM local time). Health is aggregated daily at 12:00 AM UTC.
 
 The meeting impact view shows scheduled meetings during which Critical/Important tickets were open.
 
@@ -44,9 +44,9 @@ For Android devices transitioning to PMP, health signals include sign-on, heartb
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — Dashboard, rooms, incidents, configuration
-- [Analytics & Reporting](analytics-reporting.md) — Health and usage reports
-- [ServiceNow Integration](servicenow-integration.md) — Incident ticket export
+- [Portal Overview](portal-overview.md): Dashboard, rooms, incidents, configuration
+- [Analytics & Reporting](analytics-reporting.md): Health and usage reports
+- [ServiceNow Integration](servicenow-integration.md): Incident ticket export
 
 ## References
 

@@ -40,7 +40,7 @@ Check with your vendor for AOSP support:
 
 > **Note:** Not all Android MTR devices support AOSP enrollment. Verify with your vendor before purchase.
 
-> **Cisco-specific note:** Cisco Room Series devices run RoomOS with the Teams Rooms application on top, rather than a stock Android build with the Teams app. This means device-layer management (firmware, peripherals, device configuration) is handled through Cisco Control Hub, while Intune AOSP enrollment manages the Teams application layer. Enrollment behavior may differ from other Android MTR vendors — consult Cisco documentation for the current enrollment workflow and any RoomOS version requirements for Intune AOSP support.
+> **Cisco-specific note:** Cisco Room Series devices run RoomOS with the Teams Rooms application on top, rather than a stock Android build with the Teams app. This means device-layer management (firmware, peripherals, device configuration) is handled through Cisco Control Hub, while Intune AOSP enrollment manages the Teams application layer. Enrollment behavior may differ from other Android MTR vendors: consult Cisco documentation for the current enrollment workflow and any RoomOS version requirements for Intune AOSP support.
 
 ## Intune Configuration
 

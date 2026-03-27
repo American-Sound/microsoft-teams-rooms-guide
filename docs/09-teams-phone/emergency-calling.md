@@ -55,7 +55,7 @@ Set-CsOnlineLisWirelessAccessPoint -BSSID "AA:BB:CC:DD:EE:FF" `
 Set-CsOnlineLisSwitch -ChassisID "AB:CD:EF:01:23:45" `
     -LocationId "<LocationGUID>" -Description "Seattle Floor 3 Switch"
 
-# Map a switch port (most granular — per room)
+# Map a switch port (most granular: per room)
 Set-CsOnlineLisPort -ChassisID "AB:CD:EF:01:23:45" -PortID "Gi1/0/1" `
     -LocationId "<LocationGUID>" -Description "Conf Room 301"
 ```
@@ -96,9 +96,9 @@ Direct Routing customers should coordinate with their Emergency Routing Service 
 
 ## Related Topics
 
-- [PSTN Overview](pstn-overview.md) — Connectivity options and phone number assignment
-- [Calling Policies](calling-policies.md) — Calling policy configuration
-- [End-to-End Setup](end-to-end-setup.md) — Emergency policy assignment in full workflow
+- [PSTN Overview](pstn-overview.md): Connectivity options and phone number assignment
+- [Calling Policies](calling-policies.md): Calling policy configuration
+- [End-to-End Setup](end-to-end-setup.md): Emergency policy assignment in full workflow
 
 ## References
 

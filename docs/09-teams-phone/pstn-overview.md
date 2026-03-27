@@ -2,7 +2,7 @@
 
 ## Overview
 
-Teams Rooms devices on both Windows and Android can make and receive PSTN calls. The Teams Rooms Pro license includes the **Teams Phone Standard** service plan, which provides PBX-level calling capabilities. Teams Rooms Basic does not include Teams Phone Standard — it only supports peer-to-peer and group Teams calls.
+Teams Rooms devices on both Windows and Android can make and receive PSTN calls. The Teams Rooms Pro license includes the **Teams Phone Standard** service plan, which provides PBX-level calling capabilities. Teams Rooms Basic does not include Teams Phone Standard: it only supports peer-to-peer and group Teams calls.
 
 When PSTN calling is configured, a dial pad is available on the touch console, allowing room occupants to dial PSTN numbers directly. Incoming PSTN calls ring on the device and can be answered from the console.
 
@@ -21,7 +21,7 @@ When PSTN calling is configured, a dial pad is available on the touch console, a
 ### What's Needed for PSTN Calling
 
 1. **Teams Rooms Pro license** on the resource account (provides Teams Phone Standard)
-2. **A PSTN connectivity option** — one of:
+2. **A PSTN connectivity option**: one of:
    - Microsoft Calling Plan license (Domestic or International)
    - Operator Connect number
    - Direct Routing phone number
@@ -36,7 +36,7 @@ When PSTN calling is configured, a dial pad is available on the touch console, a
 
 ### Microsoft Calling Plans
 
-Microsoft acts as the PSTN carrier. Simplest option — no infrastructure to manage.
+Microsoft acts as the PSTN carrier. Simplest option: no infrastructure to manage.
 
 - Requires a Calling Plan license (Domestic, International, or Pay-As-You-Go) assigned to the resource account
 - Phone numbers acquired through Microsoft via Teams Admin Center
@@ -54,7 +54,7 @@ Third-party certified operator provides PSTN connectivity.
 
 Any PSTN operator, connected via a certified Session Border Controller (SBC).
 
-- Most flexible option — works in any country/region, supports interop with third-party PBXs, overhead pagers, analog devices
+- Most flexible option: works in any country/region, supports interop with third-party PBXs, overhead pagers, analog devices
 - Requires SBC with valid TLS certificate, DNS/FQDN configuration, and PSTN trunk
 - Requires voice routing policy configuration
 - Supports Survivable Branch Appliance (SBA) for local PSTN survivability during cloud outages
@@ -67,7 +67,7 @@ Cost-effective approach where the room makes/receives calls through a shared pho
 - Outbound caller ID shows the shared number
 - Configured via a Shared Calling policy
 
-## Configuration — PowerShell
+## Configuration: PowerShell
 
 ### Assign a Phone Number
 
@@ -139,12 +139,12 @@ If a conference room has an analog phone or traditional SIP desk phone alongside
 
 ## Related Topics
 
-- [Calling Policies](calling-policies.md) — Recommended calling policy settings for rooms
-- [Emergency Calling](emergency-calling.md) — E911, LIS configuration, compliance
-- [Audio Conferencing](audio-conferencing.md) — Dial-in conferencing setup
-- [End-to-End Setup](end-to-end-setup.md) — Complete PowerShell walkthrough
-- [Phone Number Script](../../scripts/teams-phone/Set-MTRPhoneNumber.ps1) — Automated phone assignment
-- [Resource Accounts](../02-prerequisites/resource-accounts.md) — Account creation and licensing
+- [Calling Policies](calling-policies.md): Recommended calling policy settings for rooms
+- [Emergency Calling](emergency-calling.md): E911, LIS configuration, compliance
+- [Audio Conferencing](audio-conferencing.md): Dial-in conferencing setup
+- [End-to-End Setup](end-to-end-setup.md): Complete PowerShell walkthrough
+- [Phone Number Script](../../scripts/teams-phone/Set-MTRPhoneNumber.ps1): Automated phone assignment
+- [Resource Accounts](../02-prerequisites/resource-accounts.md): Account creation and licensing
 
 ## References
 
