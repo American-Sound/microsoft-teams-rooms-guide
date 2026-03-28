@@ -2,7 +2,7 @@
 
 ## Overview
 
-Teams Rooms on Windows devices can display digital signage content on the front-of-room display when the room is not in a meeting. This transforms idle meeting room displays into communication surfaces for company announcements, wayfinding, event schedules, dashboards, or branded content — without deploying separate signage hardware.
+Teams Rooms on Windows devices can display digital signage content on the front-of-room display when the room is not in a meeting. This transforms idle meeting room displays into communication surfaces for company announcements, wayfinding, event schedules, dashboards, or branded content: without deploying separate signage hardware.
 
 The built-in signage feature in Teams Rooms displays a web URL as a full-screen iframe on the front-of-room display. It activates after a configurable idle period and dismisses automatically when a meeting begins or someone interacts with the touch console.
 
@@ -27,7 +27,7 @@ The built-in signage feature in Teams Rooms displays a web URL as a full-screen 
    - **Enable banner**: Optionally overlay a banner with room name, next meeting, or clock
 5. Apply now or schedule for the maintenance window
 
-Bulk configuration is supported via Device Settings Jobs — select multiple rooms and push the same signage URL to all of them.
+Bulk configuration is supported via Device Settings Jobs: select multiple rooms and push the same signage URL to all of them.
 
 ### Via SkypeSettings.xml
 
@@ -62,8 +62,8 @@ Appspace is a cloud-based workplace experience platform with a dedicated Teams R
 
 **Key capabilities:**
 - Drag-and-drop content designer with templates optimized for meeting room displays
-- Channel-based content scheduling — different content at different times of day or days of the week
-- Room-aware content using calendar data — display the day's meeting schedule, room availability, or wayfinding
+- Channel-based content scheduling: different content at different times of day or days of the week
+- Room-aware content using calendar data: display the day's meeting schedule, room availability, or wayfinding
 - Integration with Microsoft 365 for pulling SharePoint news, Power BI dashboards, and Teams announcements into signage playlists
 - Centralized management across hundreds of rooms from a single console
 - Analytics on content impressions and display uptime
@@ -73,7 +73,7 @@ Appspace is a cloud-based workplace experience platform with a dedicated Teams R
 2. Design and schedule content cards for the channel
 3. Publish the channel and copy the display URL
 4. In the Pro Management Portal, set the signage URL to the Appspace channel URL
-5. Content updates in Appspace are reflected automatically on the display — no device-side changes needed
+5. Content updates in Appspace are reflected automatically on the display: no device-side changes needed
 
 **Licensing:** Appspace requires its own subscription (per-screen or enterprise licensing). This is separate from the Teams Rooms Pro license.
 
@@ -85,7 +85,7 @@ Navori QL is a digital signage and content management platform with enterprise-g
 
 **Key capabilities:**
 - Advanced content scheduling with dayparting, conditional triggers, and playlist management
-- Real-time data overlays — pull live data from APIs, databases, or spreadsheets into signage layouts
+- Real-time data overlays: pull live data from APIs, databases, or spreadsheets into signage layouts
 - Support for 4K and multi-zone layouts optimized for large-format displays
 - Proof-of-play reporting for compliance and content audit trails
 - On-premises or cloud-hosted management server options
@@ -118,13 +118,13 @@ For most deployments where the tenant is Microsoft-centric, Appspace is the simp
 
 Signage content on Teams Rooms displays has specific constraints:
 
-- **No touch interaction** — the front-of-room display is view-only. All content must be passive.
-- **Design for distance** — meeting room displays are typically viewed from 6-15 feet. Use large fonts (minimum 24pt), high-contrast colors, and minimal text per screen.
-- **Landscape orientation** — front-of-room displays are always landscape. Design at 1920x1080 or 3840x2160 for 4K displays.
-- **Auto-rotation** — if displaying multiple pieces of content, rotate automatically with 10-15 second dwell time per slide.
-- **Avoid video with audio** — the room's audio system will play signage audio, which is disruptive if someone walks in. Use silent video or static content.
-- **Respect the banner** — if the Teams Rooms banner overlay is enabled, keep critical content out of the bottom 10% of the screen where the banner renders.
-- **Network bandwidth** — signage content loads over the same network connection as Teams meetings. Avoid heavy video loops that could saturate bandwidth before a meeting starts.
+- **No touch interaction**: the front-of-room display is view-only. All content must be passive.
+- **Design for distance**: meeting room displays are typically viewed from 6-15 feet. Use large fonts (minimum 24pt), high-contrast colors, and minimal text per screen.
+- **Landscape orientation**: front-of-room displays are always landscape. Design at 1920x1080 or 3840x2160 for 4K displays.
+- **Auto-rotation**: if displaying multiple pieces of content, rotate automatically with 10-15 second dwell time per slide.
+- **Avoid video with audio**: the room's audio system will play signage audio, which is disruptive if someone walks in. Use silent video or static content.
+- **Respect the banner**: if the Teams Rooms banner overlay is enabled, keep critical content out of the bottom 10% of the screen where the banner renders.
+- **Network bandwidth**: signage content loads over the same network connection as Teams meetings. Avoid heavy video loops that could saturate bandwidth before a meeting starts.
 
 ## Troubleshooting
 
@@ -139,6 +139,6 @@ Signage content on Teams Rooms displays has specific constraints:
 
 ## Related Topics
 
-- [Pro Management Portal](../10-pro-management/portal-overview.md) — Signage configuration via portal
-- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md) — XML-based signage configuration
-- [Monitoring and Alerting](monitoring-alerting.md) — Monitor signage display health
+- [Pro Management Portal](../10-pro-management/portal-overview.md): Signage configuration via portal
+- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md): XML-based signage configuration
+- [Monitoring and Alerting](monitoring-alerting.md): Monitor signage display health

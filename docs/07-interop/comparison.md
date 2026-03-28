@@ -58,8 +58,8 @@ This is the most fundamental distinction:
 
 ## Related Topics
 
-- [Cloud Video Interop](cloud-video-interop.md) — CVI architecture, certified partners, PowerShell
-- [Pexip CVI Configuration](pexip-cvi.md) — Pexip-specific setup and dial-in experience
-- [SIP/H.323 Dialing](sip-h323-dialing.md) — Outbound calling from Teams Rooms
-- [Direct Guest Join](direct-guest-join.md) — WebRTC join for Webex, Zoom, Google Meet
-- [CVI Policy Script](../../scripts/interop/Set-MTRCviPolicy.ps1) — PowerShell automation
+- [Cloud Video Interop](cloud-video-interop.md): CVI architecture, certified partners, PowerShell
+- [Pexip CVI Configuration](pexip-cvi.md): Pexip-specific setup and dial-in experience
+- [SIP/H.323 Dialing](sip-h323-dialing.md): Outbound calling from Teams Rooms
+- [Direct Guest Join](direct-guest-join.md): WebRTC join for Webex, Zoom, Google Meet
+- [CVI Policy Script](../../scripts/interop/Set-MTRCviPolicy.ps1): PowerShell automation

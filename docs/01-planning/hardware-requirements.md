@@ -161,15 +161,15 @@ For auditoriums, training rooms, all-hands spaces, and executive boardrooms with
 **Example Setups:**
 - Windows MTR compute + Q-SYS Core DSP + ceiling mic arrays + PTZ cameras
 - Cisco Codec Pro + Cisco PTZ 4K cameras + Cisco Ceiling Microphone Pro arrays (Android MTR)
-- Cisco Room 70 Panorama — dual 70" integrated displays with panoramic video (Android MTR)
+- Cisco Room 70 Panorama: dual 70" integrated displays with panoramic video (Android MTR)
 
 ### Divisible Rooms
 
 Divisible rooms use a physical partition to split a large space into two or more independent meeting rooms, each requiring its own Teams Rooms session when divided and a combined session when open.
 
 **Options:**
-- **Cisco Room Kit EQ with Room Divider** (Android MTR) — native room divider support in RoomOS automatically reconfigures cameras, microphones, and displays when the partition moves. No third-party control system required for the divider logic.
-- **Windows MTR with third-party control system** — Crestron, Q-SYS, or Extron control system manages room combining logic, switching between two independent MTR computes (divided) and a single MTR compute (combined). Requires professional AV integration and programming.
+- **Cisco Room Kit EQ with Room Divider** (Android MTR): native room divider support in RoomOS automatically reconfigures cameras, microphones, and displays when the partition moves. No third-party control system required for the divider logic.
+- **Windows MTR with third-party control system**: Crestron, Q-SYS, or Extron control system manages room combining logic, switching between two independent MTR computes (divided) and a single MTR compute (combined). Requires professional AV integration and programming.
 
 > **Note:** Divisible rooms are among the most complex meeting space deployments. Both approaches require careful planning around microphone zones, camera coverage per room half, display assignment, and network connectivity for multiple potential MTR sessions.
 

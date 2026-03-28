@@ -101,10 +101,10 @@ Get-CsOnlineUser -Identity "confroom301@contoso.com" | fl `
 
 ## Related Topics
 
-- [PSTN Overview](pstn-overview.md) — Connectivity options, licensing, SIP Gateway
-- [Calling Policies](calling-policies.md) — Detailed policy parameter reference
-- [Emergency Calling](emergency-calling.md) — LIS and emergency policy details
-- [Resource Accounts](../02-prerequisites/resource-accounts.md) — Account creation prerequisites
+- [PSTN Overview](pstn-overview.md): Connectivity options, licensing, SIP Gateway
+- [Calling Policies](calling-policies.md): Detailed policy parameter reference
+- [Emergency Calling](emergency-calling.md): LIS and emergency policy details
+- [Resource Accounts](../02-prerequisites/resource-accounts.md): Account creation prerequisites
 
 ## References
 

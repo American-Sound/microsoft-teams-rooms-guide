@@ -35,8 +35,8 @@ Toll-free dial-in numbers require **Communications Credits** to be funded on the
 
 ## Related Topics
 
-- [PSTN Overview](pstn-overview.md) — Full PSTN connectivity and licensing guide
-- [Licensing](../01-planning/licensing.md) — Teams Rooms Pro vs Basic comparison
+- [PSTN Overview](pstn-overview.md): Full PSTN connectivity and licensing guide
+- [Licensing](../01-planning/licensing.md): Teams Rooms Pro vs Basic comparison
 
 ## References
 

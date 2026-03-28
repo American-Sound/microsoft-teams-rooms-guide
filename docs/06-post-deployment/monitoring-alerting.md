@@ -17,18 +17,18 @@ Effective monitoring ensures Teams Rooms devices remain operational and issues a
 
 ### Third-Party Solutions
 
-- **Utelogy** — Cloud-native AV monitoring and management platform hosted in Microsoft Azure. Built on Microsoft Graph API, integrates with ServiceNow, and supports multi-vendor AV device monitoring (Cisco, Crestron, Q-SYS, Poly, Logitech, and more) alongside Teams Rooms. Strong fit for organizations invested in the Microsoft ecosystem due to Azure residency and Graph compatibility.
-- **PRTG Network Monitor** — Agentless network monitoring with SNMP/WMI support
-- **Nagios/Zabbix** — Open-source monitoring platforms with broad device support
-- **ServiceNow** — ITSM platform with device monitoring and incident management
-- **Cisco Control Hub** — Cloud management portal for Cisco collaboration devices. Monitors device status, diagnostics, and call quality across the Cisco Room Series fleet. Manages firmware, configurations, and provides workspace-level analytics for devices running RoomOS with Teams mode.
-- **Crestron XiO Cloud** — Cloud-based provisioning, monitoring, and management platform for Crestron devices. Supports fleet-wide firmware deployment, remote configuration, and real-time device status across Crestron room systems, touch panels, and peripherals.
-- **Q-SYS Reflect** — Cloud monitoring and management for Q-SYS ecosystem devices. Provides real-time status, alerting, remote configuration, and firmware management for Q-SYS Cores, peripherals, and networked audio/video endpoints.
-- **Poly Lens** — Cloud management for Poly video and audio devices. Provides remote monitoring, firmware updates, configuration management, and device analytics.
-- **Logitech Sync** — Cloud portal for Logitech collaboration devices. Offers device health monitoring, room insights, software updates, and remote management capabilities.
-- **Yealink Management Cloud** — Centralized cloud platform for Yealink devices. Supports monitoring, diagnostics, firmware management, and usage analytics.
-- **Neat Pulse** — Cloud management for Neat devices. Provides device health monitoring, remote configuration, software updates, and room usage analytics.
-- **ShureCloud** — Cloud platform for Shure networked audio devices (MXA microphone arrays, IntelliMix DSPs). Monitors device status, manages firmware updates, and provides remote configuration for Shure audio endpoints commonly deployed alongside Teams Rooms.
+- **Utelogy**: Cloud-native AV monitoring and management platform hosted in Microsoft Azure. Built on Microsoft Graph API, integrates with ServiceNow, and supports multi-vendor AV device monitoring (Cisco, Crestron, Q-SYS, Poly, Logitech, and more) alongside Teams Rooms. Strong fit for organizations invested in the Microsoft ecosystem due to Azure residency and Graph compatibility.
+- **PRTG Network Monitor**: Agentless network monitoring with SNMP/WMI support
+- **Nagios/Zabbix**: Open-source monitoring platforms with broad device support
+- **ServiceNow**: ITSM platform with device monitoring and incident management
+- **Cisco Control Hub**: Cloud management portal for Cisco collaboration devices. Monitors device status, diagnostics, and call quality across the Cisco Room Series fleet. Manages firmware, configurations, and provides workspace-level analytics for devices running RoomOS with Teams mode.
+- **Crestron XiO Cloud**: Cloud-based provisioning, monitoring, and management platform for Crestron devices. Supports fleet-wide firmware deployment, remote configuration, and real-time device status across Crestron room systems, touch panels, and peripherals.
+- **Q-SYS Reflect**: Cloud monitoring and management for Q-SYS ecosystem devices. Provides real-time status, alerting, remote configuration, and firmware management for Q-SYS Cores, peripherals, and networked audio/video endpoints.
+- **Poly Lens**: Cloud management for Poly video and audio devices. Provides remote monitoring, firmware updates, configuration management, and device analytics.
+- **Logitech Sync**: Cloud portal for Logitech collaboration devices. Offers device health monitoring, room insights, software updates, and remote management capabilities.
+- **Yealink Management Cloud**: Centralized cloud platform for Yealink devices. Supports monitoring, diagnostics, firmware management, and usage analytics.
+- **Neat Pulse**: Cloud management for Neat devices. Provides device health monitoring, remote configuration, software updates, and room usage analytics.
+- **ShureCloud**: Cloud platform for Shure networked audio devices (MXA microphone arrays, IntelliMix DSPs). Monitors device status, manages firmware updates, and provides remote configuration for Shure audio endpoints commonly deployed alongside Teams Rooms.
 
 ## Key Metrics to Monitor
 

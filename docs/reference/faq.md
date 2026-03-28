@@ -89,7 +89,7 @@ Yes, when properly configured:
 
 ### Should I enable BitLocker on Windows MTR?
 
-Yes. BitLocker protects data if the device is stolen. It's supported and recommended for compliance policies. Do not require a preboot PIN — the device must boot unattended.
+Yes. BitLocker protects data if the device is stolen. It's supported and recommended for compliance policies. Do not require a preboot PIN: the device must boot unattended.
 
 ### Can I install antivirus on MTR?
 
@@ -97,11 +97,11 @@ Windows MTR includes Microsoft Defender Antivirus by default. Keep it enabled. T
 
 ### Should I deploy Defender for Endpoint (MDE) on Teams Rooms?
 
-Yes, for visibility and vulnerability management. MDE provides EDR telemetry, TVM (missing patches, vulnerable software), and security alerting. However, use protection features in Audit mode only — ASR Block mode and Network Protection enforcement can break meeting functionality. Microsoft's position: reporting supported, protection rules not recommended. See [Defender for Endpoint](../03-security/defender-endpoint.md).
+Yes, for visibility and vulnerability management. MDE provides EDR telemetry, TVM (missing patches, vulnerable software), and security alerting. However, use protection features in Audit mode only: ASR Block mode and Network Protection enforcement can break meeting functionality. Microsoft's position: reporting supported, protection rules not recommended. See [Defender for Endpoint](../03-security/defender-endpoint.md).
 
 ### Should I configure LAPS for Teams Rooms?
 
-Yes. LAPS automatically rotates the local admin password on each MTR device and stores it securely in Entra ID. Without LAPS, you likely have a shared admin password across all rooms — one compromised device exposes your entire fleet. LAPS password rotation does not affect the Skype user account running the MTR app, so there is no meeting disruption. See [LAPS Configuration](../03-security/laps-configuration.md).
+Yes. LAPS automatically rotates the local admin password on each MTR device and stores it securely in Entra ID. Without LAPS, you likely have a shared admin password across all rooms: one compromised device exposes your entire fleet. LAPS password rotation does not affect the Skype user account running the MTR app, so there is no meeting disruption. See [LAPS Configuration](../03-security/laps-configuration.md).
 
 ## Deployment Questions
 
@@ -116,7 +116,7 @@ For Windows MTR:
 ### What's the best deployment method?
 
 **Recommended:** Autopilot + Pro Management Portal Autologin (Windows 11)
-- Zero-touch deployment — no IT presence needed at site
+- Zero-touch deployment: no IT presence needed at site
 - Credentials delivered via cloud (no plaintext passwords on disk)
 - Consistent configuration via Intune policies
 - Scalable to hundreds of rooms

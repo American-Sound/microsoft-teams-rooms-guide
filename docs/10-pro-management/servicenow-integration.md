@@ -38,8 +38,8 @@ The ticket export includes a `SnowIncident` field (e.g., "INC11684776") for corr
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — PMP dashboard and incident management
-- [Health Monitoring](health-monitoring.md) — Signals that generate incidents for ServiceNow
+- [Portal Overview](portal-overview.md): PMP dashboard and incident management
+- [Health Monitoring](health-monitoring.md): Signals that generate incidents for ServiceNow
 
 ## References
 

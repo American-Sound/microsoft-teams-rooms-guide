@@ -48,8 +48,8 @@ For conference room AI initiatives, the realistic path is:
 
 ## Related Topics
 
-- [Copilot Overview](copilot-overview.md) — M365 Copilot license tiers and Teams integration
-- [Facilitator](facilitator.md) — Microsoft's built-in AI agent for meeting rooms
+- [Copilot Overview](copilot-overview.md): M365 Copilot license tiers and Teams integration
+- [Facilitator](facilitator.md): Microsoft's built-in AI agent for meeting rooms
 
 ## References
 

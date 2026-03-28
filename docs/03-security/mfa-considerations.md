@@ -4,15 +4,23 @@
 
 Multi-factor authentication (MFA) presents unique challenges for Microsoft Teams Rooms devices. Unlike users who can respond to MFA prompts, MTR devices operate as shared resources that cannot complete interactive authentication challenges.
 
-## Why MTR Doesn't Support Interactive MFA
+## Platform-Specific MFA Support
+
+MFA support differs between Windows and Android Teams Rooms devices, and getting this wrong will either lock out your devices or leave a gap in your security posture.
+
+### Windows MTR: MFA Not Supported
+
+Windows MTR devices cannot complete interactive MFA prompts. The device operates in kiosk mode with a service account, and there is no human present to respond to push notifications or enter a TOTP code. Requiring MFA on Windows MTR accounts will prevent sign-in entirely.
+
+### Android MTR: MFA Supported (With Caveats)
+
+Android MTR devices do support MFA, but Microsoft recommends using a different secondary authentication factor rather than standard MFA enforcement to allow seamless sign-on. If you enforce MFA on Android MTR accounts, the device will require manual authentication after each sign-out, which defeats the purpose of a shared room resource. Configure MFA policies to exclude Android MTR accounts from interactive MFA and use device compliance or named locations as the security control instead.
+
+## Why Windows MTR Cannot Complete Interactive MFA
 
 ### Technical Limitations
 
-1. **No human present** - Room devices operate unattended
-2. **No personal authenticator** - No individual's phone for push notifications
-3. **Shared resource** - Not tied to a specific user's identity
-4. **Kiosk-style operation** - Limited UI interaction capability
-5. **Service account model** - Resource accounts are not human users
+Windows MTR devices run unattended in kiosk mode with no individual authenticator associated with them, shared across all users of the room, with limited UI interaction capability, and signed in using resource accounts that are not human users.
 
 ### Impact of MFA Requirements
 
@@ -145,11 +153,11 @@ $policyParams = @{
 
 Microsoft continues to strengthen authentication requirements across the platform. For Teams Rooms:
 
-1. **Use Autopilot with Autologin** — the recommended deployment method eliminates manual credential entry and reduces authentication friction
-2. **Ensure devices are Intune-enrolled** — compliant, managed devices satisfy Conditional Access requirements without interactive MFA
-3. **Use LAPS (Local Administrator Password Solution)** — configure LAPS via Intune for the local Admin account to eliminate shared admin credentials as an attack vector
-4. **Keep software updated** — Teams Rooms app updates include authentication improvements and security fixes
-5. **Monitor Microsoft 365 Message Center** — stay informed of authentication policy changes
+1. **Use Autopilot with Autologin**: the recommended deployment method eliminates manual credential entry and reduces authentication friction
+2. **Ensure devices are Intune-enrolled**: compliant, managed devices satisfy Conditional Access requirements without interactive MFA
+3. **Use LAPS (Local Administrator Password Solution)**: configure LAPS via Intune for the local Admin account to eliminate shared admin credentials as an attack vector
+4. **Keep software updated**: Teams Rooms app updates include authentication improvements and security fixes
+5. **Monitor Microsoft 365 Message Center**: stay informed of authentication policy changes
 
 ## Security Baseline Comparison
 

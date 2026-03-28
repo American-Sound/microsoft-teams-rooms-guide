@@ -11,12 +11,13 @@ This reference documents which Conditional Access and compliance policy settings
 | Grant Control | Supported | Notes |
 |---------------|-----------|-------|
 | Require compliant device | Yes | Recommended for MTR |
-| Require approved client app | Yes | Teams is approved |
+| Require approved client app | **No** | Not supported on MTR devices |
 | Require app protection policy | No | Not applicable to MTR |
 | Require MFA | **No** | Blocks MTR sign-in |
 | Require password change | **No** | No interactive capability |
 | Require terms of use | **No** | No interactive capability |
-| Require device to be Hybrid Entra ID joined | Yes | If using hybrid join |
+| Require device to be Hybrid Entra ID joined | **No** | Not supported on MTR devices |
+| Require authentication strength (FIDO2) | **No** | Not supported on MTR devices |
 | Require device to be Entra ID joined | Yes | Recommended approach |
 
 ### Supported Conditions
@@ -29,6 +30,7 @@ This reference documents which Conditional Access and compliance policy settings
 | Locations | Yes | Named locations work well |
 | Client apps | Yes | Target "Mobile apps and desktop clients" |
 | Device state | Yes | Use device filters |
+| Authentication flows | Yes | Do NOT block Device Code Flow for Android (breaks remote sign-in via microsoft.com/devicelogin) |
 | Sign-in risk | Partial | May cause issues with elevated risk |
 | User risk | Partial | May cause issues with elevated risk |
 
@@ -36,10 +38,10 @@ This reference documents which Conditional Access and compliance policy settings
 
 | Session Control | Supported | Notes |
 |-----------------|-----------|-------|
-| Sign-in frequency | Yes | Extend to 90 days for MTR |
+| Sign-in frequency | **No** | Not supported. Causes periodic device sign-outs. Do not configure. |
 | Persistent browser session | N/A | Not applicable |
 | Conditional Access App Control | No | Not supported on MTR |
-| Continuous access evaluation | Yes | Works with MTR |
+| Continuous access evaluation | **No** | Must be set to Disable or you will experience instability |
 
 ### Device Filters
 
@@ -69,10 +71,10 @@ Supported filter attributes for targeting MTR:
 
 | Setting | Supported | Recommended |
 |---------|-----------|-------------|
-| Minimum OS version | Yes | 10.0.22000 |
-| Maximum OS version | Yes | Optional |
-| Minimum OS build | Yes | Optional |
-| Valid operating system builds | Yes | Optional |
+| Minimum OS version | **No** | Not supported. Teams Rooms automatically updates Windows and setting values here can prevent sign-in after an OS update. |
+| Maximum OS version | **No** | Not supported for the same reason. |
+| Minimum OS build | **No** | Not supported. |
+| Valid operating system builds | **No** | Not supported. |
 
 ### System Security - Password
 

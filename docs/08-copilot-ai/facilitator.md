@@ -33,7 +33,7 @@ When a room is unoccupied and the presence detector wakes the device, a banner a
 
 - An eligible **Microsoft 365 base license** (E3, E5, Business Basic/Standard/Premium, etc.)
 - A **Microsoft Teams** license (often included in M365 subscription)
-- A **Microsoft 365 Copilot** license — Facilitator is included with M365 Copilot
+- A **Microsoft 365 Copilot** license: Facilitator is included with M365 Copilot
 - For unscheduled meetings in Teams Rooms: **Teams Rooms Pro** license on the resource account
 
 ## Admin Setup
@@ -60,9 +60,9 @@ Currently available on Teams Rooms on Windows. Teams Rooms on Android support is
 
 ## Related Topics
 
-- [Copilot Overview](copilot-overview.md) — Copilot license tiers and meeting policy configuration
-- [Intelligent Speaker](intelligent-speaker.md) — Voice/face enrollment for speaker attribution
-- [Pro Management Portal](../10-pro-management/portal-overview.md) — Enable Facilitator via portal settings
+- [Copilot Overview](copilot-overview.md): Copilot license tiers and meeting policy configuration
+- [Intelligent Speaker](intelligent-speaker.md): Voice/face enrollment for speaker attribution
+- [Pro Management Portal](../10-pro-management/portal-overview.md): Enable Facilitator via portal settings
 
 ## References
 

@@ -6,7 +6,7 @@ Analytics are available with Teams Rooms Pro or Teams Shared Device licenses. Th
 
 ## Health Reports
 
-Room-level health data. A room is considered unhealthy if Critical/Important tickets impacted it for more than 20 total minutes during non-maintenance hours (5 AM — 12 AM local time). Includes meeting impact view showing scheduled meetings during which tickets were open.
+Room-level health data. A room is considered unhealthy if Critical/Important tickets impacted it for more than 20 total minutes during non-maintenance hours (5 AM: 12 AM local time). Includes meeting impact view showing scheduled meetings during which tickets were open.
 
 ## Usage Reports
 
@@ -44,8 +44,8 @@ Available with Teams Rooms Pro or Teams Shared Device license under Inventory > 
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — PMP dashboard and room management
-- [Health Monitoring](health-monitoring.md) — Signal definitions and health states
+- [Portal Overview](portal-overview.md): PMP dashboard and room management
+- [Health Monitoring](health-monitoring.md): Signal definitions and health states
 
 ## References
 

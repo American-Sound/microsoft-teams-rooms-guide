@@ -28,13 +28,13 @@ Windows Autopilot enables zero-touch deployment of Teams Rooms on Windows device
 
 Understanding the difference between these two layers is critical for troubleshooting and configuration:
 
-**Layer 1 — Windows Autologon (handled by OEM image):**
-The MTR Windows image ships with a local user account called `Skype`. Windows autologon is pre-configured in the OEM image to boot directly into this account via Shell Launcher V2 (kiosk mode). The registry keys at `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` control this — `AutoAdminLogon=1`, `DefaultUserName=Skype`. You should never need to configure this manually; the OEM image handles it.
+**Layer 1: Windows Autologon (handled by OEM image):**
+The MTR Windows image ships with a local user account called `Skype`. Windows autologon is pre-configured in the OEM image to boot directly into this account via Shell Launcher V2 (kiosk mode). The registry keys at `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` control this: `AutoAdminLogon=1`, `DefaultUserName=Skype`. You should never need to configure this manually; the OEM image handles it.
 
-> **Warning:** If you apply Intune Security Baselines or certain Group Policy settings to MTR devices, they can reset `AutoAdminLogon` to `0`, which breaks the device — it boots to a Windows login screen instead of the Teams app. Always **exclude MTR devices** from Security Baseline assignments.
+> **Warning:** If you apply Intune Security Baselines or certain Group Policy settings to MTR devices, they can reset `AutoAdminLogon` to `0`, which breaks the device: it boots to a Windows login screen instead of the Teams app. Always **exclude MTR devices** from Security Baseline assignments.
 
-**Layer 2 — Teams App Resource Account Sign-In:**
-Once Windows boots into the Skype local account and launches the Teams Rooms app, the app must sign in to a Microsoft 365 resource account (e.g., `confroom1@contoso.com`). This uses the ROPC (Resource Owner Password Credentials) OAuth flow — a non-interactive authentication that does not support MFA. This is what "Autologin" configures.
+**Layer 2: Teams App Resource Account Sign-In:**
+Once Windows boots into the Skype local account and launches the Teams Rooms app, the app must sign in to a Microsoft 365 resource account (e.g., `confroom1@contoso.com`). This uses the ROPC (Resource Owner Password Credentials) OAuth flow: a non-interactive authentication that does not support MFA. This is what "Autologin" configures.
 
 ```
 [Device Powers On]
@@ -150,7 +150,7 @@ This captures all devices with Group Tags prefixed with `MTR-`.
 
 ### Method 1: Pro Management Portal Autologin (Recommended)
 
-This is the Microsoft-recommended approach for new Windows 11 deployments with Teams Rooms Pro licenses. Credentials are stored in the Microsoft-managed PMP service and delivered to the device through the Autopilot provisioning flow — the password never exists as plaintext on local disk.
+This is the Microsoft-recommended approach for new Windows 11 deployments with Teams Rooms Pro licenses. Credentials are stored in the Microsoft-managed PMP service and delivered to the device through the Autopilot provisioning flow: the password never exists as plaintext on local disk.
 
 **Prerequisites:**
 - Teams Rooms Pro license assigned to resource account
@@ -173,7 +173,7 @@ This is the Microsoft-recommended approach for new Windows 11 deployments with T
 1. Device completes Autopilot (Entra ID join, Intune enrollment, policies)
 2. Teams Rooms app detects the Autopilot Autologin profile
 3. App retrieves credentials from the PMP service
-4. Resource account signs in automatically — zero touch
+4. Resource account signs in automatically: zero touch
 5. Provisioning status in PMP changes to **Consumed**
 
 **After a factory reset:** If you reset a device that previously consumed its Autologin credentials, you must re-assign the resource account in the Pro Management Portal to get the status back to **Ready** before the device will Autologin again.
@@ -182,7 +182,7 @@ This is the Microsoft-recommended approach for new Windows 11 deployments with T
 
 ### Method 2: SkypeSettings.xml (Legacy / Brownfield)
 
-For devices that cannot use the PMP Autologin flow — Windows 10 (EOL), Hybrid Entra ID joined, or Teams Rooms Basic licensed rooms — deploy resource account credentials via SkypeSettings.xml.
+For devices that cannot use the PMP Autologin flow: Windows 10 (EOL), Hybrid Entra ID joined, or Teams Rooms Basic licensed rooms: deploy resource account credentials via SkypeSettings.xml.
 
 ```xml
 <SkypeSettings>
@@ -294,7 +294,7 @@ Configure the Enrollment Status Page (ESP) for MTR:
 ### Windows Autologon Broken (Device Shows Windows Login)
 
 This means Layer 1 (Windows autologon to the Skype local account) is broken:
-- Check `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon` — `AutoAdminLogon` must be `1`
+- Check `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`: `AutoAdminLogon` must be `1`
 - Look for Security Baseline policies that may have reset this value
 - Ensure the `Skype` local account exists and is enabled
 - Verify `net accounts /maxpwage:unlimited` is set (local account passwords must not expire)
@@ -321,16 +321,16 @@ Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager" -Name 
 
 ## Best Practices
 
-1. **Use OEM registration** — Devices arrive ready to deploy
-2. **Use PMP Autologin** — Most secure; no plaintext passwords on disk
-3. **Use `MTR-` Group Tag prefix** — Required for PMP Autopilot integration
-4. **Test with pilot devices** — Validate the full flow before production rollout
-5. **Use Ethernet** — More reliable than Wi-Fi during enrollment
-6. **Configure ESP** — Ensure all apps install before the device is usable
-7. **Exclude from Security Baselines** — Baselines can break Windows autologon
-8. **Set resource account passwords to never expire** — Expiring passwords break unattended sign-in
-9. **Monitor deployment** — Track enrollment status in Intune and PMP
-10. **Plan for failures** — Have the manual sign-in method as a backup
+1. **Use OEM registration**: Devices arrive ready to deploy
+2. **Use PMP Autologin**: Most secure; no plaintext passwords on disk
+3. **Use `MTR-` Group Tag prefix**: Required for PMP Autopilot integration
+4. **Test with pilot devices**: Validate the full flow before production rollout
+5. **Use Ethernet**: More reliable than Wi-Fi during enrollment
+6. **Configure ESP**: Ensure all apps install before the device is usable
+7. **Exclude from Security Baselines**: Baselines can break Windows autologon
+8. **Set resource account passwords to never expire**: Expiring passwords break unattended sign-in
+9. **Monitor deployment**: Track enrollment status in Intune and PMP
+10. **Plan for failures**: Have the manual sign-in method as a backup
 
 ## Related Topics
 

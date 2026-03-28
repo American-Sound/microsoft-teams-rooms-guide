@@ -12,11 +12,15 @@ Direct Guest Join is a WebRTC-based capability built into Microsoft Teams Rooms 
 | **Zoom** | Supported | Supported |
 | **Google Meet** | Supported (app 5.5.129.0+) | Not supported |
 
-Google Meet DGJ on Teams Rooms on Windows is two-way — ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
+Google Meet DGJ on Teams Rooms on Windows is two-way: ChromeOS-based Google Meet Rooms can also join Teams meetings. The feature is on by default.
+
+## DGJ vs. CVI/SIP
+
+DGJ is the zero-infrastructure option, but it comes with tradeoffs. Video caps at 720p, content sharing is receive-only, and platform support is limited to Webex, Zoom, and Google Meet. For organizations that need higher video quality (up to 1080p), content camera support, dual display, or connectivity to platforms like Amazon Chime, GoToMeeting, RingCentral, or arbitrary SIP endpoints, the SIP path through a CVI partner like Pexip is the better fit despite the additional infrastructure and Pro license requirement. See the [Interop Comparison](comparison.md) for the full feature matrix and [Pexip CVI](pexip-cvi.md) for deployment details.
 
 ## Enabling Direct Guest Join
 
-### Teams Rooms on Windows — Three Methods
+### Teams Rooms on Windows: Three Methods
 
 **Pro Management Portal:** Rooms > select room > Settings > Meetings > toggle desired platforms > Apply
 
@@ -67,7 +71,7 @@ If your organization uses a third-party URL scanner (not Defender for Office 365
 | Limitation | Detail |
 |------------|--------|
 | Max video quality | 720p send and receive |
-| Content sharing | Receive only — cannot send via HDMI or content camera |
+| Content sharing | Receive only: cannot send via HDMI or content camera |
 | Display support | Single display only (no dual-screen) |
 | Reactions | Cannot send |
 | Annotations | Cannot view |
@@ -79,11 +83,11 @@ If your organization uses a third-party URL scanner (not Defender for Office 365
 
 ## Related Topics
 
-- [Cloud Video Interop](cloud-video-interop.md) — Higher-quality alternative requiring CVI partner
-- [Interop Comparison](comparison.md) — CVI vs DGJ vs SIP feature matrix
-- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md) — Full XML configuration reference
-- [Exchange Configuration](../02-prerequisites/exchange-configuration.md) — Calendar processing prerequisites
+- [Cloud Video Interop](cloud-video-interop.md): Higher-quality alternative requiring CVI partner
+- [Interop Comparison](comparison.md): CVI vs DGJ vs SIP feature matrix
+- [SkypeSettings.xml Reference](../reference/skypesettings-reference.md): Full XML configuration reference
+- [Exchange Configuration](../02-prerequisites/exchange-configuration.md): Calendar processing prerequisites
 
 ## References
 
-- [Third-party meetings on Teams Rooms — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/third-party-join)
+- [Third-party meetings on Teams Rooms: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/third-party-join)

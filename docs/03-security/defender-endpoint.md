@@ -2,7 +2,7 @@
 
 ## Overview
 
-Microsoft Defender for Endpoint (MDE) provides endpoint detection and response (EDR), threat and vulnerability management (TVM), and antivirus capabilities for Windows-based Teams Rooms devices. Configuring MDE on MTR requires a fundamentally different approach than standard workstations — these are purpose-built kiosk devices running in Assigned Access mode, and aggressive protection policies can break meeting functionality.
+Microsoft Defender for Endpoint (MDE) provides endpoint detection and response (EDR), threat and vulnerability management (TVM), and antivirus capabilities for Windows-based Teams Rooms devices. Configuring MDE on MTR requires a fundamentally different approach than standard workstations: these are purpose-built kiosk devices running in Assigned Access mode, and aggressive protection policies can break meeting functionality.
 
 Microsoft's official position: **reporting capabilities are fully supported on Teams Rooms; protection rules (ASR in Block mode, Network Protection enforcement, aggressive remediation) are not recommended.** The value proposition for MDE on MTR is visibility and vulnerability awareness, not active threat blocking.
 
@@ -14,7 +14,7 @@ Before configuring MDE, it's important to understand what protections already ex
 
 **Local Account Isolation:** The `Skype` account is a standard (non-admin) user. Administrative actions require the separate local admin account, which should be managed via LAPS (see [LAPS Configuration](laps-configuration.md)).
 
-**Hardware Protections:** Certified Teams Rooms devices include TPM 2.0, Secure Boot, and UEFI firmware — all providing hardware-rooted security before the OS even loads.
+**Hardware Protections:** Certified Teams Rooms devices include TPM 2.0, Secure Boot, and UEFI firmware: all providing hardware-rooted security before the OS even loads.
 
 **Microsoft Defender Antivirus:** Enabled by default on all Windows MTR devices. Real-time protection, cloud-delivered protection, and automatic signature updates are active out of the box.
 
@@ -26,7 +26,7 @@ Before configuring MDE, it's important to understand what protections already ex
 |----------|-------------|-------|
 | Windows MTR | Supported | EDR + TVM reporting recommended; protection rules in Audit only |
 | Android MTR | Not supported | Managed via vendor platforms or Intune AOSP |
-| Teams Panels | Not supported | — |
+| Teams Panels | Not supported |: |
 
 ## Prerequisites
 
@@ -109,20 +109,20 @@ Microsoft Defender Antivirus runs by default on all Windows MTR devices. The pri
 ### Recommended Antivirus Settings
 
 ```powershell
-# Schedule scans during off-hours — avoid scanning during meeting times
+# Schedule scans during off-hours: avoid scanning during meeting times
 Set-MpPreference -ScanScheduleDay 0              # Every day
 Set-MpPreference -ScanScheduleTime "02:00:00"    # 2 AM local time
 Set-MpPreference -ScanParameters 1               # Quick scan (not full)
 Set-MpPreference -RemediationScheduleDay 0       # Remediate daily
 
-# Signature updates — frequent but not aggressive
+# Signature updates: frequent but not aggressive
 Set-MpPreference -SignatureUpdateInterval 4       # Every 4 hours
 
-# Cloud protection — leave enabled (default)
+# Cloud protection: leave enabled (default)
 Set-MpPreference -MAPSReporting Advanced
 Set-MpPreference -SubmitSamplesConsent SendAllSamples
 
-# Real-time protection — leave enabled (default)
+# Real-time protection: leave enabled (default)
 Set-MpPreference -DisableRealtimeMonitoring $false
 ```
 
@@ -166,7 +166,7 @@ To manage antivirus settings centrally via Intune:
 ### Recommended ASR Configuration
 
 ```powershell
-# AUDIT MODE ONLY — Do NOT use "Enabled" (Block) on MTR devices
+# AUDIT MODE ONLY: Do NOT use "Enabled" (Block) on MTR devices
 # Action value: 0 = Disabled, 1 = Block, 2 = Audit, 6 = Warn
 
 # Block executable content from email and webmail
@@ -205,13 +205,13 @@ Review ASR audit logs in the Defender portal to understand your environment's be
 Like ASR, Network Protection should be configured in **Audit mode only** on MTR devices. Block mode can interfere with meeting connectivity, especially for Direct Guest Join (WebRTC to third-party platforms) and CVI connections.
 
 ```powershell
-# Audit mode — logs connections to risky destinations without blocking
+# Audit mode: logs connections to risky destinations without blocking
 Set-MpPreference -EnableNetworkProtection AuditMode
 ```
 
 Do **not** use:
 ```powershell
-# Do NOT enable Block mode on MTR — can disrupt meeting connectivity
+# Do NOT enable Block mode on MTR: can disrupt meeting connectivity
 # Set-MpPreference -EnableNetworkProtection Enabled
 ```
 
@@ -260,11 +260,11 @@ Access MTR device security status at **security.microsoft.com**:
 1. Go to **Assets** > **Devices**
 2. Filter by device name prefix (e.g., `MTR-`) or use device tags
 3. For each device, review:
-   - **Exposure score** — overall vulnerability level
-   - **Active alerts** — security incidents
-   - **Security recommendations** — configuration improvements
-   - **Software inventory** — installed applications and versions
-   - **Discovered vulnerabilities** — known CVEs affecting the device
+   - **Exposure score**: overall vulnerability level
+   - **Active alerts**: security incidents
+   - **Security recommendations**: configuration improvements
+   - **Software inventory**: installed applications and versions
+   - **Discovered vulnerabilities**: known CVEs affecting the device
 
 ### Device Tagging
 
@@ -283,10 +283,10 @@ Or via the API for bulk tagging:
 ### Threat & Vulnerability Management (TVM)
 
 TVM is one of the highest-value capabilities of MDE on Teams Rooms. It provides:
-- **Missing security updates** — OS patches that haven't been applied
-- **Vulnerable software versions** — known CVEs in installed applications
-- **Configuration weaknesses** — settings that could be hardened
-- **Exposure score trending** — track your security posture over time
+- **Missing security updates**: OS patches that haven't been applied
+- **Vulnerable software versions**: known CVEs in installed applications
+- **Configuration weaknesses**: settings that could be hardened
+- **Exposure score trending**: track your security posture over time
 
 Review TVM recommendations regularly and prioritize OS updates, which can be managed through Pro Management Portal update rings.
 
@@ -303,7 +303,7 @@ Configure email alerts for MTR security events:
 
 ## Incident Response Considerations
 
-### Device Isolation — Use with Extreme Caution
+### Device Isolation: Use with Extreme Caution
 
 Device isolation is a nuclear option for MTR devices. Isolating a Teams Room device **immediately kills all meeting functionality** for that room. The device cannot join meetings, display the calendar, or receive calls until isolation is released.
 
@@ -387,19 +387,19 @@ Update-MpSignature
 
 1. **Deploy EDR via Intune** for consistent configuration across all MTR devices
 2. **Schedule scans at 2 AM** or other off-hours to avoid meeting impact
-3. **ASR rules in Audit mode only** — never Block mode on Teams Rooms
-4. **Network Protection in Audit mode only** — Block mode can break meeting connectivity
-5. **Monitor TVM recommendations** — highest-value capability for MTR security posture
+3. **ASR rules in Audit mode only**: never Block mode on Teams Rooms
+4. **Network Protection in Audit mode only**: Block mode can break meeting connectivity
+5. **Monitor TVM recommendations**: highest-value capability for MTR security posture
 6. **Use device tags** in the Defender portal for MTR-specific filtering and reporting
-7. **Isolate devices only for confirmed breaches** — isolation kills all meeting functionality
-8. **Add process exclusions selectively** — only when performance issues are documented
+7. **Isolate devices only for confirmed breaches**: isolation kills all meeting functionality
+8. **Add process exclusions selectively**: only when performance issues are documented
 9. **Configure LAPS** for local admin password management (see [LAPS Configuration](laps-configuration.md))
-10. **Review audit logs regularly** — ASR and Network Protection audit events reveal your threat landscape without disrupting operations
+10. **Review audit logs regularly**: ASR and Network Protection audit events reveal your threat landscape without disrupting operations
 
 ## Related Topics
 
-- [LAPS Configuration](laps-configuration.md) — Local admin password management
-- [Device Compliance](device-compliance.md) — Intune compliance policies
-- [Conditional Access](conditional-access.md) — Identity-based access controls
-- [Windows Deployment](../05-deployment/windows-deployment.md) — Initial device setup
-- [Pro Management Portal](../10-pro-management/portal-overview.md) — Update ring management
+- [LAPS Configuration](laps-configuration.md): Local admin password management
+- [Device Compliance](device-compliance.md): Intune compliance policies
+- [Conditional Access](conditional-access.md): Identity-based access controls
+- [Windows Deployment](../05-deployment/windows-deployment.md): Initial device setup
+- [Pro Management Portal](../10-pro-management/portal-overview.md): Update ring management

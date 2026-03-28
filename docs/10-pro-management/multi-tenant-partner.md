@@ -30,7 +30,7 @@ The Multi-Tenant Management (MTM) portal enables managed service providers and M
 
 The MTM portal uses its **own invitation-based delegation model** rather than standard GDAP through Partner Center:
 
-- A partner gains **no privileges outside the Teams Rooms Pro Management portal** — no access to Entra ID, Teams Admin Center, or any other Microsoft product
+- A partner gains **no privileges outside the Teams Rooms Pro Management portal**: no access to Entra ID, Teams Admin Center, or any other Microsoft product
 - Partners cannot view or modify rooms outside the invitation scope
 - Data resides in the customer's tenant and is not copied to the partner's tenant
 - Customers retain full control and can remove a partner at any time
@@ -59,7 +59,7 @@ These features are **not available** in the MTM partner portal:
 
 ## Licensing
 
-The customer must have Teams Rooms Pro or Teams Shared Device licenses on their rooms. The partner does not need separate PMP licenses — access is granted through the invitation/delegation model.
+The customer must have Teams Rooms Pro or Teams Shared Device licenses on their rooms. The partner does not need separate PMP licenses: access is granted through the invitation/delegation model.
 
 ## API and Programmatic Access
 
@@ -72,9 +72,9 @@ The beta TeamworkDevice Graph API was retired December 8, 2025. There is current
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — Single-tenant PMP features and architecture
-- [RBAC](rbac.md) — Role-based access control in PMP
-- [Health Monitoring](health-monitoring.md) — Cross-tenant health visibility
+- [Portal Overview](portal-overview.md): Single-tenant PMP features and architecture
+- [RBAC](rbac.md): Role-based access control in PMP
+- [Health Monitoring](health-monitoring.md): Cross-tenant health visibility
 
 ## References
 

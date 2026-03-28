@@ -59,7 +59,7 @@ Get-CsTeamsMeetingPolicy -Identity "MTR-AIEnabled"
 -Description <String>           # Optional description
 ```
 
-## CsTeamsMeetingPolicy — AI-Relevant Parameters
+## CsTeamsMeetingPolicy: AI-Relevant Parameters
 
 ```powershell
 Set-CsTeamsMeetingPolicy -Identity <PolicyName> `
@@ -77,9 +77,9 @@ Set-CsTeamsMeetingPolicy -Identity <PolicyName> `
 
 ## Related Topics
 
-- [Copilot Overview](copilot-overview.md) — License tiers and meeting policy configuration
-- [Intelligent Speaker](intelligent-speaker.md) — Voice/face enrollment details
-- [AI Policy Script](../../scripts/copilot-ai/Set-MTRAIPolicy.ps1) — Automated AI configuration script
+- [Copilot Overview](copilot-overview.md): License tiers and meeting policy configuration
+- [Intelligent Speaker](intelligent-speaker.md): Voice/face enrollment details
+- [AI Policy Script](../../scripts/copilot-ai/Set-MTRAIPolicy.ps1): Automated AI configuration script
 
 ## References
 

@@ -59,7 +59,7 @@ MTR on Android provides a streamlined meeting experience on certified Android-ba
 | **Autopilot Support** | Yes (with Autologin) | No |
 | **Typical Cost** | Higher | Lower |
 
-> **Note on Android MTR room size coverage:** While most Android MTR devices (Poly, Logitech, Yealink, Neat, Jabra) are designed for small-to-medium rooms, **Cisco Room Series on Android** breaks this pattern. Cisco Room Kit EQ, Room Kit Pro, Codec Pro, and Room 70 Panorama are certified for large and extra-large rooms with features typically associated with Windows MTR — multiple cameras, multiple displays, content cameras, third-party control system integration (via xAPI), and divisible room support. Organizations evaluating Android MTR should not assume it is limited to small rooms if Cisco devices are in scope.
+> **Note on Android MTR room size coverage:** While most Android MTR devices (Poly, Logitech, Yealink, Neat, Jabra) are designed for small-to-medium rooms, **Cisco Room Series on Android** breaks this pattern. Cisco Room Kit EQ, Room Kit Pro, Codec Pro, and Room 70 Panorama are certified for large and extra-large rooms with features typically associated with Windows MTR: multiple cameras, multiple displays, content cameras, third-party control system integration (via xAPI), and divisible room support. Organizations evaluating Android MTR should not assume it is limited to small rooms if Cisco devices are in scope.
 
 ## Related Devices
 
@@ -77,8 +77,8 @@ Teams Panels are wall-mounted scheduling displays that show room availability an
 
 Surface Hub is Microsoft's all-in-one collaborative device combining whiteboarding, video conferencing, and Teams meetings.
 
-- Surface Hub 3 (50" and 85") — runs Windows 11 with Teams Rooms experience
-- Surface Hub 2S — can be upgraded to Hub 3 via Compute Cartridge or software migration (Windows 10 Team lost Teams access October 14, 2025)
+- Surface Hub 3 (50" and 85"): runs Windows 11 with Teams Rooms experience
+- Surface Hub 2S: can be upgraded to Hub 3 via Compute Cartridge or software migration (Windows 10 Team lost Teams access October 14, 2025)
 - Specialized management requirements
 - Premium collaboration experience
 
@@ -88,7 +88,7 @@ When planning your MTR deployment, consider:
 
 1. **Room Size and Purpose** - Match hardware to room requirements
 2. **Platform Standardization** - Consider managing one platform vs. mixed
-3. **Existing Infrastructure** - Leverage current management tools
+3. **Existing Infrastructure** - use current management tools
 4. **Budget Constraints** - Balance features against cost
 5. **Support Capabilities** - Factor in internal IT capabilities
 6. **Network Readiness** - Ensure network meets requirements

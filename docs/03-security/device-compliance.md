@@ -27,13 +27,14 @@ Device compliance policies in Microsoft Intune ensure that Teams Rooms devices m
 Windows-based Teams Rooms devices support most compliance settings, with some caveats.
 
 **Supported Settings:**
-- Minimum OS version
 - BitLocker encryption
 - Secure Boot
 - Code integrity
 - Antivirus status (Defender)
 - Firewall enabled
 - Windows Update compliance
+
+> **Warning: Do not configure OS version compliance policies for Windows MTR.** Microsoft Learn explicitly states that operating system version settings (minimum, maximum, and valid builds) are "Not supported" for Teams Rooms on Windows. Teams Rooms automatically updates to newer Windows versions, and setting OS version requirements will prevent successful sign-in after an update. If you need to verify OS currency, use the Pro Management Portal health monitoring instead of compliance policy enforcement.
 
 **Not Supported/Recommended:**
 - Password complexity (resource account)

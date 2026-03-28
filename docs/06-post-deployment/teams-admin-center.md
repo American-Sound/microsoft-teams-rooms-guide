@@ -6,8 +6,8 @@ The Microsoft Teams Admin Center (TAC) at **admin.teams.microsoft.com** is the c
 
 TAC remains relevant for Teams Rooms in two areas:
 
-1. **Teams policies** — Calling policies, meeting policies, messaging policies, and other tenant-wide settings that apply to resource accounts are still configured in TAC (or PowerShell).
-2. **Call Quality Dashboard (CQD)** — The primary tool for analyzing call and meeting quality data across your Teams Rooms fleet. CQD is accessed from TAC and is the most valuable TAC feature for ongoing MTR operations.
+1. **Teams policies**: Calling policies, meeting policies, messaging policies, and other tenant-wide settings that apply to resource accounts are still configured in TAC (or PowerShell).
+2. **Call Quality Dashboard (CQD)**: The primary tool for analyzing call and meeting quality data across your Teams Rooms fleet. CQD is accessed from TAC and is the most valuable TAC feature for ongoing MTR operations.
 
 ### Device Management by Platform
 
@@ -16,8 +16,8 @@ TAC remains relevant for Teams Rooms in two areas:
 | Teams Rooms on Windows | **Pro Management Portal** | Moved from TAC in June 2025 |
 | Teams Rooms on Android | Teams Admin Center | Transitioning to PMP through 2026 |
 | Teams Panels | Teams Admin Center | Transitioning to PMP in 2026 |
-| Teams Phones | Teams Admin Center | — |
-| Teams Displays | Teams Admin Center | — |
+| Teams Phones | Teams Admin Center |: |
+| Teams Displays | Teams Admin Center |: |
 
 ## Accessing Teams Admin Center
 
@@ -39,12 +39,12 @@ CQD is the primary reason to use TAC for Teams Rooms troubleshooting. It provide
 
 ### What CQD Provides
 
-- **Call quality metrics** — Audio and video stream quality ratings (Good/Poor) for every call and meeting involving MTR devices
-- **Failure analysis** — Call setup failures, drops, and media establishment errors
-- **Network diagnostics** — Jitter, packet loss, latency, and round-trip time per stream
-- **Historical trending** — Quality trends over days, weeks, or months to identify degradation patterns
-- **Building/location mapping** — When subnets are mapped to buildings, CQD can report quality by physical location
-- **Comparative analysis** — Compare quality across device types, locations, network segments, or time periods
+- **Call quality metrics**: Audio and video stream quality ratings (Good/Poor) for every call and meeting involving MTR devices
+- **Failure analysis**: Call setup failures, drops, and media establishment errors
+- **Network diagnostics**: Jitter, packet loss, latency, and round-trip time per stream
+- **Historical trending**: Quality trends over days, weeks, or months to identify degradation patterns
+- **Building/location mapping**: When subnets are mapped to buildings, CQD can report quality by physical location
+- **Comparative analysis**: Compare quality across device types, locations, network segments, or time periods
 
 ### Building Data Upload
 
@@ -88,7 +88,7 @@ Microsoft provides a Power BI template that connects directly to CQD data and pr
 | CQD Teams Auto Attendant & Call Queue Historical Report | AA/CQ performance (not MTR-specific) |
 | CQD Teams Utilization Report | Overall Teams usage metrics |
 | CQD PSTN Direct Routing Report | Direct Routing call quality |
-| **CQD Teams Rooms Report** | **MTR-specific call quality — use this one** |
+| **CQD Teams Rooms Report** | **MTR-specific call quality: use this one** |
 
 **CQD Teams Rooms Report includes:**
 
@@ -97,8 +97,8 @@ Microsoft provides a Power BI template that connects directly to CQD data and pr
 - Video quality detail (frame rate, resolution, freeze events)
 - Call failure analysis by room, by time period, by failure type
 - Network quality by subnet/building (requires building data upload)
-- Trend analysis — quality degradation over time to catch issues before users report them
-- Peripheral health correlation — quality metrics correlated with specific camera/microphone/speaker models
+- Trend analysis: quality degradation over time to catch issues before users report them
+- Peripheral health correlation: quality metrics correlated with specific camera/microphone/speaker models
 
 **Publishing and Sharing:**
 
@@ -123,7 +123,7 @@ When querying CQD directly (without the Power BI template), use these filters to
 
 **"Users report poor audio in Room X"**
 1. Filter CQD to the specific room's resource account UPN
-2. Check audio stream quality — look for high jitter (>30ms), packet loss (>2%), or poor NMOS scores (<3.5)
+2. Check audio stream quality: look for high jitter (>30ms), packet loss (>2%), or poor NMOS scores (<3.5)
 3. Compare against other rooms in the same building to isolate room-specific vs. network-wide issues
 4. Check if the issue correlates with specific times (congestion) or specific remote participant types
 
@@ -152,7 +152,7 @@ The following Teams policies apply to MTR resource accounts and are configured i
 | Update policy | Teams devices > Configuration profiles | Android MTR update management (transitioning to PMP) |
 | IP phone policy | Teams devices > IP Phone policies | Phones and shared devices |
 
-> **Note:** Meeting policies, calling policies, and voice routing policies are assigned to the resource account UPN via PowerShell (`Grant-CsTeamsMeetingPolicy`, `Grant-CsTeamsCallingPolicy`, etc.) or via TAC user management. These are tenant-level Teams settings, not device management — they remain in TAC regardless of whether the device itself is managed in PMP.
+> **Note:** Meeting policies, calling policies, and voice routing policies are assigned to the resource account UPN via PowerShell (`Grant-CsTeamsMeetingPolicy`, `Grant-CsTeamsCallingPolicy`, etc.) or via TAC user management. These are tenant-level Teams settings, not device management: they remain in TAC regardless of whether the device itself is managed in PMP.
 
 ## Android Device Management (Transitioning)
 
@@ -181,13 +181,13 @@ See [Pro Management Portal](../10-pro-management/portal-overview.md) for full do
 
 ## Related Topics
 
-- [Pro Management Portal](../10-pro-management/portal-overview.md) — Windows MTR device management
-- [Monitoring and Alerting](monitoring-alerting.md) — Alerting configuration
-- [Troubleshooting](troubleshooting.md) — Diagnostic procedures
-- [Updates and Maintenance](updates-maintenance.md) — Update management strategies
+- [Pro Management Portal](../10-pro-management/portal-overview.md): Windows MTR device management
+- [Monitoring and Alerting](monitoring-alerting.md): Alerting configuration
+- [Troubleshooting](troubleshooting.md): Diagnostic procedures
+- [Updates and Maintenance](updates-maintenance.md): Update management strategies
 
 ## References
 
-- [CQD for Teams Rooms — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/with-office-365#call-quality)
-- [Use Power BI to analyze CQD data — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-power-bi-query-templates)
-- [Upload building data to CQD — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-upload-tenant-building-data)
+- [CQD for Teams Rooms: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/with-office-365#call-quality)
+- [Use Power BI to analyze CQD data: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-power-bi-query-templates)
+- [Upload building data to CQD: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/cqd-upload-tenant-building-data)

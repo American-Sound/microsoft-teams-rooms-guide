@@ -2,7 +2,7 @@
 
 ## Overview
 
-Create a dedicated calling policy for Teams Rooms resource accounts. Rooms should not forward calls, use voicemail, or record calls — they should ring, be answered by whoever is in the room, and provide a basic calling experience.
+Create a dedicated calling policy for Teams Rooms resource accounts. Rooms should not forward calls, use voicemail, or record calls: they should ring, be answered by whoever is in the room, and provide a basic calling experience.
 
 ## Recommended Policy
 
@@ -30,7 +30,7 @@ New-CsTeamsCallingPolicy -Identity "TeamsRoomCallingPolicy" `
 
 | Parameter | Recommended | Description |
 |-----------|-------------|-------------|
-| `AllowPrivateCalling` | `$true` | Master switch for all calling — must be true |
+| `AllowPrivateCalling` | `$true` | Master switch for all calling: must be true |
 | `AllowCallForwardingToUser` | `$false` | Don't forward to other users |
 | `AllowCallForwardingToPhone` | `$false` | Don't forward to external numbers |
 | `AllowCallGroups` | `$false` | No call group routing |
@@ -54,9 +54,9 @@ Grant-CsTeamsCallingPolicy -Identity "confroom01@contoso.com" `
 
 ## Related Topics
 
-- [PSTN Overview](pstn-overview.md) — Connectivity options and licensing
-- [Emergency Calling](emergency-calling.md) — Emergency calling and routing policies
-- [End-to-End Setup](end-to-end-setup.md) — Complete configuration walkthrough
+- [PSTN Overview](pstn-overview.md): Connectivity options and licensing
+- [Emergency Calling](emergency-calling.md): Emergency calling and routing policies
+- [End-to-End Setup](end-to-end-setup.md): Complete configuration walkthrough
 
 ## References
 

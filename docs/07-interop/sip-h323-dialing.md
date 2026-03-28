@@ -54,7 +54,7 @@ Once enabled, the touch console exposes several interop options:
 - Standard Teams meeting features (recording, transcription, breakout rooms) are not available in point-to-point SIP/H.323 calls
 - Bidirectional screen sharing is supported via BFCP/H.239
 - Not available on Teams Rooms on Android
-- Requires a CVI partner as the intermediary — not native SIP dialing
+- Requires a CVI partner as the intermediary: not native SIP dialing
 
 ## Fallback Behavior
 
@@ -62,12 +62,12 @@ If a room has both SIP dialing and Direct Guest Join enabled, and a meeting invi
 
 ## Related Topics
 
-- [Cloud Video Interop](cloud-video-interop.md) — CVI overview (required infrastructure for SIP dialing)
-- [Pexip CVI Configuration](pexip-cvi.md) — Pexip-specific setup
-- [Direct Guest Join](direct-guest-join.md) — WebRTC alternative (no CVI partner required)
-- [Interop Comparison](comparison.md) — Feature matrix across all three methods
+- [Cloud Video Interop](cloud-video-interop.md): CVI overview (required infrastructure for SIP dialing)
+- [Pexip CVI Configuration](pexip-cvi.md): Pexip-specific setup
+- [Direct Guest Join](direct-guest-join.md): WebRTC alternative (no CVI partner required)
+- [Interop Comparison](comparison.md): Feature matrix across all three methods
 
 ## References
 
-- [SIP and H.323 dialing with Teams Rooms — Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/meetings-with-sip-h323-devices)
+- [SIP and H.323 dialing with Teams Rooms: Microsoft Learn](https://learn.microsoft.com/en-us/microsoftteams/rooms/meetings-with-sip-h323-devices)
 - [Pexip Teams Rooms SIP/H.323 calling](https://help.pexip.com/service/teams-join-mtr.htm)

@@ -16,9 +16,9 @@ Three preconfigured rings:
 
 Custom rings can be created (up to 9 in order). Each ring has configurable parameters:
 
-- **Deferment period** — delay in days before the update starts on this ring
-- **Rollout duration** — time in days to deploy within the ring
-- **Test period** — days to validate after rollout completes before moving to next ring
+- **Deferment period**: delay in days before the update starts on this ring
+- **Rollout duration**: time in days to deploy within the ring
+- **Test period**: days to validate after rollout completes before moving to next ring
 - Updates cannot exceed **60 days** across all rings total
 
 ## Update States
@@ -35,13 +35,13 @@ Custom rings can be created (up to 9 in order). Each ring has configurable param
 
 ## Maintenance Window
 
-Updates install during the **nightly maintenance window (12:00 AM — 5:00 AM room local time)**. Windows updates use a preset local policy (beginning between 2:00-3:00 AM).
+Updates install during the **nightly maintenance window (12:00 AM: 5:00 AM room local time)**. Windows updates use a preset local policy (beginning between 2:00-3:00 AM).
 
 ## Admin Controls
 
-- **Pause** — permanently halt an update
-- **Retry all failed** — retry on devices that failed
-- **Force updates** — immediate or next available (not recommended as general strategy)
+- **Pause**: permanently halt an update
+- **Retry all failed**: retry on devices that failed
+- **Force updates**: immediate or next available (not recommended as general strategy)
 
 ## Licensing
 
@@ -51,8 +51,8 @@ Teams Rooms Pro licenses get ring-based orchestration. Basic/Standard licenses g
 
 ## Related Topics
 
-- [Portal Overview](portal-overview.md) — PMP dashboard and room management
-- [Health Monitoring](health-monitoring.md) — Monitoring signals affected by updates
+- [Portal Overview](portal-overview.md): PMP dashboard and room management
+- [Health Monitoring](health-monitoring.md): Monitoring signals affected by updates
 
 ## References
 
